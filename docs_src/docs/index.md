@@ -14,15 +14,12 @@
 # DAY 3 (3 hours)
 
 * The need of an Operating System
-* RIOT and FREERTOS
+* [RIOT](https://www.riot-os.org/) and [FREERTOS](https://www.freertos.org/)
 * Hands on on FREERTOS or RIOT
 * A simple integration of sensor/actuator
 * Communicating over WiFi
 
 # DAY 4 (3 hours)
 
-* The Very Large Scale IoT Testbed [IoT-LAB](https://andreavitaletti.github.io/IoT_short_course/) 
+* The Very Large Scale IoT Testbed [IoT-LAB](https://www.iot-lab.info/) 
 * A simple Project
-
-
-
