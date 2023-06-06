@@ -21,6 +21,7 @@ This short course on the Internet of Things is designed to give a first understa
 * The LEAN approach: build, measure, learn 
 * The need of an Operating System
 * [RIOT](https://www.riot-os.org/) and [FREERTOS](https://www.freertos.org/)
+* https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/freertos.html
 * Hands on on FREERTOS or RIOT
 * A simple integration of sensor/actuator
 * Communicating over WiFi
@@ -28,11 +29,15 @@ This short course on the Internet of Things is designed to give a first understa
 # DAY 4 (3 hours)
 
 * The Very Large Scale IoT Testbed [IoT-LAB](https://www.iot-lab.info/) 
+* [FreeRTOS on IoT-lab](https://iot-lab.github.io/docs/os/freertos/)
+* openlab/appli/iotlab_examples/tutorial/
+* https://www.iot-lab.info/legacy/tutorials/getting-started-tutorial/index.html
+* https://iot-lab.github.io/docs/tools/consumption-monitoring/
 * A simple Project
 
 # Tools and Materials
 
-* ESP32 To be Selected
+* ESP32-WROOM-32 [e.g. Available on Amazon](https://www.amazon.com/Teyleten-Robot-ESP-WROOM-32-Development-Microcontroller/dp/B08246MCL5/ref=sr_1_4?crid=ZQMHS3WU9BW9&keywords=ESP32-WROOM-32&qid=1686069281&sprefix=esp32-wroom-32%2Caps%2C234&sr=8-4)
 * Sensors and Actuators To be Selected
 * [Arduino Ide](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE)
 * [Wokwi](https://wokwi.com/)

@@ -24,9 +24,31 @@
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href=".">A Short Course on IoT</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="day1/" class="nav-link">Day 1</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="day2/" class="nav-link">Day 2</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="day3/" class="nav-link">Day 3</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="day4/" class="nav-link">Day 4</a>
+                            </li>
+                        </ul>
 
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
@@ -34,6 +56,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="day1/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -108,6 +140,7 @@
 <li>The LEAN approach: build, measure, learn </li>
 <li>The need of an Operating System</li>
 <li><a href="https://www.riot-os.org/">RIOT</a> and <a href="https://www.freertos.org/">FREERTOS</a></li>
+<li>https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/freertos.html</li>
 <li>Hands on on FREERTOS or RIOT</li>
 <li>A simple integration of sensor/actuator</li>
 <li>Communicating over WiFi</li>
@@ -115,11 +148,15 @@
 <h1 id="day-4-3-hours">DAY 4 (3 hours)</h1>
 <ul>
 <li>The Very Large Scale IoT Testbed <a href="https://www.iot-lab.info/">IoT-LAB</a> </li>
+<li><a href="https://iot-lab.github.io/docs/os/freertos/">FreeRTOS on IoT-lab</a></li>
+<li>openlab/appli/iotlab_examples/tutorial/</li>
+<li>https://www.iot-lab.info/legacy/tutorials/getting-started-tutorial/index.html</li>
+<li>https://iot-lab.github.io/docs/tools/consumption-monitoring/</li>
 <li>A simple Project</li>
 </ul>
 <h1 id="tools-and-materials">Tools and Materials</h1>
 <ul>
-<li>ESP32 To be Selected</li>
+<li>ESP32-WROOM-32 <a href="https://www.amazon.com/Teyleten-Robot-ESP-WROOM-32-Development-Microcontroller/dp/B08246MCL5/ref=sr_1_4?crid=ZQMHS3WU9BW9&amp;keywords=ESP32-WROOM-32&amp;qid=1686069281&amp;sprefix=esp32-wroom-32%2Caps%2C234&amp;sr=8-4">e.g. Available on Amazon</a></li>
 <li>Sensors and Actuators To be Selected</li>
 <li><a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino Ide</a></li>
 <li><a href="https://wokwi.com/">Wokwi</a></li>
@@ -208,5 +245,5 @@
 
 <!--
 MkDocs version : 1.4.3
-Build Date UTC : 2023-05-23 04:14:57.131746+00:00
+Build Date UTC : 2023-06-06 21:11:56.026357+00:00
 -->
