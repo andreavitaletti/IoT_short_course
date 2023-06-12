@@ -39,6 +39,7 @@ This short course on the Internet of Things is designed to give a first understa
 
 * ESP32-WROOM-32 [e.g. Available on Amazon](https://www.amazon.com/Teyleten-Robot-ESP-WROOM-32-Development-Microcontroller/dp/B08246MCL5/ref=sr_1_4?crid=ZQMHS3WU9BW9&keywords=ESP32-WROOM-32&qid=1686069281&sprefix=esp32-wroom-32%2Caps%2C234&sr=8-4)
 * Sensors and Actuators To be Selected
+* [The Espressif software development environment](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/#)
 * [Arduino Ide](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE)
 * [Wokwi](https://wokwi.com/)
 * [RIOT](https://www.riot-os.org/)
