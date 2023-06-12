@@ -2,6 +2,7 @@ site_name: A Short Course on IoT
 
 theme:
   name: 'material'
+  logo: assets/images/logo.png
   palette:
     primary: lime
 
