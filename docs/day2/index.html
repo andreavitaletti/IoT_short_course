@@ -227,9 +227,54 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Day 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Day 2
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-reference-hardware-esp32-wroom-32" class="md-nav__link">
+    The reference hardware: ESP32-WROOM-32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-start-by-simulating-it" class="md-nav__link">
+    Let's start by simulating it
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#it-is-time-to-work-with-a-real-device" class="md-nav__link">
+    It is time to Work with a real device
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -285,6 +330,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-reference-hardware-esp32-wroom-32" class="md-nav__link">
+    The reference hardware: ESP32-WROOM-32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-start-by-simulating-it" class="md-nav__link">
+    Let's start by simulating it
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#it-is-time-to-work-with-a-real-device" class="md-nav__link">
+    It is time to Work with a real device
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -299,13 +373,24 @@
 
 
 <h1 id="day-2">DAY 2</h1>
+<h2 id="the-reference-hardware-esp32-wroom-32">The reference hardware: ESP32-WROOM-32</h2>
 <p><img alt="" src="../assets/images/2023-06-12-12-18-54.png" /></p>
+<h2 id="lets-start-by-simulating-it">Let's start by simulating it</h2>
 <p><a href="https://docs.wokwi.com/">Wokwi</a> is an online Electronics simulator. You can use it to simulate Arduino, ESP32, STM32, and many other popular boards, parts and sensors.</p>
 <ul>
 <li>The simplest actuator, namely a <a href="https://wokwi.com/projects/367336864678247425">led</a></li>
 <li>The Simplest sensor, namely a <a href="https://wokwi.com/projects/367336996835545089">button</a></li>
 <li>A bit more interesting sensor, namely a <a href="https://wokwi.com/projects/367338868313181185">potentiometer</a></li>
 <li>A simple example with <a href="https://wokwi.com/projects/367320442567677953">SR04 Ultrasonic Sensor</a></li>
+<li>It's time to be connected by <a href="https://wokwi.com/projects/367405831605855233">MQTT</a></li>
+</ul>
+<pre><code>mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;on&quot;
+mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;off&quot;
+</code></pre>
+<h2 id="it-is-time-to-work-with-a-real-device">It is time to Work with a real device</h2>
+<ul>
+<li>Download the firmware from Wokwi. Press F1 on the code tab.</li>
+<li>Easy with <a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino IDE</a> </li>
 </ul>
 
 
