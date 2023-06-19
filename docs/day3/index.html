@@ -266,9 +266,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Day 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Day 3
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#development-environment" class="md-nav__link">
+    Development environment
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -309,6 +340,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#development-environment" class="md-nav__link">
+    Development environment
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -326,6 +372,31 @@
 
 
 <h1 id="day-3">DAY 3</h1>
+<p>First of all, why do we need an <a href="https://www.freertos.org/about-RTOS.html">Operating System on IoT devices</a>. <a href="https://www.freertos.org/implementation/a00002.html">Here</a> there is a nice explanation of the main features provided by FreeRTOS, namely </p>
+<ul>
+<li>Multitasking</li>
+<li>Scheduling</li>
+<li>Context Switching</li>
+<li>Real Time Applications</li>
+<li>Real Time Scheduling</li>
+</ul>
+<p>Finally a nice <a href="https://www.freertos.org/tutorial/index.html">example</a> of the design of a real-time application </p>
+<p>A <a href="https://freertos.org/Documentation/161204_Mastering_the_FreeRTOS_Real_Time_Kernel-A_Hands-On_Tutorial_Guide.pdf">book</a> on FreeRTOS.</p>
+<p>The reference code is available </p>
+<h2 id="development-environment">Development environment</h2>
+<p>To develop our solution on our ESP32, we need to setup the environment as described <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/">here</a>. A very convenient way is to use docker as explained <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf-docker-image.html">here</a>. </p>
+<p>To further simplify the development process, a multi-platform Virtualbox image is available <a href="https://drive.google.com/file/d/1qxabmuQreTZzNscvmijvNzvl9Oa0GSGS/view?usp=drive_link">here</a>. <strong>Next we will focus on this method.</strong> Credentials to work with the virtual machine are root/root and devel/devel </p>
+<p>The reference folder for the code and the examples is <a href="https://github.com/espressif/esp-idf.git">https://github.com/espressif/esp-idf.git</a> which is already availabe on the virtual machine on </p>
+<ol>
+<li><code>ssh devel@localhost -p 2222</code> ... the password is devel</li>
+<li><code>get_idf</code> ... we set up the development environment</li>
+<li><code>cd ~/esp</code></li>
+<li><code>cp -r ./esp-idf/examples/get-started/hello_world/ ./workshop/</code> ... make a copy of a dir in the example in the workshop dir </li>
+<li><code>cd ./workshop/hello_world/</code></li>
+<li><code>idf.py build</code> ... i t takes some time</li>
+<li><code>idf.py flash</code> ... be sure the ESP32 is connected to \dev\ttyUSB0 and check it is visible in the virtual machine</li>
+<li><code>idf.py monitor</code> ... to exit from the monitor ctrl+T ctrl+X</li>
+</ol>
 
 
 

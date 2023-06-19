@@ -19,7 +19,9 @@ mosquitto_pub -h test.mosquitto.org -t "topicName/led" -m "on"
 mosquitto_pub -h test.mosquitto.org -t "topicName/led" -m "off"
 ```
 
+**NOTE:** for the sake of convenience, we will use WiFi connectivity, however it should be now clear WiFi is usually not appropriate for IoT applications due to the excessive energy demand. 
+
 ## It is time to Work with a real device
 
-* Download the firmware from Wokwi. Press F1 on the code tab.
-* Easy with [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) 
+* Download the code from Wokwi. It is also available on [https://github.com/andreavitaletti/IoT_short_course/tree/main/src/simulator](https://github.com/andreavitaletti/IoT_short_course/tree/main/src/simulator)
+* The easiest way it to use the [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) 
