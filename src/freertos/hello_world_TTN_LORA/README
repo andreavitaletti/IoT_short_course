@@ -1,0 +1,10 @@
+https://github.com/manuelbl/ttn-esp32
+
+docker run -v "${PWD}":/project -w /project --device=/dev/ttyUSB0 -it espressif/idf
+
+idf.py menuconfig
+idf.py build
+idf.py flash
+idf.py monitor
+
+idf.py --list-targets
