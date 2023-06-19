@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": -68.33,
+      "left": 46.97,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -205.29,
+      "left": -7.66,
+      "attrs": { "distance": "201" }
+    }
+  ],
+  "connections": [
+    [ "ultrasonic1:ECHO", "esp:D18", "green", [ "v24", "h12" ] ],
+    [ "ultrasonic1:TRIG", "esp:D19", "blue", [ "v29", "h21" ] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v17", "h-99" ] ],
+    [ "ultrasonic1:VCC", "esp:3V3", "red", [ "v12", "h-130", "v242", "h0" ] ]
+  ],
+  "dependencies": {}
+}
