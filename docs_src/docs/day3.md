@@ -12,7 +12,6 @@ Finally a nice [example](https://www.freertos.org/tutorial/index.html) of the de
 
 A [book](https://freertos.org/Documentation/161204_Mastering_the_FreeRTOS_Real_Time_Kernel-A_Hands-On_Tutorial_Guide.pdf) on FreeRTOS.
 
-The reference code is available 
 
 ## Development environment
 
