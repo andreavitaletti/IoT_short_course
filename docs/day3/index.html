@@ -297,6 +297,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-examples-of-day2-on-freertos" class="md-nav__link">
+    The examples of DAY2 on FreeRTOS
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -353,6 +360,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-examples-of-day2-on-freertos" class="md-nav__link">
+    The examples of DAY2 on FreeRTOS
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -385,8 +399,8 @@
 <p>The reference code is available </p>
 <h2 id="development-environment">Development environment</h2>
 <p>To develop our solution on our ESP32, we need to setup the environment as described <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/">here</a>. A very convenient way is to use docker as explained <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf-docker-image.html">here</a>. </p>
-<p>To further simplify the development process, a multi-platform Virtualbox image is available <a href="https://drive.google.com/file/d/1qxabmuQreTZzNscvmijvNzvl9Oa0GSGS/view?usp=drive_link">here</a>. <strong>Next we will focus on this method.</strong> Credentials to work with the virtual machine are root/root and devel/devel </p>
-<p>The reference folder for the code and the examples is <a href="https://github.com/espressif/esp-idf.git">https://github.com/espressif/esp-idf.git</a> which is already availabe on the virtual machine on </p>
+<p>To further simplify the development process, a multi-platform Virtualbox image is available <a href="https://drive.google.com/file/d/1qxabmuQreTZzNscvmijvNzvl9Oa0GSGS/view?usp=drive_link">here</a>. <strong>Next we will focus on this method.</strong> Credentials to work with the virtual machine are root/root and devel/devel and we will connect in ssh as explained below. </p>
+<p>The reference folder for the code and the examples is <a href="https://github.com/espressif/esp-idf.git">https://github.com/espressif/esp-idf.git</a> which is already available on the virtual machine on </p>
 <ol>
 <li><code>ssh devel@localhost -p 2222</code> ... the password is devel</li>
 <li><code>get_idf</code> ... we set up the development environment</li>
@@ -397,6 +411,15 @@
 <li><code>idf.py flash</code> ... be sure the ESP32 is connected to \dev\ttyUSB0 and check it is visible in the virtual machine</li>
 <li><code>idf.py monitor</code> ... to exit from the monitor ctrl+T ctrl+X</li>
 </ol>
+<h2 id="the-examples-of-day2-on-freertos">The examples of DAY2 on FreeRTOS</h2>
+<p>In this section we will implement the reference examples developed in day2 into FreeRTOS. The idea is to take inspiration from the examples available at <a href="https://github.com/espressif/esp-idf/tree/master/examples">https://github.com/espressif/esp-idf/tree/master/examples</a> and modify them to get the same behavior of the ones developed in DAY2</p>
+<ul>
+<li>The simplest actuator, namely a <a href="https://github.com/espressif/esp-idf/tree/master/examples/get-started/blink">led</a></li>
+<li>The Simplest sensor, namely a <a href="https://github.com/espressif/esp-idf/tree/master/examples/peripherals/gpio/generic_gpio">button</a></li>
+<li>A bit more interesting sensor, namely a <a href="https://github.com/espressif/esp-idf/tree/master/examples/peripherals/adc">potentiometer</a></li>
+<li>A simple example with <a href="https://github.com/espressif/esp-idf/tree/master/examples/peripherals/mcpwm/mcpwm_capture_hc_sr04">SR04 Ultrasonic Sensor</a></li>
+<li>It's time to be connected by <a href="https://github.com/espressif/esp-idf/tree/master/examples/protocols/mqtt">MQTT</a></li>
+</ul>
 
 
 
