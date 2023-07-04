@@ -8,6 +8,8 @@ First of all, why do we need an [Operating System on IoT devices](https://www.fr
 * Real Time Applications
 * Real Time Scheduling
 
+[FreeRTOS FAQ - What is This All About?](https://www.freertos.org/FAQWhat.html)
+
 Finally a nice [example](https://www.freertos.org/tutorial/index.html) of the design of a real-time application 
 
 A [book](https://freertos.org/Documentation/161204_Mastering_the_FreeRTOS_Real_Time_Kernel-A_Hands-On_Tutorial_Guide.pdf) on FreeRTOS.

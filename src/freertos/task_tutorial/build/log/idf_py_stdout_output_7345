@@ -1,0 +1,17 @@
+[1/11] Linking C static library esp-idf/wifi_provisioning/libwifi_provisioning.a
+[2/11] Performing build step for 'bootloader'
+[1/1] cd /home/devel/esp/workshop/task_tutorial/build/bootloader/esp-idf/esptool_py && /home/devel/.espressif/python_env/idf5.2_py3.9_env/bin/python /home/devel/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/devel/esp/workshop/task_tutorial/build/bootloader/bootloader.bin
+Bootloader binary size 0x68a0 bytes. 0x760 bytes (7%) free.
+[3/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main_1.c.obj
+[4/9] Linking C static library esp-idf/main/libmain.a
+[5/9] Generating ld/sections.ld
+[6/9] Building C object CMakeFiles/main.elf.dir/project_elf_src_esp32.c.obj
+[7/9] Linking CXX executable main.elf
+[8/9] Generating binary image from built executable
+esptool.py v4.6.1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/devel/esp/workshop/task_tutorial/build/main.bin
+[9/9] cd /home/devel/esp/workshop/task_tutorial/build/esp-idf/esptool_py && /home/devel/.espressif/python_env/idf5.2_py3.9_env/bin/python /home/devel/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/devel/esp/workshop/task_tutorial/build/partition_table/partition-table.bin /home/devel/esp/workshop/task_tutorial/build/main.bin
+main.bin binary size 0x2a970 bytes. Smallest app partition is 0x100000 bytes. 0xd5690 bytes (83%) free.

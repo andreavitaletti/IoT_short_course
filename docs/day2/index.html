@@ -414,6 +414,14 @@
 <pre><code>mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;on&quot;
 mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;off&quot;
 </code></pre>
+<ul>
+<li>Build a simple backend with thingsboard <a href="https://demo.thingsboard.io/login">https://demo.thingsboard.io/login</a></li>
+</ul>
+<p><img alt="" src="../assets/images/2023-07-04-16-31-57.png" />
+<img alt="" src="../assets/images/2023-07-04-16-33-07.png" /></p>
+<p><a href="https://thingsboard.io/docs/getting-started-guides/helloworld/?connectdevice=mqtt-linux">https://thingsboard.io/docs/getting-started-guides/helloworld/?connectdevice=mqtt-linux</a></p>
+<pre><code>mosquitto_pub -d -q 1 -h &quot;$THINGSBOARD_HOST_NAME&quot; -p &quot;1883&quot; -t &quot;v1/devices/me/telemetry&quot; -u &quot;$ACCESS_TOKEN&quot; -m {&quot;temperature&quot;:25}
+</code></pre>
 <p><strong>NOTE:</strong> for the sake of convenience, we will use WiFi connectivity, however it should be now clear WiFi is usually not appropriate for IoT applications due to the excessive energy demand. </p>
 <h2 id="it-is-time-to-work-with-a-real-device">It is time to Work with a real device</h2>
 <ul>
