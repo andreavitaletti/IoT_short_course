@@ -19,6 +19,10 @@ mosquitto_pub -h test.mosquitto.org -t "topicName/led" -m "on"
 mosquitto_pub -h test.mosquitto.org -t "topicName/led" -m "off"
 ```
 
+```
+mosquitto_sub -h test.mosquitto.org -t "wokwi/temperature"
+```
+
 * Build a simple backend with thingsboard [https://demo.thingsboard.io/login](https://demo.thingsboard.io/login)
 
 ![](assets/images/2023-07-04-16-31-57.png)
