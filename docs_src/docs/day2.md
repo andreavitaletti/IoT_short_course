@@ -2,7 +2,7 @@
 
 ## The reference hardware: ESP32-WROOM-32
 
-![](assets/images/2023-06-12-12-18-54.png)
+![](assets/images/2023-07-17-12-28-17.png)
 
 ## Let's start by simulating it
 
@@ -40,3 +40,4 @@ mosquitto_pub -d -q 1 -h "$THINGSBOARD_HOST_NAME" -p "1883" -t "v1/devices/me/te
 
 * Download the code from Wokwi. It is also available on [https://github.com/andreavitaletti/IoT_short_course/tree/main/src/simulator](https://github.com/andreavitaletti/IoT_short_course/tree/main/src/simulator)
 * The easiest way it to use the [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) 
+* Since we are using the ESP32, you have to follow these [intructions](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
