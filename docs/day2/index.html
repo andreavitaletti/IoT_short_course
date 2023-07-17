@@ -401,7 +401,7 @@
 
 <h1 id="day-2">DAY 2</h1>
 <h2 id="the-reference-hardware-esp32-wroom-32">The reference hardware: ESP32-WROOM-32</h2>
-<p><img alt="" src="../assets/images/2023-06-12-12-18-54.png" /></p>
+<p><img alt="" src="../assets/images/2023-07-17-12-28-17.png" /></p>
 <h2 id="lets-start-by-simulating-it">Let's start by simulating it</h2>
 <p><a href="https://docs.wokwi.com/">Wokwi</a> is an online Electronics simulator. You can use it to simulate Arduino, ESP32, STM32, and many other popular boards, parts and sensors.</p>
 <ul>
@@ -413,6 +413,8 @@
 </ul>
 <pre><code>mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;on&quot;
 mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;off&quot;
+</code></pre>
+<pre><code>mosquitto_sub -h test.mosquitto.org -t &quot;wokwi/temperature&quot;
 </code></pre>
 <ul>
 <li>Build a simple backend with thingsboard <a href="https://demo.thingsboard.io/login">https://demo.thingsboard.io/login</a></li>
@@ -427,6 +429,7 @@ mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;off&qu
 <ul>
 <li>Download the code from Wokwi. It is also available on <a href="https://github.com/andreavitaletti/IoT_short_course/tree/main/src/simulator">https://github.com/andreavitaletti/IoT_short_course/tree/main/src/simulator</a></li>
 <li>The easiest way it to use the <a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino IDE</a> </li>
+<li>Since we are using the ESP32, you have to follow these <a href="https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/">intructions</a></li>
 </ul>
 
 
