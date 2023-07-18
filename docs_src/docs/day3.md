@@ -2,6 +2,8 @@
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQWchkAoJjIzJ13YrlXxhlkcboKTzaVO7nHNC_VP3CjuncwgtcwoADPL27JrAzMtL2-kex8fq-Xfnvf/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR7QxDDAOT5GEActKCZpcNNMpIbEgsB1RBF4B1CeCqJHplpN6Xf51P7MFy_i8_0KmzLAokr5RI0DNaE/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
 First of all, why do we need an [Operating System on IoT devices](https://www.freertos.org/about-RTOS.html). [Here](https://www.freertos.org/implementation/a00002.html) there is a nice explanation of the main features provided by FreeRTOS, namely 
 
 * Multitasking
