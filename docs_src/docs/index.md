@@ -64,3 +64,7 @@ The lis of material for each group
 * [FREERTOS](https://www.freertos.org/)
 * [IoT-LAB](https://www.iot-lab.info/) 
 * [Thingsboard](https://thingsboard.io/)
+
+# Editions
+
+The first edition of this course will be given the 19th and 21st of July 2023 in the University of Stellenbosch. Keep in touch on the [discord server](https://discord.gg/TZhMmbgq)
