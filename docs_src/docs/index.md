@@ -3,35 +3,36 @@ This short course on the Internet of Things is designed to give a first understa
 
 # SESSION 1 (3 hours)
 
+**GOAL:** Quick intro to the Internet of Things.
+
 * Introduction to the IoT
 * IoT and Big Data: we can quantitatively measure phenomena that up to yesterday we were only able to guess
-* A network of Resource Constrained Devices: if computational power, memory, energy, bandwidth and costs are not constrained, it is likely Internet, not Internet of Things
+* A network of Resource Constrained Devices: if computational power, memory, energy, bandwidth and costs are not constrained, it is likely Internet, not Internet of Things.
 
 # SESSION 2 (3 hours)
 
+**GOAL:** Small experiment (a single sensor). Prove you can integrate sensors suitable for you monitoring purpose.  Focus on effectiveness, namely doing the right things, i.e., the Maker approach.
+
 * The reference hardware: [ESP32](http://esp32.net/)
-* The Maker approach: focus on effectiveness, namely doing the right things
 * Hands on with the [Arduino Ide](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE) and [Wokwi](https://wokwi.com/)
 * A simple integration of sensor/actuator
 * Communicating over WiFi
 
 # SESSION 3 (3 hours)
 
-* The Engineer approach: beyond effectiveness, efficiency matters, namely doing the thing right
-* The LEAN approach: build, measure, learn 
-* The need of an Operating System
-* [FREERTOS](https://www.freertos.org/)
-* Hands on on FREERTOS
+**GOAL:** Small experiment (a single sensor). Focus on efficiency, namely doing the things right, i.e., the Engineers approach. Use metrics to measure to what extent your solution satisfies the user requirements.
+
+* The need of an Operating System 
+* Hands on [FREERTOS](https://www.freertos.org/)
 * A simple integration of sensor/actuator
 * Communicating over WiFi
 
 # SESSION 4 (3 hours)
 
+**GOAL:** Scale-up in a realistic environment.
+
 * The Very Large Scale IoT Testbed [IoT-LAB](https://www.iot-lab.info/) 
 * [FreeRTOS on IoT-lab](https://iot-lab.github.io/docs/os/freertos/)
-* openlab/appli/iotlab_examples/tutorial/
-* https://www.iot-lab.info/legacy/tutorials/getting-started-tutorial/index.html
-* https://iot-lab.github.io/docs/tools/consumption-monitoring/
 * A simple Project
 
 # Tools and Materials

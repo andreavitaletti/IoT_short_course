@@ -1,5 +1,7 @@
 # SESSION 3
 
+**GOAL:** Small experiment (a single sensor). Focus on efficiency, namely doing the things right, i.e., the Engineers approach. Use metrics to measure to what extent your solution satisfies the user requirements.
+
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQWchkAoJjIzJ13YrlXxhlkcboKTzaVO7nHNC_VP3CjuncwgtcwoADPL27JrAzMtL2-kex8fq-Xfnvf/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR7QxDDAOT5GEActKCZpcNNMpIbEgsB1RBF4B1CeCqJHplpN6Xf51P7MFy_i8_0KmzLAokr5RI0DNaE/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>

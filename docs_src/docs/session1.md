@@ -1,5 +1,7 @@
 # SESSION 1
 
+**GOAL:** Quick intro to the Internet of Things.
+
 ## Takeaway ONE
 
 * IoT is fuel for Big Data Analytics
