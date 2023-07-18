@@ -18,13 +18,18 @@
       "top": -310.28,
       "left": 155.35,
       "attrs": { "color": "red" }
-    }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -346.02, "left": -141.48, "attrs": {} }
   ],
   "connections": [
     [ "esp:TX0", "$serialMonitor:RX", "", [] ],
     [ "esp:RX0", "$serialMonitor:TX", "", [] ],
     [ "led1:C", "esp:GND.1", "black", [ "v0" ] ],
     [ "r1:1", "led1:A", "red", [ "h0" ] ],
-    [ "esp:D2", "r1:2", "red", [ "h0" ] ]
-  ]
+    [ "esp:D2", "r1:2", "red", [ "h0" ] ],
+    [ "pot1:VCC", "esp:VIN", "red", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "esp:D32", "pot1:SIG", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
 }

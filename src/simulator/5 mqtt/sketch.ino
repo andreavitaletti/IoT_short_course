@@ -1,5 +1,7 @@
 
 // From https://randomnerdtutorials.com/esp32-mqtt-publish-subscribe-arduino-ide
+// https://pubsubclient.knolleary.net/api
+// https://www.upesy.com/blogs/tutorials/best-tutorials-for-esp32-with-arduino-code
 
 #include <WiFi.h>
 #include "PubSubClient.h"
@@ -8,6 +10,7 @@ const char* ssid = "Wokwi-GUEST";
 const char* password = "";
 const char* mqttServer = "test.mosquitto.org";
 int port = 1883;
+long lastMsg = 0;
 String stMac;
 char mac[50];
 char clientId[50];
@@ -16,6 +19,12 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 
 const int ledPin = 2;
+int potPin = 32;
+int val = 0;
+int result = 0;
+
+#define MSG_BUFFER_SIZE	(50)
+char msg[MSG_BUFFER_SIZE];
 
 void setup() {
   Serial.begin(115200);
@@ -39,6 +48,8 @@ void setup() {
   
   client.setServer(mqttServer, port);
   client.setCallback(callback);
+
+  pinMode(potPin,INPUT_PULLUP);
   pinMode(ledPin, OUTPUT);
 }
 
@@ -96,8 +107,21 @@ void callback(char* topic, byte* message, unsigned int length) {
 
 void loop() {
   delay(10);
+
   if (!client.connected()) {
     mqttReconnect();
   }
   client.loop();
+
+  long now = millis();
+  if (now - lastMsg > 5000) {
+    lastMsg = now;
+    val = analogRead(potPin);  // read the input pin
+    
+    snprintf (msg, MSG_BUFFER_SIZE, "hello world #%ld", val);
+    Serial.print("Publish message: ");
+    Serial.println(msg);
+    result = client.publish("wokwi/temperature", msg);
+    Serial.println(result);
+  }
 }
