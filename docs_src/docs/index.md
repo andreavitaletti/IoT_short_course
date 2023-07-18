@@ -67,4 +67,4 @@ The lis of material for each group
 
 # Editions
 
-The first edition of this course will be given the 19th and 21st of July 2023 in the University of Stellenbosch. Keep in touch on the [discord server](https://discord.gg/TZhMmbgq)
+The first edition of this course will be given the 19th (Session 1 and 2) and 21st (Session 3 and 4) of July 2023 in the University of Stellenbosch. Keep in touch on the [discord server](https://discord.gg/TZhMmbgq)
