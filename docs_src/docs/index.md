@@ -21,8 +21,7 @@ This short course on the Internet of Things is designed to give a first understa
 * The LEAN approach: build, measure, learn 
 * The need of an Operating System
 * [FREERTOS](https://www.freertos.org/)
-* https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/system/freertos.html
-* Hands on on FREERTOS or RIOT
+* Hands on on FREERTOS
 * A simple integration of sensor/actuator
 * Communicating over WiFi
 
@@ -57,7 +56,7 @@ The lis of material for each group
    
 ## Useful links
 
-*  [Code and Slides](https://github.com/andreavitaletti/IoT_short_course)
+* [Code and Slides](https://github.com/andreavitaletti/IoT_short_course)
 * [The Espressif software development environment](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/#)
 * [Arduino Ide](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE)
 * [Wokwi](https://wokwi.com/)
@@ -67,4 +66,4 @@ The lis of material for each group
 
 # Editions
 
-The first edition of this course will be given the 19th (Session 1 and 2) and 21st (Session 3 and 4) of July 2023 in the University of Stellenbosch. Keep in touch on the [discord server](https://discord.gg/TZhMmbgq)
+The first edition of this course will be given the 19th (Session 1 and 2) and 21st (Session 3 and 4) of July 2023 in the University of Stellenbosch (South Africa). Keep in touch on the [discord server](https://discord.gg/TZhMmbgq)

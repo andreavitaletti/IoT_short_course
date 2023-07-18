@@ -36,7 +36,7 @@ The reference folder for the code and the examples is [https://github.com/espres
 7. ``` idf.py flash ``` ... be sure the ESP32 is connected to \dev\ttyUSB0 and check it is visible in the virtual machine
 8. ``` idf.py monitor ``` ... to exit from the monitor ctrl+T ctrl+X
 
-## The examples of DAY2 on FreeRTOS
+## The examples of SESSION 2 on FreeRTOS
 
 In this section we will implement the reference examples developed in day2 into FreeRTOS. The idea is to take inspiration from the examples available at [https://github.com/espressif/esp-idf/tree/master/examples](https://github.com/espressif/esp-idf/tree/master/examples) and modify them to get the same behavior of the ones developed in DAY2
 
@@ -45,4 +45,5 @@ In this section we will implement the reference examples developed in day2 into 
 * A bit more interesting sensor, namely a [potentiometer](https://github.com/espressif/esp-idf/tree/master/examples/peripherals/adc)
 * A simple example with [SR04 Ultrasonic Sensor](https://github.com/espressif/esp-idf/tree/master/examples/peripherals/mcpwm/mcpwm_capture_hc_sr04)
 * It's time to be connected by [MQTT](https://github.com/espressif/esp-idf/tree/master/examples/protocols/mqtt)
+* About the vibration sensor SW-420 ... have a look [here](https://github.com/andreavitaletti/IoT_short_course/tree/main/src/freertos/mcpwm_capture_hc_sw420)
 
