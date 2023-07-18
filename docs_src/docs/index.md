@@ -1,13 +1,13 @@
 # GOAL
 This short course on the Internet of Things is designed to give a first understanding of the main issues in developing IoT solutions. We do believe the most efficient way to learn this subject is experimenting, this is way the course encourage attendants to hands-on. No specific background is needed, even if a basic knowledge of electronics and computer science might help. 
 
-# DAY 1 (3 hours)
+# SESSION 1 (3 hours)
 
 * Introduction to the IoT
 * IoT and Big Data: we can quantitatively measure phenomena that up to yesterday we were only able to guess
 * A network of Resource Constrained Devices: if computational power, memory, energy, bandwidth and costs are not constrained, it is likely Internet, not Internet of Things
 
-# DAY 2 (3 hours)
+# SESSION 2 (3 hours)
 
 * The reference hardware: [ESP32](http://esp32.net/)
 * The Maker approach: focus on effectiveness, namely doing the right things
@@ -15,7 +15,7 @@ This short course on the Internet of Things is designed to give a first understa
 * A simple integration of sensor/actuator
 * Communicating over WiFi
 
-# DAY 3 (3 hours)
+# SESSION 3 (3 hours)
 
 * The Engineer approach: beyond effectiveness, efficiency matters, namely doing the thing right
 * The LEAN approach: build, measure, learn 
@@ -26,7 +26,7 @@ This short course on the Internet of Things is designed to give a first understa
 * A simple integration of sensor/actuator
 * Communicating over WiFi
 
-# DAY 4 (3 hours)
+# SESSION 4 (3 hours)
 
 * The Very Large Scale IoT Testbed [IoT-LAB](https://www.iot-lab.info/) 
 * [FreeRTOS on IoT-lab](https://iot-lab.github.io/docs/os/freertos/)

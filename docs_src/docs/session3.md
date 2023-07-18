@@ -1,4 +1,4 @@
-# DAY 3
+# SESSION 3
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQWchkAoJjIzJ13YrlXxhlkcboKTzaVO7nHNC_VP3CjuncwgtcwoADPL27JrAzMtL2-kex8fq-Xfnvf/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 

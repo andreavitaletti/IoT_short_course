@@ -1,4 +1,4 @@
-# DAY 2
+# SESSION 2
 
 ## The reference hardware: ESP32-WROOM-32
 

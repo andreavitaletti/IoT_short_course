@@ -1,4 +1,4 @@
-# DAY 1
+# SESSION 1
 
 ## Takeaway ONE
 
