@@ -67,6 +67,6 @@ The lis of material for each group
 
 # Editions
 
-First edition of the course 19th (Session 1 and 2) and 21st (Session 3 and 4) of July 2023 in the University of Stellenbosch (South Africa). About 40 participants selected among more the 100 candidates. Keep in touch on the [discord server](https://discord.gg/TZhMmbgq)
+First edition of the course 19th (Session 1 and 2) and 21st (Session 3 and 4) of July 2023 in the University of Stellenbosch (South Africa) during an [Erasmus+](https://erasmus-plus.ec.europa.eu/resources-and-tools/mobility-and-learning-agreements/mobility-agreements) staff mobility for teaching visit. About 40 participants selected among more the 100 candidates. Keep in touch on the [discord server](https://discord.gg/TZhMmbgq)
 
 ![](assets/images/with_herman.jpg)

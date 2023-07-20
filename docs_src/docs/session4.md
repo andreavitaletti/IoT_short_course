@@ -1,6 +1,6 @@
 # SESSION 4
 
-**GOAL:** Scale-up 
+**GOAL:** Scale-up in a realistic environment.
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTdjWAh8Dm64rvoRK495iKx9mEy5vzzfqW9GGkNSl52pZBVC7xWf9y4OH5mMw_izKv9a8Uwsd8nj7PJ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
