@@ -38,6 +38,10 @@ The reference folder for the code and the examples is [https://github.com/espres
 7. ``` idf.py flash ``` ... be sure the ESP32 is connected to \dev\ttyUSB0 and check it is visible in the virtual machine
 8. ``` idf.py monitor ``` ... to exit from the monitor ctrl+T ctrl+X
 
+## A quick introduction to tasks
+
+Based on [ESP32 ESP-IDF FreeRTOS Tutorial: Learn to Create Tasks](https://esp32tutorials.com/esp32-esp-idf-freertos-tutorial-create-tasks/). The code is available on our github [repo](https://github.com/andreavitaletti/IoT_short_course/tree/main/src/freertos/task_tutorial)
+
 ## The examples of SESSION 2 on FreeRTOS
 
 In this section we will implement the reference examples developed in day2 into FreeRTOS. The idea is to take inspiration from the examples available at [https://github.com/espressif/esp-idf/tree/master/examples](https://github.com/espressif/esp-idf/tree/master/examples) and modify them to get the same behavior of the ones developed in DAY2
