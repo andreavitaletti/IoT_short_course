@@ -67,4 +67,6 @@ The lis of material for each group
 
 # Editions
 
-The first edition of this course will be given the 19th (Session 1 and 2) and 21st (Session 3 and 4) of July 2023 in the University of Stellenbosch (South Africa). Keep in touch on the [discord server](https://discord.gg/TZhMmbgq)
+First edition of the course 19th (Session 1 and 2) and 21st (Session 3 and 4) of July 2023 in the University of Stellenbosch (South Africa). About 40 participants selected among more the 100 candidates. Keep in touch on the [discord server](https://discord.gg/TZhMmbgq)
+
+![](assets/images/with_herman.jpg)
