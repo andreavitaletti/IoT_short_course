@@ -16,6 +16,7 @@ nav:
     - Session 2: session2.md
     - Session 3: session3.md
     - Session 4: session4.md
+    - Supplementary material: supplement1.md
 
 extra:
   social:
@@ -24,4 +25,4 @@ extra:
     - icon: fontawesome/brands/linkedin 
       link: https://www.linkedin.com/in/andrea-vitaletti-3651442/
 
-copyright: Created by Andrea Vitaletti.<br/><img alt="Creative Commons License" style="border-width:0" src="assets/images/mail.png" /></br><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+copyright: Created by Andrea Vitaletti.<br/><img alt="" style="border-width:0" src="/assets/images/mail.png" /></br><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>

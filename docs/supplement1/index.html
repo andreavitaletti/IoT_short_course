@@ -9,22 +9,22 @@
       
       
       
+        <link rel="prev" href="../session4/">
       
-        <link rel="next" href="session1/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>A Short Course on IoT</title>
+        <title>Supplementary material - A Short Course on IoT</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -40,7 +40,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#goal" class="md-skip">
+        <a href="#tensorflow-lite-micro-on-esp32" class="md-skip">
           Skip to content
         </a>
       
@@ -81,9 +81,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="A Short Course on IoT" class="md-header__button md-logo" aria-label="A Short Course on IoT" data-md-component="logo">
+    <a href=".." title="A Short Course on IoT" class="md-header__button md-logo" aria-label="A Short Course on IoT" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Supplementary material
             
           </span>
         </div>
@@ -180,9 +180,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="A Short Course on IoT" class="md-nav__button md-logo" aria-label="A Short Course on IoT" data-md-component="logo">
+    <a href=".." title="A Short Course on IoT" class="md-nav__button md-logo" aria-label="A Short Course on IoT" data-md-component="logo">
       
-  <img src="assets/images/logo.png" alt="logo">
+  <img src="../assets/images/logo.png" alt="logo">
 
     </a>
     A Short Course on IoT
@@ -208,21 +208,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         Home
       </a>
-      
     </li>
   
 
@@ -235,7 +225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/" class="md-nav__link">
+      <a href="../session1/" class="md-nav__link">
         Session 1
       </a>
     </li>
@@ -250,7 +240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/" class="md-nav__link">
+      <a href="../session2/" class="md-nav__link">
         Session 2
       </a>
     </li>
@@ -265,7 +255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session3/" class="md-nav__link">
+      <a href="../session3/" class="md-nav__link">
         Session 3
       </a>
     </li>
@@ -280,7 +270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session4/" class="md-nav__link">
+      <a href="../session4/" class="md-nav__link">
         Session 4
       </a>
     </li>
@@ -293,11 +283,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="supplement1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Supplementary material
       </a>
+      
     </li>
   
 
@@ -338,77 +338,15 @@
   
 
 
-<h1 id="goal">GOAL</h1>
-<p>This short course on the Internet of Things is designed to give a first understanding of the main issues in developing IoT solutions. We do believe the most efficient way to learn this subject is experimenting, this is way the course encourage attendants to hands-on. No specific background is needed, even if a basic knowledge of electronics and computer science might help. </p>
-<h1 id="session-1-3-hours">SESSION 1 (3 hours)</h1>
-<p><strong>GOAL:</strong> Quick intro to the Internet of Things.</p>
+<h1 id="tensorflow-lite-micro-on-esp32">Tensorflow Lite Micro on ESP32</h1>
+<p>Reference examples are available <a href="https://github.com/espressif/tflite-micro-esp-examples">here</a>. You have to download from github <a href="https://github.com/espressif/esp-nn">esp-nn</a> and <a href="https://github.com/espressif/esp32-camera">esp32-camera</a> and place them into the relative folders under components.</p>
+<p>Then go to examples/hello_worlds and as usual idf.py build, idf.py flash and finally idf.py monitor.</p>
+<p>A nice explanation on how the model is generated can be found on the book <a href="https://www.oreilly.com/library/view/tinyml/9781492052036/ch04.html">TinyML by Pete Warden, Daniel Situnayake</a>. The corresponding jupyter notebook is available <a href="https://colab.research.google.com/github/goodboychan/goodboychan.github.io/blob/main/_notebooks/2020-09-24-01-Training-Hello-world-Model-for-Microcontroller.ipynb">here</a></p>
+<p>Some other useful resources are listed below:</p>
 <ul>
-<li>Introduction to the IoT</li>
-<li>IoT and Big Data: we can quantitatively measure phenomena that up to yesterday we were only able to guess</li>
-<li>A network of Resource Constrained Devices: if computational power, memory, energy, bandwidth and costs are not constrained, it is likely Internet, not Internet of Things.</li>
+<li><a href="https://medium.com/@dmytro.korablyov/first-steps-with-esp32-and-tensorflow-lite-for-microcontrollers-c2d8e238accf">First steps with ESP32 and TensorFlow Lite for Microcontrollers</a></li>
+<li><a href="https://www.tensorflow.org/lite/microcontrollers/get_started_low_level">Get started with microcontrollers</a></li>
 </ul>
-<h1 id="session-2-3-hours">SESSION 2 (3 hours)</h1>
-<p><strong>GOAL:</strong> Small experiment (a single sensor). Prove you can integrate sensors suitable for you monitoring purpose.  Focus on effectiveness, namely doing the right things, i.e., the Maker approach.</p>
-<ul>
-<li>The reference hardware: <a href="http://esp32.net/">ESP32</a></li>
-<li>Hands on with the <a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino Ide</a> and <a href="https://wokwi.com/">Wokwi</a></li>
-<li>A simple integration of sensor/actuator</li>
-<li>Communicating over WiFi</li>
-</ul>
-<h1 id="session-3-3-hours">SESSION 3 (3 hours)</h1>
-<p><strong>GOAL:</strong> Small experiment (a single sensor). Focus on efficiency, namely doing the things right, i.e., the Engineers approach. Use metrics to measure to what extent your solution satisfies the user requirements.</p>
-<ul>
-<li>The need of an Operating System </li>
-<li>Hands on <a href="https://www.freertos.org/">FREERTOS</a></li>
-<li>A simple integration of sensor/actuator</li>
-<li>Communicating over WiFi</li>
-</ul>
-<h1 id="session-4-3-hours">SESSION 4 (3 hours)</h1>
-<p><strong>GOAL:</strong> Scale-up in a realistic environment.</p>
-<ul>
-<li>The Very Large Scale IoT Testbed <a href="https://www.iot-lab.info/">IoT-LAB</a> </li>
-<li><a href="https://iot-lab.github.io/docs/os/freertos/">FreeRTOS on IoT-lab</a></li>
-<li>A simple Project</li>
-</ul>
-<h1 id="tools-and-materials">Tools and Materials</h1>
-<h2 id="material">Material</h2>
-<p>The lis of material for each group </p>
-<ul>
-<li>
-<p>ESP32-WROOM-32 <a href="https://www.amazon.com/Teyleten-Robot-ESP-WROOM-32-Development-Microcontroller/dp/B08246MCL5/ref=sr_1_4?crid=ZQMHS3WU9BW9&amp;keywords=ESP32-WROOM-32&amp;qid=1686069281&amp;sprefix=esp32-wroom-32%2Caps%2C234&amp;sr=8-4">e.g. Available on Amazon</a></p>
-</li>
-<li>
-<p>A breadboard <a href="https://www.amazon.com/DEYUE-breadboard-Set-Prototype-Board/dp/B07LFD4LT6/ref=sr_1_8?crid=3R3TUY5L81TO1&amp;keywords=breadboard&amp;qid=1687250395&amp;sprefix=breadboard%2Caps%2C249&amp;sr=8-8">e.g. Available on Amazon</a></p>
-</li>
-<li>
-<p>Wires <a href="https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/ref=sr_1_3?crid=26K1OWIBE8P3T&amp;keywords=arduino+cables&amp;qid=1687250586&amp;sprefix=arduino+cables%2Caps%2C172&amp;sr=8-3">e.g. Available on Amazon</a></p>
-</li>
-<li>
-<p>Minimal actuator, namely a led and resistors - resistor 330 Ohm <a href="https://www.amazon.com/Resistor-Resistors-Assortment-Emitting-Projects/dp/B09XYRMF3V/ref=sr_1_2_sspa?crid=37V2OL06S6174&amp;keywords=led+resistor&amp;qid=1687250996&amp;sprefix=led+resistor%2Caps%2C290&amp;sr=8-2-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1">e.g. Available on Amazon</a></p>
-</li>
-<li>
-<p>Minimal analog sensor, namely a potentiometer 10 KOhm <a href="https://www.amazon.com/DGZZI-Potentiometer-Breadboard-Raspberry-3386MP-103/dp/B07ZYVS2W6/ref=sr_1_18?crid=3IYJPTJB18AST&amp;keywords=arduino+potentiometer&amp;qid=1687251254&amp;sprefix=arduino+potentiometer%2Caps%2C181&amp;sr=8-18">e.g. Available on Amazon</a></p>
-</li>
-<li>
-<p>Minimal digital sensor, namely a button - resistor 1 KOhm <a href="https://www.amazon.com/Gikfun-6x6x5mm-Switch-Button-Arduino/dp/B00R17XUFC/ref=sr_1_3?crid=363OIHN617YNQ&amp;keywords=arduino+button&amp;qid=1687251202&amp;sprefix=arduino+button%2Caps%2C281&amp;sr=8-3">e.g. Available on Amazon</a></p>
-</li>
-<li>
-<p>A more interesting digital vibration sensor SW-420 <a href="https://www.amazon.com/Hiletgo-SW-420-Vibration-Sensor-Arduino/dp/B00HJ6ACY2/ref=d_pd_day0_vft_none_sccl_3_6/144-2036444-0077312?pd_rd_w=6ZLDs&amp;content-id=amzn1.sym.8ca997d7-1ea0-4c8f-9e14-a6d756b83e30&amp;pf_rd_p=8ca997d7-1ea0-4c8f-9e14-a6d756b83e30&amp;pf_rd_r=R67DPZBKK0Q1NSDSXPTR&amp;pd_rd_wg=B8p9z&amp;pd_rd_r=d4e20fea-fef2-4392-9e94-cb60781d285e&amp;pd_rd_i=B00HJ6ACY2&amp;psc=1">e.g. Available on Amazon</a></p>
-</li>
-</ul>
-<h2 id="useful-links">Useful links</h2>
-<ul>
-<li><a href="https://github.com/andreavitaletti/IoT_short_course">Code and Slides</a></li>
-<li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/#">The Espressif software development environment</a></li>
-<li><a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino Ide</a></li>
-<li><a href="https://wokwi.com/">Wokwi</a></li>
-<li><a href="https://www.freertos.org/">FREERTOS</a></li>
-<li><a href="https://www.iot-lab.info/">IoT-LAB</a> </li>
-<li><a href="https://thingsboard.io/">Thingsboard</a></li>
-</ul>
-<h1 id="editions">Editions</h1>
-<p>First edition of the course 19th (Session 1 and 2) and 21st (Session 3 and 4) of July 2023 in the University of Stellenbosch (South Africa) during an <a href="https://erasmus-plus.ec.europa.eu/resources-and-tools/mobility-and-learning-agreements/mobility-agreements">Erasmus+</a> staff mobility for teaching visit. About 40 participants selected among more the 100 candidates. Keep in touch on the <a href="https://discord.gg/TZhMmbgq">discord server</a></p>
-<p><img alt="" src="assets/images/with_herman.jpg" /></p>
 
 
 
@@ -476,10 +414,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>
