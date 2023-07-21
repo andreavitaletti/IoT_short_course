@@ -6,7 +6,11 @@
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR7QxDDAOT5GEActKCZpcNNMpIbEgsB1RBF4B1CeCqJHplpN6Xf51P7MFy_i8_0KmzLAokr5RI0DNaE/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-Well, to develop an IoT application as an engineer, we do need a Real-Time Operating System (RTOS). [What is An RTOS?](https://www.freertos.org/about-RTOS.html). [Here](https://www.freertos.org/implementation/a00002.html) there is a nice explanation of the main features provided by FreeRTOS, namely 
+Well, to develop an IoT application as an engineer, we do need a Real-Time Operating System (RTOS). [What is An RTOS?](https://www.freertos.org/about-RTOS.html). 
+
+> Embedded systems often have real time requirements. A real time requirements is one that specifies that the embedded system must respond to a certain event within a strictly defined time (the deadline). A guarantee to meet real time requirements can only be made if the behaviour of the operating system's scheduler can be predicted (and is therefore deterministic). FreeRTOS, achieve determinism by allowing the user to assign a priority to each thread of execution. The scheduler then uses the priority to know which thread of execution to run next. In FreeRTOS, a thread of execution is called a task.
+
+[Here](https://www.freertos.org/implementation/a00002.html) there is a nice explanation of the main features provided by FreeRTOS, namely 
 
 * Multitasking
 * Scheduling
