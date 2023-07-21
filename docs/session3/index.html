@@ -300,6 +300,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#clone-only-the-relevant-code" class="md-nav__link">
+    Clone only the relevant code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-quick-introduction-to-tasks" class="md-nav__link">
     A quick introduction to tasks
   </a>
@@ -385,6 +392,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#clone-only-the-relevant-code" class="md-nav__link">
+    Clone only the relevant code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-quick-introduction-to-tasks" class="md-nav__link">
     A quick introduction to tasks
   </a>
@@ -454,6 +468,28 @@
 <p><strong>NOTE</strong> in some cases you can configure specific parameters running idf.py menuconfig</p>
 <p>In the virtual machine you have first to 
 <code>export LC_ALL=C</code></p>
+<h2 id="clone-only-the-relevant-code">Clone only the relevant code</h2>
+<pre><code># Create a directory, so Git doesn't get messy, and enter it
+mkdir code_from_git &amp;&amp; cd code_from_git
+
+# Start a Git repository
+git init
+
+# Track repository, do not enter subdirectory
+git remote add -f origin https://github.com/andreavitaletti/IoT_short_course
+
+# Enable the tree check feature
+git config core.sparseCheckout true
+
+# Create a file in the path: .git/info/sparse-checkout
+# That is inside the hidden .git directory that was created
+# by running the command: git init
+# And inside it enter the name of the sub directory you only want to clone
+echo 'src/freertos' &gt;&gt; .git/info/sparse-checkout
+
+## Download with pull, not clone
+git pull origin main
+</code></pre>
 <h2 id="a-quick-introduction-to-tasks">A quick introduction to tasks</h2>
 <p>Based on <a href="https://esp32tutorials.com/esp32-esp-idf-freertos-tutorial-create-tasks/">ESP32 ESP-IDF FreeRTOS Tutorial: Learn to Create Tasks</a>. The code is available on our github <a href="https://github.com/andreavitaletti/IoT_short_course/tree/main/src/freertos/task_tutorial">repo</a></p>
 <h2 id="the-examples-of-session-2-on-freertos">The examples of SESSION 2 on FreeRTOS</h2>
