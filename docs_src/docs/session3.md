@@ -42,6 +42,11 @@ The reference folder for the code and the examples is [https://github.com/espres
 7. ``` idf.py flash ``` ... be sure the ESP32 is connected to \dev\ttyUSB0 and check it is visible in the virtual machine
 8. ``` idf.py monitor ``` ... to exit from the monitor ctrl+T ctrl+X
 
+**NOTE** in some cases you can configure specific parameters running idf.py menuconfig
+
+In the virtual machine you have first to 
+``` export LC_ALL=C ```
+
 ## A quick introduction to tasks
 
 Based on [ESP32 ESP-IDF FreeRTOS Tutorial: Learn to Create Tasks](https://esp32tutorials.com/esp32-esp-idf-freertos-tutorial-create-tasks/). The code is available on our github [repo](https://github.com/andreavitaletti/IoT_short_course/tree/main/src/freertos/task_tutorial)
@@ -57,3 +62,4 @@ In this section we will implement the reference examples developed in day2 into 
 * It's time to be connected by [MQTT](https://github.com/espressif/esp-idf/tree/master/examples/protocols/mqtt)
 * About the vibration sensor SW-420 ... have a look [here](https://github.com/andreavitaletti/IoT_short_course/tree/main/src/freertos/mcpwm_capture_hc_sw420)
 
+Nice tutorials on the same topics are also available [here](https://esp32tutorials.com/getting-started-tutorial-esp32-esp-idf/)
