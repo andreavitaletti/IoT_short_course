@@ -1,6 +1,7 @@
 site_name: A Short Course on IoT
 
 repo_url: https://github.com/andreavitaletti/IoT_short_course
+site_url: https://andreavitaletti.github.io/IoT_short_course/
 
 theme:
   name: 'material'
