@@ -19,4 +19,4 @@ ssh vitalett@grenoble.iot-lab.info
 * Follow the instructions [here](https://iot-lab.github.io/docs/os/freertos/) to run FreeRTOS on IoT-LAB
 * The reference code is available on [https://github.com/iot-lab/openlab](https://github.com/iot-lab/openlab) and in particular we are inetrested in the [tutorial](https://github.com/iot-lab/openlab/tree/master/appli/iotlab_examples/tutorial)
 * Once the code has been compiled, it can run into an experiment as explained [here](https://www.iot-lab.info/legacy/tutorials/getting-started-tutorial/index.html)
-* A quite unique feature, is the ability to perform consuption monitoring as explained [here](https://iot-lab.github.io/docs/tools/consumption-monitoring/)
+* A quite unique feature, is the ability to perform consuption monitoring as explained [here](https://iot-lab.github.io/docs/tools/consumption-monitoring/). To plot the graphs, download the oml files and use the following [tools](https://github.com/iot-lab/oml-plot-tools/tree/master)
