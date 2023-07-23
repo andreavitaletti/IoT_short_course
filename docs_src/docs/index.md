@@ -36,6 +36,8 @@ This short course on the Internet of Things is designed to give a first understa
 * A simple Project
 
 # Tools and Materials
+ 
+I like [vscode](https://code.visualstudio.com/) with the [Remote-SSH extension](https://code.visualstudio.com/docs/remote/ssh) to interact with the virtual machine for FreeRTOS development. However, during the class there might be many issues due to different version of the OS and vscode. To further simplify the process I use [micro](https://micro-editor.github.io/index.html) a modern and intuitive terminal-based text editor. Give it a try, it is very convenient. I also suggest to install the [file manager plugin](https://github.com/NicolaiSoeborg/filemanager-plugin)
 
 ## Material
 
