@@ -17,7 +17,8 @@ nav:
     - Session 2: session2.md
     - Session 3: session3.md
     - Session 4: session4.md
-    - Supplementary material: supplement1.md
+    - Sup. Mat. ML on node: supplement1.md
+    - Sup. Mat. Kalman Filters: supplement2.md
 
 extra:
   social:

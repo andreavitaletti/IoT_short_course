@@ -8,20 +8,18 @@
       
       
       
-        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/session1/">
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/supplement2/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../supplement1/">
       
-      
-        <link rel="next" href="../session2/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Session 1 - A Short Course on IoT</title>
+        <title>Sup. Mat. Kalman Filters - A Short Course on IoT</title>
       
     
     
@@ -69,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#session-1" class="md-skip">
+        <a href="#kalman-filters" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Session 1
+              Sup. Mat. Kalman Filters
             
           </span>
         </div>
@@ -227,59 +225,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Session 1
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../session1/" class="md-nav__link">
         Session 1
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#takeaway-one" class="md-nav__link">
-    Takeaway ONE
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#takeaway-two" class="md-nav__link">
-    Takeaway TWO
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -350,11 +300,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../supplement2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Sup. Mat. Kalman Filters
       </a>
+      
     </li>
   
 
@@ -379,28 +339,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#takeaway-one" class="md-nav__link">
-    Takeaway ONE
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#takeaway-two" class="md-nav__link">
-    Takeaway TWO
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -417,27 +355,17 @@
   
 
 
-<h1 id="session-1">SESSION 1</h1>
-<p><strong>GOAL:</strong> Quick intro to the Internet of Things.</p>
-<h2 id="takeaway-one">Takeaway ONE</h2>
-<ul>
-<li>IoT is fuel for Big Data Analytics</li>
-<li>
+<h1 id="kalman-filters">Kalman Filters</h1>
+<p>A very nice, rich an exhaustive source of documentation for Kalman filters is available <a href="https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python">here</a></p>
+<p>The main idea is that both our prior knowledge and the measurements of our sensors are to some extent inaccurate. To model such inaccuracy we use a Gaussian with mean $$\mu$$ and variance $$\rho$$</p>
+<p><img alt="" src="../assets/images/2023-08-22-09-46-59.png" /></p>
+<p>At each iteration we have our prior knowledge (in blue) and a new measurement (in orange) and we account for both source of information computing an average (in green)</p>
+<p><img alt="" src="../assets/images/2023-08-22-09-50-26.png" /></p>
 <blockquote>
-<p>"When you can measure ... you know something". Lord Kelvin docet.</p>
+<p>The final mean gets shifted which is in between the two old means, the mean of the prior, and the mean of the measurement. It’s slightly further on the measurement side because the measurement was more certain as to where the vehicle is than prior. The more certain we are, the more we pull the mean on the direction of the certain answer. <a href="https://medium.com/analytics-vidhya/kalman-filters-a-step-by-step-implementation-guide-in-python-91e7e123b968">source</a></p>
 </blockquote>
-</li>
-<li>IoT provide quantitative evidences on  phenomena that we used to investigate only qualitatively</li>
-</ul>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR_rNDTgvAlQCMQ6fswBob4RKcnQQLulLTtUqhd5dUoxG0fGspWISYLF81SBeT3nDakgD1bA_O0cmEq/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-
-<h2 id="takeaway-two">Takeaway TWO</h2>
-<ul>
-<li>IoT is a network of resource constrained devices</li>
-<li>Constraints require design choices</li>
-<li>Beyond the maker approach, namely when effectiveness meets efficiency</li>
-</ul>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQX7_Dw2MVh3U_9_dEZrRo1Qytq7chYrYat4SgwKHPJu3xcs0korl9895zeg0kfLoyCyGznLyqESn5C/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<p>Iteration after iteration the variance decreases (the spread of the blue gaussian), providing a better estimation (in green) despite the noisy measurements (in red) <a href="https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python">source</a></p>
+<p><img alt="" src="../assets/images/evolution.gif" /></p>
 
 
 
