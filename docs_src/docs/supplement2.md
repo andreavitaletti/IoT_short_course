@@ -16,3 +16,5 @@ Iteration after iteration the variance decreases (the spread of the blue gaussia
 
 ![](assets/images/evolution.gif)
 
+A reference library is available [here](https://github.com/denyssene/SimpleKalmanFilter)
+

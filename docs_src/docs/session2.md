@@ -2,7 +2,7 @@
 
 **GOAL:** Small experiment (a single sensor). Prove you can integrate sensors suitable for you monitoring purpose.  Focus on effectiveness, namely doing the right things, i.e., the Maker approach.
 
-## The reference hardware: ESP32-WROOM-32
+## The reference hardware: ESP32-DevKit
 
 ![](assets/images/2023-07-17-12-28-17.png)
 
