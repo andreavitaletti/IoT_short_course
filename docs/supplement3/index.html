@@ -8,20 +8,18 @@
       
       
       
-        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/session2/">
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/supplement3/">
       
       
-        <link rel="prev" href="../session1/">
+        <link rel="prev" href="../supplement2/">
       
-      
-        <link rel="next" href="../session3/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Session 2 - A Short Course on IoT</title>
+        <title>Sup. Mat. Mobile - A Short Course on IoT</title>
       
     
     
@@ -69,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#session-2" class="md-skip">
+        <a href="#interact-with-a-mobile-phone-via-ble" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Session 2
+              Sup. Mat. Mobile
             
           </span>
         </div>
@@ -242,66 +240,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Session 2
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../session2/" class="md-nav__link">
         Session 2
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-reference-hardware-esp32-devkit" class="md-nav__link">
-    The reference hardware: ESP32-DevKit
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lets-start-by-simulating-it" class="md-nav__link">
-    Let's start by simulating it
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#it-is-time-to-work-with-a-real-device" class="md-nav__link">
-    It is time to Work with a real device
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -372,11 +315,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../supplement3/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Sup. Mat. Mobile
       </a>
+      
     </li>
   
 
@@ -401,35 +354,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-reference-hardware-esp32-devkit" class="md-nav__link">
-    The reference hardware: ESP32-DevKit
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lets-start-by-simulating-it" class="md-nav__link">
-    Let's start by simulating it
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#it-is-time-to-work-with-a-real-device" class="md-nav__link">
-    It is time to Work with a real device
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -446,81 +370,155 @@
   
 
 
-<h1 id="session-2">SESSION 2</h1>
-<p><strong>GOAL:</strong> Small experiment (a single sensor). Prove you can integrate sensors suitable for you monitoring purpose.  Focus on effectiveness, namely doing the right things, i.e., the Maker approach.</p>
-<h2 id="the-reference-hardware-esp32-devkit">The reference hardware: ESP32-DevKit</h2>
-<p><img alt="" src="../assets/images/2023-07-17-12-28-17.png" /></p>
-<h2 id="lets-start-by-simulating-it">Let's start by simulating it</h2>
-<p><a href="https://docs.wokwi.com/">Wokwi</a> is an online Electronics simulator. You can use it to simulate Arduino, ESP32, STM32, and many other popular boards, parts and sensors.</p>
-<ul>
-<li>The simplest actuator, namely a <a href="https://wokwi.com/projects/367336864678247425">led</a></li>
-<li>The Simplest sensor, namely a <a href="https://wokwi.com/projects/367336996835545089">button</a></li>
-<li>A bit more interesting sensor, namely a <a href="https://wokwi.com/projects/367338868313181185">potentiometer</a></li>
-<li>A simple example with <a href="https://wokwi.com/projects/367320442567677953">SR04 Ultrasonic Sensor</a>. The width is measured by the function <a href="https://www.arduino.cc/reference/en/language/functions/advanced-io/pulsein/">pulseIn()</a>.</li>
-</ul>
-<p><img alt="" src="../assets/images/2023-07-18-14-16-39.png" /></p>
-<ul>
-<li>It's time to be connected by <a href="https://wokwi.com/projects/367405831605855233">MQTT</a>. The mosto convenient way is to use your mobile an Access Point and configure SSID and password consequently.</li>
-</ul>
-<pre><code>mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;on&quot;
-mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;off&quot;
-</code></pre>
-<pre><code>mosquitto_sub -h test.mosquitto.org -t &quot;wokwi/temperature&quot;
-</code></pre>
-<p>Another possible broker is mqtt://mqtt.eclipseprojects.io</p>
-<ul>
-<li>Build a simple backend with thingsboard <a href="https://demo.thingsboard.io/login">https://demo.thingsboard.io/login</a></li>
-</ul>
-<p><img alt="" src="../assets/images/2023-07-04-16-31-57.png" />
-<img alt="" src="../assets/images/2023-07-04-16-33-07.png" /></p>
-<p><a href="https://thingsboard.io/docs/getting-started-guides/helloworld/?connectdevice=mqtt-linux">https://thingsboard.io/docs/getting-started-guides/helloworld/?connectdevice=mqtt-linux</a></p>
-<pre><code>mosquitto_pub -d -q 1 -h &quot;$THINGSBOARD_HOST_NAME&quot; -p &quot;1883&quot; -t &quot;v1/devices/me/telemetry&quot; -u &quot;$ACCESS_TOKEN&quot; -m {&quot;temperature&quot;:25}
-</code></pre>
-<p><strong>NOTE:</strong> for the sake of convenience, we will use WiFi connectivity, however it should be now clear WiFi is usually not appropriate for IoT applications due to the excessive energy demand. </p>
-<h2 id="it-is-time-to-work-with-a-real-device">It is time to Work with a real device</h2>
-<ul>
-<li>Download the code from Wokwi. It is also available on <a href="https://github.com/andreavitaletti/IoT_short_course/tree/main/src/simulator">https://github.com/andreavitaletti/IoT_short_course/tree/main/src/simulator</a></li>
-<li>The easiest way it to use the <a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino IDE</a> </li>
-<li>Since we are using the ESP32, you have to follow these <a href="https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/">intructions</a></li>
-<li>Select the DOIT ESP32 DEVKIT V1 as in the picture below and upload the code</li>
-</ul>
-<p><img alt="" src="../assets/images/2023-07-18-13-48-40.png" /></p>
-<ul>
-<li>The only novelty is the vibration sensor SW-420 ... but please have a look to the <a href="https://wokwi.com/projects/367320442567677953">SR04 Ultrasonic Sensor</a> and adapt it to make it working with the SW-420. </li>
-</ul>
-<p>This sketch could help</p>
-<pre><code>// Watch video here: https://www.youtube.com/watch?v=235BLk7vk00
-
-/* Vibration sensor connected to Arduino pins as follows:
-
- ESP32 Arduino Vibration Sensor
- https://wolles-elektronikkiste.de/esp32-mit-arduino-code-programmieren
-   D18 --&gt; GPIO18 --&gt; G18        DOut
-   GND                           GND
-   +5V --&gt; 3.3V                  VCC      
-*/
-
-int EP = 18;
-
-void setup(){
-  pinMode(EP, INPUT); //set EP input for measurment
-  Serial.begin(9600); //init serial 9600
+<h1 id="interact-with-a-mobile-phone-via-ble">Interact with a Mobile Phone via BLE</h1>
+<p>We aim at fast prototyping and <a href="https://thunkable.com/">Thunkable</a> is an excellent tool</p>
+<p><img alt="" src="../assets/images/2024-01-04-11-26-18.png" /></p>
+<p>The arduino code, adapted from https://www.instructables.com/ESP32-BLE-Android-App-Arduino-IDE-AWESOME/ is the following</p>
+<p>``
+/*
+    Video: https://www.youtube.com/watch?v=oCMOYS71NIU
+    Based on Neil Kolban example for IDF: https://github.com/nkolban/esp32-snippets/blob/master/cpp_utils/tests/BLE%20Tests/SampleNotify.cpp
+    Ported to Arduino ESP32 by Evandro Copercini</p>
+<p>Create a BLE server that, once we receive a connection, will send periodic notifications.
+   The service advertises itself as: 6E400001-B5A3-F393-E0A9-E50E24DCCA9E
+   Has a characteristic of: 6E400002-B5A3-F393-E0A9-E50E24DCCA9E - used for receiving data with "WRITE" 
+   Has a characteristic of: 6E400003-B5A3-F393-E0A9-E50E24DCCA9E - used to send data with  "NOTIFY"</p>
+<p>The design of creating the BLE server is:
+   1. Create a BLE Server
+   2. Create a BLE Service
+   3. Create a BLE Characteristic on the Service
+   4. Create a BLE Descriptor on the characteristic
+   5. Start the service.
+   6. Start advertising.</p>
+<p>In this example rxValue is the data received (only accessible inside that function).
+   And txValue is the data to be sent, in this example just a byte incremented every second. 
+*/</p>
+<h1 id="include">include <BLEDevice.h></h1>
+<h1 id="include_1">include <BLEServer.h></h1>
+<h1 id="include_2">include <BLEUtils.h></h1>
+<h1 id="include_3">include <BLE2902.h></h1>
+<p>// 78:21:84:9f:24:de</p>
+<p>BLECharacteristic *pCharacteristic;
+bool deviceConnected = false;
+float txValue = 0;
+const int readPin = 32; // Use GPIO number. See ESP32 board pinouts
+//const int LED = 9; // Could be different depending on the dev board. I used the DOIT ESP32 dev board.</p>
+<p>//std::string rxValue; // Could also make this a global var to access it in loop()</p>
+<p>// See the following for generating UUIDs:
+// https://www.uuidgenerator.net/</p>
+<h1 id="define-service_uuid-6e400001-b5a3-f393-e0a9-e50e24dcca9e-uart-service-uuid">define SERVICE_UUID           "6E400001-B5A3-F393-E0A9-E50E24DCCA9E" // UART service UUID</h1>
+<h1 id="define-characteristic_uuid_rx-6e400002-b5a3-f393-e0a9-e50e24dcca9e-qui-ricevi-da-eps32">define CHARACTERISTIC_UUID_RX "6E400002-B5A3-F393-E0A9-E50E24DCCA9E" // Qui ricevi da EPS32</h1>
+<h1 id="define-characteristic_uuid_tx-6e400003-b5a3-f393-e0a9-e50e24dcca9e-qui-invii">define CHARACTERISTIC_UUID_TX "6E400003-B5A3-F393-E0A9-E50E24DCCA9E" // Qui invii</h1>
+<p>class MyServerCallbacks: public BLEServerCallbacks {
+    void onConnect(BLEServer* pServer) {
+      deviceConnected = true;
+    };</p>
+<pre><code>void onDisconnect(BLEServer* pServer) {
+  deviceConnected = false;
 }
-void loop(){
-  long measurement =TP_init();
-  delay(50);
-  Serial.println(measurement);
-}
-
-long TP_init(){
-  delay(10);
-  long measurement=pulseIn (EP, HIGH);  //wait for the pin to get HIGH and returns measurement
-  return measurement;
-}
-
 </code></pre>
-<p>Through pulseIn() we can measure the duration of a vibration event exceeding the threshold, not the frequency of the vibrations themselves. Indeed, the Arduino pulseIn() function waits for a change in the binary input (Low to High in this instance) and returns the duration that the detected pulse was active (time for it to go back High to Low after going High).</p>
-<p>QUESTION: Can we use this function to help in anomaly detection? <a href="https://www.mdpi.com/1424-8220/22/16/6015">see here for inspiration!</a></p>
+<p>};</p>
+<p>class MyCallbacks: public BLECharacteristicCallbacks {
+    void onWrite(BLECharacteristic *pCharacteristic) {
+      std::string rxValue = pCharacteristic-&gt;getValue();</p>
+<pre><code>  char letto[] = "          ";
+
+  if (rxValue.length() &gt; 0) {
+    Serial.println("*********");
+    Serial.print("Received Value: ");
+
+    for (int i = 0; i &lt; rxValue.length(); i++) {
+      Serial.print(rxValue[i]);
+      letto[i]=rxValue[i];
+    }
+
+    Serial.println();
+
+    String a = String(letto);
+
+    Serial.print(a.toFloat());
+
+    // Do stuff based on the command received from the app
+    if (rxValue.find("A") != -1) { 
+      Serial.print("Turning ON!");
+      digitalWrite(LED, HIGH);
+    }
+    else if (rxValue.find("B") != -1) {
+      Serial.print("Turning OFF!");
+      digitalWrite(LED, LOW);
+    }
+
+    Serial.println();
+    Serial.println("*********");
+  }
+}
+</code></pre>
+<p>};</p>
+<p>void setup() {
+  Serial.begin(115200);</p>
+<p>pinMode(LED, OUTPUT);</p>
+<p>// Create the BLE Device
+  BLEDevice::init("ESP32 UART Test"); // Give it a name</p>
+<p>Serial.print("local BLE Address is: ");
+  Serial.println(BLEDevice::getAddress().toString().c_str());</p>
+<p>// Create the BLE Server
+  BLEServer *pServer = BLEDevice::createServer();
+  pServer-&gt;setCallbacks(new MyServerCallbacks());</p>
+<p>// Create the BLE Service
+  BLEService *pService = pServer-&gt;createService(SERVICE_UUID);</p>
+<p>// BleCharacteristic deviceHealthCharacteristic("deviceHealth", BleCharacteristicProperty::READ, deviceHealthUuid, serviceUuid);
+  // see https://community.thunkable.com/t/ble-hrm-reading-bpm/2441754/6</p>
+<p>// Create a BLE Characteristic
+  pCharacteristic = pService-&gt;createCharacteristic(
+                      CHARACTERISTIC_UUID_TX,
+                      //BLECharacteristic::PROPERTY_NOTIFY
+                      BLECharacteristic::PROPERTY_READ
+                    );</p>
+<p>pCharacteristic-&gt;addDescriptor(new BLE2902());</p>
+<p>BLECharacteristic *pCharacteristic = pService-&gt;createCharacteristic(
+                                         CHARACTERISTIC_UUID_RX,
+                                         BLECharacteristic::PROPERTY_WRITE
+                                       );</p>
+<p>pCharacteristic-&gt;setCallbacks(new MyCallbacks());</p>
+<p>// Start the service
+  pService-&gt;start();</p>
+<p>// Start advertising
+  pServer-&gt;getAdvertising()-&gt;start();
+  Serial.println("Waiting a client connection to notify...");
+}</p>
+<p>void loop() {</p>
+<p>if (deviceConnected) {
+    // Fabricate some arbitrary junk for now...
+    txValue = analogRead(readPin) / 3.456; // This could be an actual sensor reading!</p>
+<pre><code>// Let's convert the value to a char array:
+char txString[8]; // make sure this is big enuffz
+dtostrf(txValue, 1, 2, txString); // float_val, min_width, digits_after_decimal, char_buffer
+</code></pre>
+<p>//    pCharacteristic-&gt;setValue(&amp;txValue, 1); // To send the integer value
+    pCharacteristic-&gt;setValue("Hello!"); // Sending a test message
+    //pCharacteristic-&gt;setValue(txString);</p>
+<pre><code>pCharacteristic-&gt;notify(); // Send the value to the app!
+Serial.print("*** Sent Value: ");
+Serial.print(txString);
+Serial.println(" ***");
+
+// You can add the rxValue checks down here instead
+// if you set "rxValue" as a global var at the top!
+// Note you will have to delete "std::string" declaration
+// of "rxValue" in the callback function.
+</code></pre>
+<p>//    if (rxValue.find("A") != -1) { 
+//      Serial.println("Turning ON!");
+//      digitalWrite(LED, HIGH);
+//    }
+//    else if (rxValue.find("B") != -1) {
+//      Serial.println("Turning OFF!");
+//      digitalWrite(LED, LOW);
+//    }
+  }</p>
+<p>delay(1000);
+}</p>
+<p>```</p>
 
 
 

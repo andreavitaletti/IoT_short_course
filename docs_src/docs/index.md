@@ -66,7 +66,7 @@ The lis of material for each group
 * [FREERTOS](https://www.freertos.org/)
 * [IoT-LAB](https://www.iot-lab.info/) 
 * [Thingsboard](https://thingsboard.io/)
-* [A hsort paper on this course](assets/ashotcouresoniot.pdf)
+* [A short paper on this course](assets/ashotcouresoniot.pdf)
 
 # Editions
 
