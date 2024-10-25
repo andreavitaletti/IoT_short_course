@@ -268,6 +268,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mqtt" class="md-nav__link">
+    MQTT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#it-is-time-to-work-with-a-real-device" class="md-nav__link">
     It is time to Work with a real device
   </a>
@@ -428,6 +435,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mqtt" class="md-nav__link">
+    MQTT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#it-is-time-to-work-with-a-real-device" class="md-nav__link">
     It is time to Work with a real device
   </a>
@@ -463,6 +477,20 @@
 </ul>
 <p><img alt="" src="../assets/images/2023-07-18-14-16-39.png" /></p>
 <ul>
+<li>A nice example with the <a href="https://randomnerdtutorials.com/esp32-mpu-6050-accelerometer-gyroscope-arduino/">MPU6050</a> accelerometer and gyroscope. <a href="https://www.ijnrd.org/papers/IJNRD2404282.pdf">Predictive Maintenance of Motors using Machine Learning</a>. <a href="https://doi.org/10.1109/ICOSICA49951.2020.9243180">Ensemble Learning for Predictive Maintenance on Wafer Stick Machine Using IoT Sensor Data</a></li>
+</ul>
+<h2 id="mqtt"><a href="https://dev.to/hivemq_/series/18762">MQTT</a></h2>
+<p>Publish/Subscribe </p>
+<p><img alt="" src="../assets/images/2024-10-25-05-01-31.png" /></p>
+<p>TOPICS:
+1.  myhome/groundfloor/livingroom/temperature
+2.  myhome/groundfloor/bathroom/temperature
+3.  myhome/groundfloor/bathroom/humidity
+4.  myhome/firstfloor/bathroom/temperature
+5.  myhome/groundfloor/+/temperature (1 and 2)
+6.  myhome/groundfloor/# (1,2 and 3)
+7.  myhome/# (1,2,3 and 4)</p>
+<ul>
 <li>It's time to be connected by <a href="https://wokwi.com/projects/367405831605855233">MQTT</a>. The mosto convenient way is to use your mobile an Access Point and configure SSID and password consequently.</li>
 </ul>
 <pre><code>mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;on&quot;
@@ -472,6 +500,7 @@ mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;off&qu
 </code></pre>
 <p>Another possible broker is mqtt://mqtt.eclipseprojects.io</p>
 <ul>
+<li>Build a simple backend with <a href="https://io.adafruit.com/">https://io.adafruit.com/</a></li>
 <li>Build a simple backend with thingsboard <a href="https://demo.thingsboard.io/login">https://demo.thingsboard.io/login</a></li>
 </ul>
 <p><img alt="" src="../assets/images/2023-07-04-16-31-57.png" />
