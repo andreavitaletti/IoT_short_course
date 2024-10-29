@@ -466,9 +466,18 @@
 <h1 id="session-2">SESSION 2</h1>
 <p><strong>GOAL:</strong> Small experiment (a single sensor). Prove you can integrate sensors suitable for you monitoring purpose.  Focus on effectiveness, namely doing the right things, i.e., the Maker approach.</p>
 <h2 id="the-reference-hardware-esp32-devkit">The reference hardware: ESP32-DevKit</h2>
-<p><img alt="" src="../assets/images/2023-07-17-12-28-17.png" /></p>
+<p><img alt="" src="../assets/images/esp32_dev_kit_pinout_v1_mischianti.jpg" /></p>
 <h2 id="lets-start-by-simulating-it">Let's start by simulating it</h2>
 <p><a href="https://docs.wokwi.com/">Wokwi</a> is an online Electronics simulator. You can use it to simulate Arduino, ESP32, STM32, and many other popular boards, parts and sensors.</p>
+<p>Open a new project and select ESP32 as the platform and the Arduino template. </p>
+<p>If you now open the diagram.json tab you have something like the following in the parts entry</p>
+<pre><code>&quot;parts&quot;: [ { &quot;type&quot;: &quot;board-esp32-devkit-c-v4&quot;, &quot;id&quot;: &quot;esp&quot;, ...} ],
+</code></pre>
+<p>This implies that the pinout is the one in the <a href="https://mischianti.org/esp32-devkitc-v4-high-resolution-pinout-and-specs/">devkit v4</a>. 
+To get the same pinout as the one in the picture above you need a V1 devkit, so you have to modify 
+the entry as in the following</p>
+<pre><code>&quot;parts&quot;: [ { &quot;type&quot;: &quot;board-esp32-devkit-v1&quot;, &quot;id&quot;: &quot;esp&quot;, ...} ],
+</code></pre>
 <ul>
 <li>The simplest actuator, namely a <a href="https://wokwi.com/projects/367336864678247425">led</a></li>
 <li>The Simplest sensor, namely a <a href="https://wokwi.com/projects/367336996835545089">button</a></li>
