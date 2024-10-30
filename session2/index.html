@@ -551,17 +551,21 @@ To get the same pinout as the one in the picture above you need a V1 devkit, so 
 <h2 id="mqtt"><a href="https://dev.to/hivemq_/series/18762">MQTT</a></h2>
 <p>Publish/Subscribe </p>
 <p><img alt="" src="../assets/images/2024-10-25-05-01-31.png" /></p>
-<p>TOPICS:
-1.  myhome/groundfloor/livingroom/temperature
-2.  myhome/groundfloor/bathroom/temperature
-3.  myhome/groundfloor/bathroom/humidity
-4.  myhome/firstfloor/bathroom/temperature
-5.  myhome/groundfloor/+/temperature (1 and 2)
-6.  myhome/groundfloor/# (1,2 and 3)
-7.  myhome/# (1,2,3 and 4)</p>
-<ul>
-<li>It's time to be connected by <a href="https://wokwi.com/projects/367405831605855233">MQTT</a>. The most convenient way is to use your mobile an Access Point and configure SSID and password consequently.</li>
-</ul>
+<p>TOPICS:</p>
+<ol>
+<li>myhome/groundfloor/livingroom/temperature</li>
+<li>myhome/groundfloor/bathroom/temperature</li>
+<li>myhome/groundfloor/bathroom/humidity</li>
+<li>myhome/firstfloor/bathroom/temperature</li>
+<li>myhome/groundfloor/+/temperature (1 and 2)</li>
+<li>myhome/groundfloor/# (1,2 and 3)</li>
+<li>
+<p>myhome/# (1,2,3 and 4)</p>
+</li>
+<li>
+<p>It's time to be connected by <a href="https://wokwi.com/projects/367405831605855233">MQTT</a>. The most convenient way is to use your mobile an Access Point and configure SSID and password consequently.</p>
+</li>
+</ol>
 <pre><code>mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;on&quot;
 mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;off&quot;
 </code></pre>
