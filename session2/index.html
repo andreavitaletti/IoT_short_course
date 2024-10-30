@@ -268,9 +268,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-simple-scenario" class="md-nav__link">
+    A simple scenario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mqtt" class="md-nav__link">
     MQTT
   </a>
+  
+    <nav class="md-nav" aria-label="MQTT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-a-simple-backend-with-httpsioadafruitcom" class="md-nav__link">
+    Build a simple backend with https://io.adafruit.com/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-a-simple-backend-with-thingsboard-httpsdemothingsboardiologin" class="md-nav__link">
+    Build a simple backend with thingsboard https://demo.thingsboard.io/login
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -435,9 +462,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-simple-scenario" class="md-nav__link">
+    A simple scenario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mqtt" class="md-nav__link">
     MQTT
   </a>
+  
+    <nav class="md-nav" aria-label="MQTT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-a-simple-backend-with-httpsioadafruitcom" class="md-nav__link">
+    Build a simple backend with https://io.adafruit.com/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-a-simple-backend-with-thingsboard-httpsdemothingsboardiologin" class="md-nav__link">
+    Build a simple backend with thingsboard https://demo.thingsboard.io/login
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -486,8 +540,15 @@ the entry as in the following</p>
 </ul>
 <p><img alt="" src="../assets/images/2023-07-18-14-16-39.png" /></p>
 <ul>
-<li>A nice example with the <a href="https://randomnerdtutorials.com/esp32-mpu-6050-accelerometer-gyroscope-arduino/">MPU6050</a> accelerometer and gyroscope. <a href="https://www.ijnrd.org/papers/IJNRD2404282.pdf">Predictive Maintenance of Motors using Machine Learning</a>. <a href="https://doi.org/10.1109/ICOSICA49951.2020.9243180">Ensemble Learning for Predictive Maintenance on Wafer Stick Machine Using IoT Sensor Data</a></li>
+<li>A nice example with the <a href="https://randomnerdtutorials.com/esp32-mpu-6050-accelerometer-gyroscope-arduino/">MPU6050</a> accelerometer and gyroscope. <a href="https://www.ijnrd.org/papers/IJNRD2404282.pdf">Predictive Maintenance of Motors using Machine Learning</a>. <a href="https://doi.org/10.1109/ICOSICA4https://www.ijnrd.org/papers/IJNRD2404282.pdf9951.2020.9243180">Ensemble Learning for Predictive Maintenance on Wafer Stick Machine Using IoT Sensor Data</a></li>
 </ul>
+<h2 id="a-simple-scenario">A simple scenario</h2>
+<p>You want to transform a door into a <strong>smart door</strong>.</p>
+<ol>
+<li>A sensor will tell tou when the door is open or closed &rarr; button</li>
+<li>A visual indicator will clearly show whether the door is open or closed &rarr; led</li>
+<li>Instead of a simple binary condition open/close you asl want to know to what extent the door is open &rarr; potentiometer</li>
+</ol>
 <h2 id="mqtt"><a href="https://dev.to/hivemq_/series/18762">MQTT</a></h2>
 <p>Publish/Subscribe </p>
 <p><img alt="" src="../assets/images/2024-10-25-05-01-31.png" /></p>
@@ -508,10 +569,24 @@ mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;off&qu
 <pre><code>mosquitto_sub -h test.mosquitto.org -t &quot;wokwi/temperature&quot;
 </code></pre>
 <p>Another possible broker is mqtt://mqtt.eclipseprojects.io</p>
+<h3 id="build-a-simple-backend-with-httpsioadafruitcom">Build a simple backend with <a href="https://io.adafruit.com/">https://io.adafruit.com/</a></h3>
 <ul>
-<li>Build a simple backend with <a href="https://io.adafruit.com/">https://io.adafruit.com/</a></li>
-<li>Build a simple backend with thingsboard <a href="https://demo.thingsboard.io/login">https://demo.thingsboard.io/login</a></li>
+<li>Create an account on io.adafruit.com, in my case the username is avitaletti.</li>
+<li>Click on the yellow key to get yor credentials to publish data</li>
 </ul>
+<pre><code>#define IO_USERNAME  &quot;avitaletti&quot;
+#define IO_KEY       &quot;xxxxxxxxxxxxxxxxxxxx&quot;
+</code></pre>
+<ul>
+<li>Creade a feed named for example test_feed</li>
+</ul>
+<p>The following code will publish the message 14 on the topic avitaletti/feeds/test_feed that correnspond to the test_feed</p>
+<pre><code>mosquitto_pub -h io.adafruit.com -u avitaletti -P xxxxxxxxxxxxxxxxxxxx -m 14 -t avitaletti/feeds/test_feed
+</code></pre>
+<ul>
+<li>Enjoy yourself experimenting with the dashboard </li>
+</ul>
+<h3 id="build-a-simple-backend-with-thingsboard-httpsdemothingsboardiologin">Build a simple backend with thingsboard <a href="https://demo.thingsboard.io/login">https://demo.thingsboard.io/login</a></h3>
 <p><img alt="" src="../assets/images/2023-07-04-16-31-57.png" />
 <img alt="" src="../assets/images/2023-07-04-16-33-07.png" /></p>
 <p><a href="https://thingsboard.io/docs/getting-started-guides/helloworld/?connectdevice=mqtt-linux">https://thingsboard.io/docs/getting-started-guides/helloworld/?connectdevice=mqtt-linux</a></p>
