@@ -545,6 +545,12 @@
 To get the same pinout as the one in the picture above you need a V1 devkit, so you have to modify the entry as in the following</p>
 <pre><code>&quot;parts&quot;: [ { &quot;type&quot;: &quot;board-esp32-devkit-v1&quot;, &quot;id&quot;: &quot;esp&quot;, ...} ],
 </code></pre>
+<p>To make running the serial interface be sure that under connection you have th following settings</p>
+<pre><code>&quot;connections&quot;: [
+    [ &quot;esp:TX0&quot;, &quot;$serialMonitor:RX&quot;, &quot;&quot;, [] ],
+    [ &quot;esp:RX0&quot;, &quot;$serialMonitor:TX&quot;, &quot;&quot;, [] ],
+    .....
+</code></pre>
 <ul>
 <li>The simplest actuator, namely a <a href="https://wokwi.com/projects/367336864678247425">led</a></li>
 </ul>
