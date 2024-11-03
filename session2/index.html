@@ -539,18 +539,18 @@
 <p><a href="https://docs.wokwi.com/">Wokwi</a> is an online Electronics simulator. You can use it to simulate Arduino, ESP32, STM32, and many other popular boards, parts and sensors.</p>
 <p>Open a new project and select ESP32 as the platform and the Arduino template. </p>
 <p>If you now open the diagram.json tab you have something like the following in the parts entry</p>
-<pre><code>&quot;parts&quot;: [ { &quot;type&quot;: &quot;board-esp32-devkit-c-v4&quot;, &quot;id&quot;: &quot;esp&quot;, ...} ],
-</code></pre>
+<div class="highlight"><pre><span></span><code>&quot;parts&quot;: [ { &quot;type&quot;: &quot;board-esp32-devkit-c-v4&quot;, &quot;id&quot;: &quot;esp&quot;, ...} ],
+</code></pre></div>
 <p>This implies that the pinout is the one in the <a href="https://mischianti.org/esp32-devkitc-v4-high-resolution-pinout-and-specs/">devkit v4</a>. 
 To get the same pinout as the one in the picture above you need a V1 devkit, so you have to modify the entry as in the following</p>
-<pre><code>&quot;parts&quot;: [ { &quot;type&quot;: &quot;board-esp32-devkit-v1&quot;, &quot;id&quot;: &quot;esp&quot;, ...} ],
-</code></pre>
+<div class="highlight"><pre><span></span><code>&quot;parts&quot;: [ { &quot;type&quot;: &quot;board-esp32-devkit-v1&quot;, &quot;id&quot;: &quot;esp&quot;, ...} ],
+</code></pre></div>
 <p>To make running the serial interface be sure that under connection you have th following settings</p>
-<pre><code>&quot;connections&quot;: [
+<div class="highlight"><pre><span></span><code>&quot;connections&quot;: [
     [ &quot;esp:TX0&quot;, &quot;$serialMonitor:RX&quot;, &quot;&quot;, [] ],
     [ &quot;esp:RX0&quot;, &quot;$serialMonitor:TX&quot;, &quot;&quot;, [] ],
     .....
-</code></pre>
+</code></pre></div>
 <ul>
 <li>The simplest actuator, namely a <a href="https://wokwi.com/projects/367336864678247425">led</a></li>
 </ul>
@@ -591,29 +591,33 @@ To get the same pinout as the one in the picture above you need a V1 devkit, so 
 </li>
 </ol>
 <p>Note that the topics names are assigned to be consistent with the adafruit dashboard (see example below), but you are free to use any name you like.</p>
-<pre><code>mosquitto_pub -h test.mosquitto.org -t &quot;avitaletti/feeds/threshold&quot; -m 2345
-</code></pre>
-<pre><code>mosquitto_sub -h test.mosquitto.org -t &quot;avitaletti/feeds/potentiometer&quot;
-</code></pre>
-<p>Another possible broker is mqtt://mqtt.eclipseprojects.io</p>
+<div class="highlight"><pre><span></span><code>mosquitto_pub -h test.mosquitto.org -t &quot;avitaletti/feeds/threshold&quot; -m 2345
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mosquitto_sub -h test.mosquitto.org -t &quot;avitaletti/feeds/potentiometer&quot;
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul>
+<li>A multi platform easy to use alternative is https://mqtt-explorer.com/</li>
+<li>Another possible broker is mqtt://mqtt.eclipseprojects.io</li>
+</ul>
+</div>
 <h3 id="build-a-simple-backend-with-httpsioadafruitcom">Build a simple backend with <a href="https://io.adafruit.com/">https://io.adafruit.com/</a></h3>
 <ul>
 <li>Create an account on io.adafruit.com, in my case the username is avitaletti.</li>
 <li>Click on the yellow key to get yor credentials to publish data</li>
 </ul>
-<pre><code>#define IO_USERNAME  &quot;avitaletti&quot;
+<p><div class="highlight"><pre><span></span><code>#define IO_USERNAME  &quot;avitaletti&quot;
 #define IO_KEY       &quot;xxxxxxxxxxxxxxxxxxxx&quot;
-</code></pre>
-<ul>
-<li>Create two feeds named threshold and potentiometer with the corresponding topics avitaletti/feeds/threshold  and avitaletti/feeds/potentiometer</li>
-</ul>
+</code></pre></div>
+* Create two feeds named threshold and potentiometer with the corresponding topics avitaletti/feeds/threshold  and avitaletti/feeds/potentiometer</p>
 <p><img alt="" src="../assets/images/feeds.png" /></p>
 <p>The following code will publish the message 33 on the topic avitaletti/feeds/potentiometer and it is used by the IoT device to send the data acquired by the ADC</p>
-<pre><code>mosquitto_pub -h io.adafruit.com -u avitaletti -P xxxxxxxxxxxxxxxxxxxx -t avitaletti/feeds/potentiometer -m 33
-</code></pre>
+<div class="highlight"><pre><span></span><code>mosquitto_pub -h io.adafruit.com -u avitaletti -P xxxxxxxxxxxxxxxxxxxx -t avitaletti/feeds/potentiometer -m 33
+</code></pre></div>
 <p>The node can subscribe to avitaletti/feeds/threshold  to get the commands from the backend</p>
-<pre><code>mosquitto_sub -h io.adafruit.com -u avitaletti -P xxxxxxxxxxxxxxxxxxxx -t avitaletti/feeds/threshold
-</code></pre>
+<div class="highlight"><pre><span></span><code>mosquitto_sub -h io.adafruit.com -u avitaletti -P xxxxxxxxxxxxxxxxxxxx -t avitaletti/feeds/threshold
+</code></pre></div>
 <ul>
 <li>The dashboard link the components to the feeds and corresponding topics</li>
 </ul>
@@ -623,8 +627,8 @@ To get the same pinout as the one in the picture above you need a V1 devkit, so 
 <p><img alt="" src="../assets/images/2023-07-04-16-31-57.png" />
 <img alt="" src="../assets/images/2023-07-04-16-33-07.png" /></p>
 <p><a href="https://thingsboard.io/docs/getting-started-guides/helloworld/?connectdevice=mqtt-linux">https://thingsboard.io/docs/getting-started-guides/helloworld/?connectdevice=mqtt-linux</a></p>
-<pre><code>mosquitto_pub -d -q 1 -h &quot;$THINGSBOARD_HOST_NAME&quot; -p &quot;1883&quot; -t &quot;v1/devices/me/telemetry&quot; -u &quot;$ACCESS_TOKEN&quot; -m {&quot;temperature&quot;:25}
-</code></pre>
+<div class="highlight"><pre><span></span><code>mosquitto_pub -d -q 1 -h &quot;$THINGSBOARD_HOST_NAME&quot; -p &quot;1883&quot; -t &quot;v1/devices/me/telemetry&quot; -u &quot;$ACCESS_TOKEN&quot; -m {&quot;temperature&quot;:25}
+</code></pre></div>
 <p><strong>NOTE:</strong> for the sake of convenience, we will use WiFi connectivity, however it should be now clear WiFi is usually not appropriate for IoT applications due to the excessive energy demand. </p>
 <h2 id="it-is-time-to-work-with-a-real-device">It is time to Work with a real device</h2>
 <ul>
@@ -638,7 +642,7 @@ To get the same pinout as the one in the picture above you need a V1 devkit, so 
 <li>The only novelty is the vibration sensor SW-420 ... but please have a look to the <a href="https://wokwi.com/projects/367320442567677953">SR04 Ultrasonic Sensor</a> and adapt it to make it working with the SW-420. </li>
 </ul>
 <p>This sketch could help</p>
-<pre><code>// Watch video here: https://www.youtube.com/watch?v=235BLk7vk00
+<div class="highlight"><pre><span></span><code>// Watch video here: https://www.youtube.com/watch?v=235BLk7vk00
 
 /* Vibration sensor connected to Arduino pins as follows:
 
@@ -666,8 +670,7 @@ long TP_init(){
   long measurement=pulseIn (EP, HIGH);  //wait for the pin to get HIGH and returns measurement
   return measurement;
 }
-
-</code></pre>
+</code></pre></div>
 <p>Through pulseIn() we can measure the duration of a vibration event exceeding the threshold, not the frequency of the vibrations themselves. Indeed, the Arduino pulseIn() function waits for a change in the binary input (Low to High in this instance) and returns the duration that the detected pulse was active (time for it to go back High to Low after going High).</p>
 <p>QUESTION: Can we use this function to help in anomaly detection? <a href="https://www.mdpi.com/1424-8220/22/16/6015">see here for inspiration!</a></p>
 <p><img alt="" src="../assets/images/com.gif" /></p>
