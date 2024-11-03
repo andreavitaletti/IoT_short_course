@@ -590,10 +590,10 @@ To get the same pinout as the one in the picture above you need a V1 devkit, so 
 <p>It's time to be connected by <a href="https://wokwi.com/projects/367405831605855233">MQTT</a>. The most convenient way is to use your mobile an Access Point and configure SSID and password consequently.</p>
 </li>
 </ol>
-<pre><code>mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;on&quot;
-mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;off&quot;
+<p>Note that the topics names are assigned to be consistent with the adafruit dashboard (see example below), but you are free to use any name you like.</p>
+<pre><code>mosquitto_pub -h test.mosquitto.org -t &quot;avitaletti/feeds/threshold&quot; -m 2345
 </code></pre>
-<pre><code>mosquitto_sub -h test.mosquitto.org -t &quot;wokwi/temperature&quot;
+<pre><code>mosquitto_sub -h test.mosquitto.org -t &quot;avitaletti/feeds/potentiometer&quot;
 </code></pre>
 <p>Another possible broker is mqtt://mqtt.eclipseprojects.io</p>
 <h3 id="build-a-simple-backend-with-httpsioadafruitcom">Build a simple backend with <a href="https://io.adafruit.com/">https://io.adafruit.com/</a></h3>
@@ -605,14 +605,20 @@ mosquitto_pub -h test.mosquitto.org -t &quot;topicName/led&quot; -m &quot;off&qu
 #define IO_KEY       &quot;xxxxxxxxxxxxxxxxxxxx&quot;
 </code></pre>
 <ul>
-<li>Create a feed named for example test_feed</li>
+<li>Create two feeds named threshold and potentiometer with the corresponding topics avitaletti/feeds/threshold  and avitaletti/feeds/potentiometer</li>
 </ul>
-<p>The following code will publish the message 14 on the topic avitaletti/feeds/test_feed that corresponds to the test_feed</p>
-<pre><code>mosquitto_pub -h io.adafruit.com -u avitaletti -P xxxxxxxxxxxxxxxxxxxx -m 14 -t avitaletti/feeds/test_feed
+<p><img alt="" src="../assets/images/feeds.png" /></p>
+<p>The following code will publish the message 33 on the topic avitaletti/feeds/potentiometer and it is used by the IoT device to send the data acquired by the ADC</p>
+<pre><code>mosquitto_pub -h io.adafruit.com -u avitaletti -P xxxxxxxxxxxxxxxxxxxx -t avitaletti/feeds/potentiometer -m 33
+</code></pre>
+<p>The node can subscribe to avitaletti/feeds/threshold  to get the commands from the backend</p>
+<pre><code>mosquitto_sub -h io.adafruit.com -u avitaletti -P xxxxxxxxxxxxxxxxxxxx -t avitaletti/feeds/threshold
 </code></pre>
 <ul>
-<li>Enjoy yourself experimenting with the dashboard </li>
+<li>The dashboard link the components to the feeds and corresponding topics</li>
 </ul>
+<p><img alt="" src="../assets/images/dashboard.png" /></p>
+<p>In other words when the device publishes on the avitaletti/feeds/potentiometer topic a new entry is created in the line chart, while when you move the slider the corresponding value is published on avitaletti/feeds/threshold</p>
 <h3 id="build-a-simple-backend-with-thingsboard-httpsdemothingsboardiologin">Build a simple backend with thingsboard <a href="https://demo.thingsboard.io/login">https://demo.thingsboard.io/login</a></h3>
 <p><img alt="" src="../assets/images/2023-07-04-16-31-57.png" />
 <img alt="" src="../assets/images/2023-07-04-16-33-07.png" /></p>
