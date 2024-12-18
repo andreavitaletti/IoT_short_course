@@ -1,53 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/</loc>
-         <lastmod>2024-11-03</lastmod>
+         <loc>https://andreavitaletti.github.io/pilde/</loc>
+         <lastmod>2024-12-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/iot-lab/</loc>
-         <lastmod>2024-11-03</lastmod>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2006/</loc>
+         <lastmod>2024-12-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/session1/</loc>
-         <lastmod>2024-11-03</lastmod>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2007/</loc>
+         <lastmod>2024-12-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/session2/</loc>
-         <lastmod>2024-11-03</lastmod>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2008/</loc>
+         <lastmod>2024-12-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/session3/</loc>
-         <lastmod>2024-11-03</lastmod>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2009/</loc>
+         <lastmod>2024-12-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/session4/</loc>
-         <lastmod>2024-11-03</lastmod>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2010/</loc>
+         <lastmod>2024-12-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/supplement1/</loc>
-         <lastmod>2024-11-03</lastmod>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2011/</loc>
+         <lastmod>2024-12-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/supplement2/</loc>
-         <lastmod>2024-11-03</lastmod>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2012/</loc>
+         <lastmod>2024-12-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/supplement3/</loc>
-         <lastmod>2024-11-03</lastmod>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2013/</loc>
+         <lastmod>2024-12-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/supplement4/</loc>
-         <lastmod>2024-11-03</lastmod>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2014/</loc>
+         <lastmod>2024-12-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2015/</loc>
+         <lastmod>2024-12-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2016/</loc>
+         <lastmod>2024-12-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2017/</loc>
+         <lastmod>2024-12-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2018/</loc>
+         <lastmod>2024-12-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2019/</loc>
+         <lastmod>2024-12-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2020/</loc>
+         <lastmod>2024-12-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/pilde/blog_2021/</loc>
+         <lastmod>2024-12-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
