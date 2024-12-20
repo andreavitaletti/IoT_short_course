@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/supplement4/">
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/security/">
       
       
-        <link rel="prev" href="../supplement3/">
+        <link rel="prev" href="../Scale/">
       
       
-        <link rel="next" href="../iot-lab/">
+        <link rel="next" href="../Iot_web3/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Wokwi to real - A Short Course on IoT</title>
+        <title>Security - A Short Course on IoT</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#from-wokwi-to-a-real-device" class="md-skip">
+        <a href="#security" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Wokwi to real
+              Security
             
           </span>
         </div>
@@ -205,8 +205,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session1/" class="md-nav__link">
-        Session 1
+      <a href="../Intro/" class="md-nav__link">
+        Intro
       </a>
     </li>
   
@@ -220,8 +220,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session2/" class="md-nav__link">
-        Session 2
+      <a href="../Simulation/" class="md-nav__link">
+        Simulate a node
       </a>
     </li>
   
@@ -235,8 +235,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session3/" class="md-nav__link">
-        Session 3
+      <a href="../Real/" class="md-nav__link">
+        A real node
       </a>
     </li>
   
@@ -250,8 +250,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session4/" class="md-nav__link">
-        Session 4
+      <a href="../Power_Consumption/" class="md-nav__link">
+        Energy matters
       </a>
     </li>
   
@@ -265,8 +265,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../supplement1/" class="md-nav__link">
-        Sup. Mat. ML on node
+      <a href="../Efficiency/" class="md-nav__link">
+        An OS is better
       </a>
     </li>
   
@@ -280,23 +280,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../supplement2/" class="md-nav__link">
-        Sup. Mat. Kalman Filters
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../supplement3/" class="md-nav__link">
-        Sup. Mat. Mobile
+      <a href="../Scale/" class="md-nav__link">
+        Scale-up
       </a>
     </li>
   
@@ -319,40 +304,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Wokwi to real
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Wokwi to real
+        Security
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#partition-table" class="md-nav__link">
-    Partition Table
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -366,8 +320,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../iot-lab/" class="md-nav__link">
-        IoT-LAB
+      <a href="../Iot_web3/" class="md-nav__link">
+        IoT and Web3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ML_on_nodes/" class="md-nav__link">
+        ML on node
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kalman/" class="md-nav__link">
+        Kalman Filters
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crowdsourcing/" class="md-nav__link">
+        Crowdsourcing
       </a>
     </li>
   
@@ -393,21 +392,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#partition-table" class="md-nav__link">
-    Partition Table
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -421,81 +405,11 @@
                   
 
 
-<h1 id="from-wokwi-to-a-real-device">From <a href="https://wokwi.com/">Wokwi</a> to a real device</h1>
-<ol>
-<li>Compile the code and on the code editor press F1 to download the firmware. It is a .bin file, let's name it sketch.bin file </li>
-<li>
-<p><code>esptool.py --chip esp32 --port "/dev/ttyUSB0" --baud 921600  --before default_reset --after hard_reset write_flash  -z --flash_mode keep --flash_freq keep --flash_size keep 0x1000 "bootloader.bin" 0x8000 "partitions.bin" 0xe000 "boot_app0.bin" 0x10000 "sketch.bin"</code>
-Once partitions and bootloader are uploaded, you can simply upload the sketch. To upload for the first time the partitions and the bootloader you can simply used arduino IDE </p>
-</li>
-<li>
-<p><code>esptool.py --chip esp32 --port "/dev/ttyUSB0" --baud 921600  --before default_reset --after hard_reset write_flash  -z --flash_mode keep --flash_freq keep --flash_size keep 0x10000 ./sketch.bin</code></p>
-</li>
-</ol>
-<p>In principle you can even use a <a href="https://learn.adafruit.com/adafruit-metro-esp32-s2/web-serial-esptool">Web tool</a></p>
-<h2 id="partition-table"><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/partition-tables.html">Partition Table</a></h2>
-<table>
-<thead>
-<tr>
-<th># Name</th>
-<th>Type</th>
-<th>SubType</th>
-<th>Offset</th>
-<th>Size</th>
-<th>Flags</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>nvs</td>
-<td>data</td>
-<td>nvs</td>
-<td>0x9000</td>
-<td>0x5000</td>
-<td></td>
-</tr>
-<tr>
-<td>otadata</td>
-<td>data</td>
-<td>ota</td>
-<td>0xe000</td>
-<td>0x2000</td>
-<td></td>
-</tr>
-<tr>
-<td>app0</td>
-<td>app</td>
-<td>ota_0</td>
-<td><strong>0x10000</strong></td>
-<td>0x140000</td>
-<td></td>
-</tr>
-<tr>
-<td>app1</td>
-<td>app</td>
-<td>ota_1</td>
-<td>0x150000</td>
-<td>0x140000</td>
-<td></td>
-</tr>
-<tr>
-<td>spiffs</td>
-<td>data</td>
-<td>spiffs</td>
-<td>0x290000</td>
-<td>0x160000</td>
-<td></td>
-</tr>
-<tr>
-<td>coredump</td>
-<td>data</td>
-<td>coredump</td>
-<td>0x3F0000</td>
-<td>0x10000</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<h1 id="security">Security</h1>
+<div class="admonition disclaimer">
+<p class="admonition-title">Disclaimer</p>
+<p>this is not a course on security</p>
+</div>
 
 
 

@@ -8,16 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/Power%20Consumption/">
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/ML_on_nodes/">
       
       
+        <link rel="prev" href="../Iot_web3/">
+      
+      
+        <link rel="next" href="../kalman/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Power Consumption - A Short Course on IoT</title>
+        <title>ML on node - A Short Course on IoT</title>
       
     
     
@@ -65,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#power-consumption" class="md-skip">
+        <a href="#tensorflow-lite-micro-on-esp32" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Power Consumption
+              ML on node
             
           </span>
         </div>
@@ -201,8 +205,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session1/" class="md-nav__link">
-        Session 1
+      <a href="../Intro/" class="md-nav__link">
+        Intro
       </a>
     </li>
   
@@ -216,8 +220,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session2/" class="md-nav__link">
-        Session 2
+      <a href="../Simulation/" class="md-nav__link">
+        Simulate a node
       </a>
     </li>
   
@@ -231,8 +235,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session3/" class="md-nav__link">
-        Session 3
+      <a href="../Real/" class="md-nav__link">
+        A real node
       </a>
     </li>
   
@@ -246,8 +250,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session4/" class="md-nav__link">
-        Session 4
+      <a href="../Power_Consumption/" class="md-nav__link">
+        Energy matters
       </a>
     </li>
   
@@ -261,8 +265,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../supplement1/" class="md-nav__link">
-        Sup. Mat. ML on node
+      <a href="../Efficiency/" class="md-nav__link">
+        An OS is better
       </a>
     </li>
   
@@ -276,8 +280,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../supplement2/" class="md-nav__link">
-        Sup. Mat. Kalman Filters
+      <a href="../Scale/" class="md-nav__link">
+        Scale-up
       </a>
     </li>
   
@@ -291,8 +295,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../supplement3/" class="md-nav__link">
-        Sup. Mat. Mobile
+      <a href="../security/" class="md-nav__link">
+        Security
       </a>
     </li>
   
@@ -306,8 +310,48 @@
   
   
     <li class="md-nav__item">
-      <a href="../supplement4/" class="md-nav__link">
-        Wokwi to real
+      <a href="../Iot_web3/" class="md-nav__link">
+        IoT and Web3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ML on node
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kalman/" class="md-nav__link">
+        Kalman Filters
       </a>
     </li>
   
@@ -321,8 +365,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../iot-lab/" class="md-nav__link">
-        IoT-LAB
+      <a href="../crowdsourcing/" class="md-nav__link">
+        Crowdsourcing
       </a>
     </li>
   
@@ -361,76 +405,15 @@
                   
 
 
-<h1 id="power-consumption">Power Consumption</h1>
+<h1 id="tensorflow-lite-micro-on-esp32">Tensorflow Lite Micro on ESP32</h1>
+<p>Reference examples are available <a href="https://github.com/espressif/tflite-micro-esp-examples">here</a>. You have to download from github <a href="https://github.com/espressif/esp-nn">esp-nn</a> and <a href="https://github.com/espressif/esp32-camera">esp32-camera</a> and place them into the relative folders under components.</p>
+<p>Then go to examples/hello_worlds and as usual idf.py build, idf.py flash and finally idf.py monitor.</p>
+<p>A nice explanation on how the model is generated can be found on the book <a href="https://www.oreilly.com/library/view/tinyml/9781492052036/ch04.html">TinyML by Pete Warden, Daniel Situnayake</a>. The corresponding jupyter notebook is available <a href="https://colab.research.google.com/github/goodboychan/goodboychan.github.io/blob/main/_notebooks/2020-09-24-01-Training-Hello-world-Model-for-Microcontroller.ipynb">here</a></p>
+<p>Some other useful resources are listed below:</p>
 <ul>
-<li>Connect board VIN (red wire) to Arduino 5V if you are running a 5V board Arduino (Mega, etc.). If your board is 3V, connect to that instead.</li>
-<li>Connect board GND (black wire) to Arduino GND</li>
-<li>Connect board SCL (white wire) to Arduino SCL</li>
-<li>Connect board SDA (blue wire) to Arduino SDA</li>
-<li>Connect Vin+ to the positive terminal of the power supply for the circuit under test</li>
-<li>Connect Vin- to the positive terminal or lead of the load</li>
+<li><a href="https://medium.com/@dmytro.korablyov/first-steps-with-esp32-and-tensorflow-lite-for-microcontrollers-c2d8e238accf">First steps with ESP32 and TensorFlow Lite for Microcontrollers</a></li>
+<li><a href="https://www.tensorflow.org/lite/microcontrollers/get_started_low_level">Get started with microcontrollers</a></li>
 </ul>
-<p><img alt="" src="../assets/images/2024-11-28-11-17-03.png" /></p>
-<p><a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring" title="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">source</a></p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_INA219.h&gt;</span>
-
-<span class="n">Adafruit_INA219</span><span class="w"> </span><span class="n">ina219</span><span class="p">;</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span>
-<span class="p">{</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Serial</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="c1">// will pause Zero, Leonardo, etc until serial console opens</span>
-<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">currentFrequency</span><span class="p">;</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hello!&quot;</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Initialize the INA219.</span>
-<span class="w">  </span><span class="c1">// By default the initialization will use the largest range (32V, 2A).  However</span>
-<span class="w">  </span><span class="c1">// you can call a setCalibration function to change this range (see comments).</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="w"> </span><span class="n">ina219</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Failed to find INA219 chip&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="c1">// To use a slightly lower 32V, 1A range (higher precision on amps):</span>
-<span class="w">  </span><span class="c1">//ina219.setCalibration_32V_1A();</span>
-<span class="w">  </span><span class="c1">// Or to use a lower 16V, 400mA range (higher precision on volts and amps):</span>
-<span class="w">  </span><span class="c1">//ina219.setCalibration_16V_400mA();</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Measuring voltage and current with INA219 ...&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span>
-<span class="p">{</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">shuntvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">busvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">current_mA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">loadvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">power_mW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-
-<span class="w">  </span><span class="n">shuntvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ina219</span><span class="p">.</span><span class="n">getShuntVoltage_mV</span><span class="p">();</span>
-<span class="w">  </span><span class="n">busvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ina219</span><span class="p">.</span><span class="n">getBusVoltage_V</span><span class="p">();</span>
-<span class="w">  </span><span class="n">current_mA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ina219</span><span class="p">.</span><span class="n">getCurrent_mA</span><span class="p">();</span>
-<span class="w">  </span><span class="n">power_mW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ina219</span><span class="p">.</span><span class="n">getPower_mW</span><span class="p">();</span>
-<span class="w">  </span><span class="n">loadvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">busvoltage</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">shuntvoltage</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
-
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">busvoltage</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">shuntvoltage</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">loadvoltage</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">current_mA</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">power_mW</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
-
-<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><img alt="" src="assets/images/duty.png" /></p>
 
 
 

@@ -8,20 +8,18 @@
       
       
       
-        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/supplement3/">
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/crowdsourcing/">
       
       
-        <link rel="prev" href="../supplement2/">
+        <link rel="prev" href="../kalman/">
       
-      
-        <link rel="next" href="../supplement4/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Sup. Mat. Mobile - A Short Course on IoT</title>
+        <title>Crowdsourcing - A Short Course on IoT</title>
       
     
     
@@ -103,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sup. Mat. Mobile
+              Crowdsourcing
             
           </span>
         </div>
@@ -205,8 +203,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session1/" class="md-nav__link">
-        Session 1
+      <a href="../Intro/" class="md-nav__link">
+        Intro
       </a>
     </li>
   
@@ -220,8 +218,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session2/" class="md-nav__link">
-        Session 2
+      <a href="../Simulation/" class="md-nav__link">
+        Simulate a node
       </a>
     </li>
   
@@ -235,8 +233,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session3/" class="md-nav__link">
-        Session 3
+      <a href="../Real/" class="md-nav__link">
+        A real node
       </a>
     </li>
   
@@ -250,8 +248,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../session4/" class="md-nav__link">
-        Session 4
+      <a href="../Power_Consumption/" class="md-nav__link">
+        Energy matters
       </a>
     </li>
   
@@ -265,8 +263,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../supplement1/" class="md-nav__link">
-        Sup. Mat. ML on node
+      <a href="../Efficiency/" class="md-nav__link">
+        An OS is better
       </a>
     </li>
   
@@ -280,8 +278,68 @@
   
   
     <li class="md-nav__item">
-      <a href="../supplement2/" class="md-nav__link">
-        Sup. Mat. Kalman Filters
+      <a href="../Scale/" class="md-nav__link">
+        Scale-up
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        Security
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Iot_web3/" class="md-nav__link">
+        IoT and Web3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ML_on_nodes/" class="md-nav__link">
+        ML on node
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kalman/" class="md-nav__link">
+        Kalman Filters
       </a>
     </li>
   
@@ -304,40 +362,48 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Crowdsourcing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Sup. Mat. Mobile
+        Crowdsourcing
       </a>
       
-    </li>
-  
+        
 
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
     
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#remotexy" class="md-nav__link">
+    Remotexy
+  </a>
+  
+</li>
       
+        <li class="md-nav__item">
+  <a href="#thunkable" class="md-nav__link">
+    Thunkable
+  </a>
+  
+</li>
       
-
+    </ul>
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../supplement4/" class="md-nav__link">
-        Wokwi to real
-      </a>
-    </li>
-  
-
-    
+</nav>
       
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../iot-lab/" class="md-nav__link">
-        IoT-LAB
-      </a>
     </li>
   
 
@@ -362,6 +428,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#remotexy" class="md-nav__link">
+    Remotexy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thunkable" class="md-nav__link">
+    Thunkable
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -376,7 +464,21 @@
 
 
 <h1 id="interact-with-a-mobile-phone-via-ble">Interact with a Mobile Phone via BLE</h1>
-<p>We aim at fast prototyping and <a href="https://thunkable.com/">Thunkable</a> is an excellent tool</p>
+<p>Nowadays, mobile devices, such as our smart phone or watch are plenty of sensors. There are many examples to collect data from such sensors by mobile apps. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In this course we are not interested in mobile applications using <strong>ONLY</strong> the sensors available in you mobile phone. </p>
+</div>
+<p>Instead, we aim at developing solution where a node, in our case an ESP32, collects some sensor data and interact with the mobile phone (e.g. via BLE) to possibly enrich the observed data by the phone sensors and to deliver them to the backend.  </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember, this is a course on IoT, we are not interested in fancy mobile app, and as much work is done by the node (i.e. the ESP32), as better it is. There are plenty of useful resources on developing fancy mobile apps and backends, but we are mostly interested in the node  </p>
+</div>
+<p>For this reason, we will use fast prototyping mobile app tools. </p>
+<h2 id="remotexy"><a href="https://remotexy.com/">Remotexy</a></h2>
+<p><a href="https://remotexy.com/">Remotexy</a> it's probably the easiest way </p>
+<h2 id="thunkable"><a href="https://thunkable.com/">Thunkable</a></h2>
+<p><a href="https://thunkable.com/">Thunkable</a> is more powerful, but slightly more complex</p>
 <p><img alt="" src="../assets/images/2024-01-04-11-26-18.png" /></p>
 <p>The arduino code, adapted from https://www.instructables.com/ESP32-BLE-Android-App-Arduino-IDE-AWESOME/ is the following</p>
 <div class="highlight"><pre><span></span><code>/*
