@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/Efficiency/">
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/Digital_twin/">
       
       
         <link rel="prev" href="../wireless/">
       
       
-        <link rel="next" href="../Power_Consumption/">
+        <link rel="next" href="../OS/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>An OS is better - A Short Course on IoT</title>
+        <title>Digital Twin - A Short Course on IoT</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#efficency" class="md-skip">
+        <a href="#digital-twin" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              An OS is better
+              Digital Twin
             
           </span>
         </div>
@@ -332,7 +332,7 @@
           
   
   <span class="md-ellipsis">
-    An OS is better
+    Digital Twin
   </span>
   
 
@@ -343,7 +343,7 @@
         
   
   <span class="md-ellipsis">
-    An OS is better
+    Digital Twin
   </span>
   
 
@@ -365,45 +365,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#development-environment" class="md-nav__link">
+  <a href="#the-difference-between-static-and-dynamic-unbalance" class="md-nav__link">
     <span class="md-ellipsis">
-      Development environment
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#clone-only-the-relevant-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Clone only the relevant code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-quick-introduction-to-tasks" class="md-nav__link">
-    <span class="md-ellipsis">
-      A quick introduction to tasks
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-examples-of-session-2-on-freertos" class="md-nav__link">
-    <span class="md-ellipsis">
-      The examples of SESSION 2 on FreeRTOS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-streaming-in-industrial-iot" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Streaming in Industrial IoT
+      The difference between Static and Dynamic Unbalance
     </span>
   </a>
   
@@ -413,6 +377,26 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    An OS is better
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -584,45 +568,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#development-environment" class="md-nav__link">
+  <a href="#the-difference-between-static-and-dynamic-unbalance" class="md-nav__link">
     <span class="md-ellipsis">
-      Development environment
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#clone-only-the-relevant-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Clone only the relevant code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-quick-introduction-to-tasks" class="md-nav__link">
-    <span class="md-ellipsis">
-      A quick introduction to tasks
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-examples-of-session-2-on-freertos" class="md-nav__link">
-    <span class="md-ellipsis">
-      The examples of SESSION 2 on FreeRTOS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-streaming-in-industrial-iot" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Streaming in Industrial IoT
+      The difference between Static and Dynamic Unbalance
     </span>
   </a>
   
@@ -643,85 +591,9 @@
                   
 
 
-<h1 id="efficency">Efficency</h1>
-<p><strong>GOAL:</strong> Small experiment (a single sensor). Focus on efficiency, namely doing the things right, i.e., the Engineers approach. Use metrics to measure to what extent your solution satisfies the user requirements.</p>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQWchkAoJjIzJ13YrlXxhlkcboKTzaVO7nHNC_VP3CjuncwgtcwoADPL27JrAzMtL2-kex8fq-Xfnvf/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR7QxDDAOT5GEActKCZpcNNMpIbEgsB1RBF4B1CeCqJHplpN6Xf51P7MFy_i8_0KmzLAokr5RI0DNaE/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1058" height="624" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-
-<p>Well, to develop an IoT application as an engineer, we do need a Real-Time Operating System (RTOS). <a href="https://www.freertos.org/about-RTOS.html">What is An RTOS?</a>. </p>
-<blockquote>
-<p>Embedded systems often have real time requirements. A real time requirements is one that specifies that the embedded system must respond to a certain event within a strictly defined time (the deadline). A guarantee to meet real time requirements can only be made if the behaviour of the operating system's scheduler can be predicted (and is therefore deterministic). FreeRTOS, achieve determinism by allowing the user to assign a priority to each thread of execution. The scheduler then uses the priority to know which thread of execution to run next. In FreeRTOS, a thread of execution is called a task.</p>
-</blockquote>
-<p><a href="https://www.freertos.org/implementation/a00002.html">Here</a> there is a nice explanation of the main features provided by FreeRTOS, namely </p>
-<ul>
-<li>Multitasking</li>
-<li>Scheduling</li>
-<li>Context Switching</li>
-<li>Real Time Applications</li>
-<li>Real Time Scheduling</li>
-</ul>
-<p><a href="https://www.freertos.org/FAQWhat.html">FreeRTOS FAQ - What is This All About?</a></p>
-<p>Finally a nice <a href="https://www.freertos.org/tutorial/index.html">example</a> of the design of a real-time application </p>
-<p>A <a href="https://freertos.org/Documentation/161204_Mastering_the_FreeRTOS_Real_Time_Kernel-A_Hands-On_Tutorial_Guide.pdf">book</a> on FreeRTOS.</p>
-<h2 id="development-environment">Development environment</h2>
-<p>To develop our solution on our ESP32, we need to setup the environment as described <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/">here</a>. A very convenient way is to use docker as explained <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf-docker-image.html">here</a>. </p>
-<p>To further simplify the development process, a multi-platform Virtualbox image is available <a href="https://drive.google.com/file/d/1qxabmuQreTZzNscvmijvNzvl9Oa0GSGS/view?usp=drive_link">here</a>. <strong>Next we will focus on this method.</strong> Credentials to work with the virtual machine are root/root and devel/devel and we will connect in ssh as explained below. </p>
-<p>The reference folder for the code and the examples is <a href="https://github.com/espressif/esp-idf.git">https://github.com/espressif/esp-idf.git</a> which is already available on the virtual machine on </p>
-<ol>
-<li><code>ssh devel@localhost -p 2222</code> ... the password is devel</li>
-<li><code>get_idf</code> ... we set up the development environment</li>
-<li><code>cd ~/esp</code></li>
-<li><code>cp -r ./esp-idf/examples/get-started/hello_world/ ./workshop/</code> ... make a copy of a dir in the example in the workshop dir </li>
-<li><code>cd ./workshop/hello_world/</code></li>
-<li><code>idf.py build</code> ... i t takes some time</li>
-<li><code>idf.py flash</code> ... be sure the ESP32 is connected to \dev\ttyUSB0 and check it is visible in the virtual machine</li>
-<li><code>idf.py monitor</code> ... to exit from the monitor ctrl+T ctrl+X</li>
-</ol>
-<p><strong>NOTE</strong> in some cases you can configure specific parameters running idf.py menuconfig</p>
-<p>In the virtual machine you have first to 
-<code>export LC_ALL=C</code></p>
-<h2 id="clone-only-the-relevant-code">Clone only the relevant code</h2>
-<div class="highlight"><pre><span></span><code># Create a directory, so Git doesn&#39;t get messy, and enter it
-mkdir code_from_git &amp;&amp; cd code_from_git
-
-# Start a Git repository
-git init
-
-# Track repository, do not enter subdirectory
-git remote add -f origin https://github.com/andreavitaletti/IoT_short_course
-
-# Enable the tree check feature
-git config core.sparseCheckout true
-
-# Create a file in the path: .git/info/sparse-checkout
-# That is inside the hidden .git directory that was created
-# by running the command: git init
-# And inside it enter the name of the sub directory you only want to clone
-echo &#39;src/freertos&#39; &gt;&gt; .git/info/sparse-checkout
-
-## Download with pull, not clone
-git pull origin main
-</code></pre></div>
-<h2 id="a-quick-introduction-to-tasks">A quick introduction to tasks</h2>
-<p>Based on <a href="https://esp32tutorials.com/esp32-esp-idf-freertos-tutorial-create-tasks/">ESP32 ESP-IDF FreeRTOS Tutorial: Learn to Create Tasks</a>. The code is available on our github <a href="https://github.com/andreavitaletti/IoT_short_course/tree/main/src/freertos/task_tutorial">repo</a></p>
-<h2 id="the-examples-of-session-2-on-freertos">The examples of SESSION 2 on FreeRTOS</h2>
-<p>In this section we will implement the reference examples developed in day2 into FreeRTOS. The idea is to take inspiration from the examples available at <a href="https://github.com/espressif/esp-idf/tree/master/examples">https://github.com/espressif/esp-idf/tree/master/examples</a> and modify them to get the same behavior of the ones developed in DAY2</p>
-<ul>
-<li>The simplest actuator, namely a <a href="https://github.com/espressif/esp-idf/tree/master/examples/get-started/blink">led</a></li>
-<li>The Simplest sensor, namely a <a href="https://github.com/espressif/esp-idf/tree/master/examples/peripherals/gpio/generic_gpio">button</a></li>
-<li>A bit more interesting sensor, namely a <a href="https://github.com/espressif/esp-idf/tree/master/examples/peripherals/adc">potentiometer</a></li>
-<li>A simple example with <a href="https://github.com/espressif/esp-idf/tree/master/examples/peripherals/mcpwm/mcpwm_capture_hc_sr04">SR04 Ultrasonic Sensor</a></li>
-<li>It's time to be connected by <a href="https://github.com/espressif/esp-idf/tree/master/examples/protocols/mqtt">MQTT</a></li>
-<li>About the vibration sensor SW-420 ... have a look <a href="https://github.com/andreavitaletti/IoT_short_course/tree/main/src/freertos/mcpwm_capture_hc_sw420">here</a></li>
-</ul>
-<p>Nice tutorials on the same topics are also available <a href="https://esp32tutorials.com/getting-started-tutorial-esp32-esp-idf/">here</a></p>
-<h2 id="data-streaming-in-industrial-iot">Data Streaming in Industrial IoT</h2>
-<ul>
-<li><a href="https://mqtt.org/">MQTT</a></li>
-<li><a href="https://opcfoundation.org/about/opc-technologies/opc-ua/">OPCUA</a></li>
-<li><a href="https://kafka.apache.org/">Apache Kafka</a></li>
-</ul>
+<h1 id="digital-twin">Digital Twin</h1>
+<h2 id="the-difference-between-static-and-dynamic-unbalance">The difference between Static and Dynamic Unbalance</h2>
+<p>https://www.youtube.com/watch?v=JB8i7LtY3mU</p>
 
 
 

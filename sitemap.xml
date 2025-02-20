@@ -2,58 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/IoT_short_course/Efficiency/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/Digital_twin/</loc>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/Intro/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/Iot_web3/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/ML_on_nodes/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/OS/</loc>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/Power_Consumption/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/Real/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/Sample/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/Scale/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/Simulation/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/crowdsourcing/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/kalman/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/security/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
     <url>
          <loc>https://andreavitaletti.github.io/IoT_short_course/wireless/</loc>
-         <lastmod>2025-02-14</lastmod>
+         <lastmod>2025-02-20</lastmod>
     </url>
 </urlset>
