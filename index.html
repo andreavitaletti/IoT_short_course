@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#goal" class="md-skip">
+        <a href="#tools-and-materials" class="md-skip">
           Skip to content
         </a>
       
@@ -206,6 +206,18 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -216,6 +228,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#material" class="md-nav__link">
+    <span class="md-ellipsis">
+      Material
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -556,6 +605,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#material" class="md-nav__link">
+    <span class="md-ellipsis">
+      Material
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful links
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -570,40 +645,14 @@
 
 
 
-<h1 id="goal">GOAL</h1>
-<p>This short course on the Internet of Things is designed to give a first understanding of the main issues in developing IoT solutions. We do believe the most efficient way to learn this subject is experimenting, this is way the course encourage attendants to hands-on. No specific background is needed, even if a basic knowledge of electronics and computer science might help. </p>
-<h1 id="session-1-4-hours">SESSION 1 (4 hours)</h1>
-<p><strong>GOAL:</strong> Quick intro to the Internet of Things.</p>
-<ul>
-<li>Introduction to the IoT</li>
-<li>IoT and Big Data: we can quantitatively measure phenomena that up to yesterday we were only able to guess</li>
-<li>A network of Resource Constrained Devices: if computational power, memory, energy, bandwidth and costs are not constrained, it is likely Internet, not Internet of Things.</li>
-</ul>
-<h1 id="session-2-4-hours">SESSION 2 (4 hours)</h1>
-<p><strong>GOAL:</strong> Small experiment (a single sensor). Prove you can integrate sensors suitable for you monitoring purpose.  Focus on effectiveness, namely doing the right things, i.e., the Maker approach.</p>
-<ul>
-<li>The reference hardware: <a href="http://esp32.net/">ESP32</a></li>
-<li>Hands on with the <a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino Ide</a> and <a href="https://wokwi.com/">Wokwi</a></li>
-<li>A simple integration of sensor/actuator</li>
-<li>Communicating over WiFi</li>
-</ul>
-<h1 id="session-3-4-hours">SESSION 3 (4 hours)</h1>
-<p><strong>GOAL:</strong> Small experiment (a single sensor). Focus on efficiency, namely doing the things right, i.e., the Engineers approach. Use metrics to measure to what extent your solution satisfies the user requirements.</p>
-<ul>
-<li>The need of an Operating System </li>
-<li>Hands on <a href="https://www.freertos.org/">FREERTOS</a></li>
-<li>A simple integration of sensor/actuator</li>
-<li>Communicating over WiFi</li>
-</ul>
-<h1 id="session-4-4-hours">SESSION 4 (4 hours)</h1>
-<p><strong>GOAL:</strong> Scale-up in a realistic environment.</p>
-<ul>
-<li>The Very Large Scale IoT Testbed <a href="https://www.iot-lab.info/">IoT-LAB</a> </li>
-<li><a href="https://iot-lab.github.io/docs/os/freertos/">FreeRTOS on IoT-lab</a></li>
-<li>A simple Project</li>
-</ul>
+<p>Initially this course has been conceived as a short course on IoT with the main purpose to give a first understanding of the main issues in developing IoT solutions. We do believe the most efficient way to learn this subject is experimenting, this is way the course encourage attendants to hands-on.</p>
+<p>No specific background is needed, even if a basic knowledge of electronics and computer science might help. </p>
+<p>Over the years the course evolved and it is now not so short, however, the idea is to guide the attendants step by step, incrementally.  So it is up to you how far to go. </p>
 <h1 id="tools-and-materials">Tools and Materials</h1>
-<p>I like <a href="https://code.visualstudio.com/">vscode</a> with the <a href="https://code.visualstudio.com/docs/remote/ssh">Remote-SSH extension</a> to interact with the virtual machine for FreeRTOS development. However, during the class there might be many issues due to different version of the OS and vscode. To further simplify the process I use <a href="https://micro-editor.github.io/index.html">micro</a> a modern and intuitive terminal-based text editor. Give it a try, it is very convenient. I also suggest to install the <a href="https://github.com/NicolaiSoeborg/filemanager-plugin">file manager plugin</a>. The only annoying issue I'm currently facing with micro is that <a href="https://github.com/zyedidia/micro/issues/958">copy/past does not work smoothly over SSH</a>, you have to use ctr + shift + V</p>
+<p>The reference hardware is the <a href="http://esp32.net/">ESP32</a> and we now mostly use <a href="https://platformio.org/">PlatformIO</a>.<br />
+<a href="https://code.visualstudio.com/">vscode</a> is a nice companion together with  the <a href="https://platformio.org/install/ide?install=vscode">Platformio extension</a>.</p>
+<p>Initially we focused on <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/#">The Espressif software development environment (esp-idf)</a> and <a href="https://www.freertos.org/">FREERTOS</a>. </p>
+<p>While this is probably the way to go for doing serious stuff, we found the Arduino framework to better suits the goal of providing a step-by-step introduction. Furthermore, Arduino on the ESP32 relies "secretely" <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M464 256a208 208 0 1 0-416 0 208 208 0 1 0 416 0M0 256a256 256 0 1 1 512 0 256 256 0 1 1-512 0m130.7 57.9c-4.2-13.6 7.1-25.9 21.3-25.9h212.5c14.2 0 25.5 12.4 21.3 25.9C369 368.4 318.2 408 258.2 408s-110.8-39.6-127.5-94.1M144.4 192a32 32 0 1 1 64 0 32 32 0 1 1-64 0m165.8 21.7c-7.6 8.1-20.2 8.5-28.3.9s-8.5-20.2-.9-28.3c14.5-15.5 35.2-22.3 54.6-22.3s40.1 6.8 54.6 22.3c7.6 8.1 7.1 20.7-.9 28.3s-20.7 7.1-28.3-.9c-5.5-5.8-14.8-9.7-25.4-9.7s-19.9 3.8-25.4 9.7"/></svg></span> on FreeRTOS, even if to take full advantage of it, esp-idf is a must. </p>
 <h2 id="material">Material</h2>
 <p>The list of material for each group: 1 ESP32-DevKit, a breadboard, some wires and resistors, one led, one button, one potentiometer and one 3 Axis Accelerometer Gyroscope</p>
 <ul>
