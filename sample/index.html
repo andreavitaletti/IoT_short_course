@@ -722,155 +722,146 @@
 <p>The node on the left works as a <strong>virtual signal</strong>, it generates a signal using the <a href="https://www.electronicwings.com/esp32/dac-digital-to-analog-converter-esp32">DAC</a> on PIN 25. 
 The node on the right sample the generated signal by the <a href="https://www.electronicwings.com/esp32/adc-of-esp32">ADC</a> and print the <a href="">FFT</a>. </p>
 <h3 id="the-signal-generator">The Signal Generator</h3>
-<pre><code class="language-c">
-#include &lt;Arduino.h&gt;
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
 
-// Define the DAC and ADC pins
-const int dacPin = 25;   // DAC1 (GPIO 25) for sinusoid output
+<span class="c1">// Define the DAC and ADC pins</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dacPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span><span class="w">   </span><span class="c1">// DAC1 (GPIO 25) for sinusoid output</span>
 
-// Parameters for the sine wave
-const int amplitude = 100;   // Amplitude of the sine wave (max 255 for 8-bit DAC)
-const int offset = 128;      // DC offset (middle of the DAC range)
-const float signalFrequency = 5.0;  // Frequency of the sine wave in Hz
-int samplingFrequencyDAC = 1000; // sampling theorem should be at least 2*frequency
+<span class="c1">// Parameters for the sine wave</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">   </span><span class="c1">// Amplitude of the sine wave (max 255 for 8-bit DAC)</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span><span class="w">      </span><span class="c1">// DC offset (middle of the DAC range)</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">signalFrequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="p">;</span><span class="w">  </span><span class="c1">// Frequency of the sine wave in Hz</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">samplingFrequencyDAC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="c1">// sampling theorem should be at least 2*frequency</span>
 
-void setup() {
-  Serial.begin(115200);
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
 
-  // Initialize DAC pin (GPIO 25)
-  dacWrite(dacPin, 0);  // Initialize DAC with a low value
+<span class="w">  </span><span class="c1">// Initialize DAC pin (GPIO 25)</span>
+<span class="w">  </span><span class="n">dacWrite</span><span class="p">(</span><span class="n">dacPin</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// Initialize DAC with a low value</span>
 
-}
+<span class="p">}</span>
 
-void loop() {
-      for (int i = 0; i &lt; samplingFrequencyDAC; i++) {
-      int sineValue = (int)(amplitude * sin(2.0 * PI * signalFrequency * i / samplingFrequencyDAC) + offset);
-      dacWrite(dacPin, sineValue);  // Write to DAC (8-bit value)
-      Serial.print(&quot;&gt;&quot;);
-      Serial.print(&quot;dac:&quot;);    
-      Serial.println(sineValue);
-      delay(round(1.0/samplingFrequencyDAC*1000));
-      } 
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">samplingFrequencyDAC</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">sineValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">amplitude</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">signalFrequency</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">samplingFrequencyDAC</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">);</span>
+<span class="w">      </span><span class="n">dacWrite</span><span class="p">(</span><span class="n">dacPin</span><span class="p">,</span><span class="w"> </span><span class="n">sineValue</span><span class="p">);</span><span class="w">  </span><span class="c1">// Write to DAC (8-bit value)</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;&gt;&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;dac:&quot;</span><span class="p">);</span><span class="w">    </span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">sineValue</span><span class="p">);</span>
+<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">samplingFrequencyDAC</span><span class="o">*</span><span class="mi">1000</span><span class="p">));</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span>
 
-}
-
-</code></pre>
+<span class="p">}</span>
+</code></pre></div>
 <p><img alt="" src="../assets/images/2024-12-17-03-54-47.png" /></p>
 <h3 id="the-sampler">The Sampler</h3>
-<pre><code class="language-c">
-#include &lt;Arduino.h&gt;
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
 
-const int adcPin = 34;   // ADC1 (GPIO 34) for reading the sinusoid
-int samplingFrequencyADC = 500; // sampling theorem should be at least 2*frequency
-const uint16_t samples = 512; 
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">adcPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w">   </span><span class="c1">// ADC1 (GPIO 34) for reading the sinusoid</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">samplingFrequencyADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span><span class="w"> </span><span class="c1">// sampling theorem should be at least 2*frequency</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">512</span><span class="p">;</span><span class="w"> </span>
 
-void setup() {
-  Serial.begin(115200);
-  analogReadResolution(10); 
-  analogSetAttenuation(ADC_11db);  // Set ADC attenuation (default 0dB)
-}
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="n">analogReadResolution</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span>
+<span class="w">  </span><span class="n">analogSetAttenuation</span><span class="p">(</span><span class="n">ADC_11db</span><span class="p">);</span><span class="w">  </span><span class="c1">// Set ADC attenuation (default 0dB)</span>
+<span class="p">}</span>
 
-void loop() {
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
-  for(int i=0; i&lt;samples; i++)
-   {
-      Serial.print(&quot;&gt;&quot;);
-      Serial.print(&quot;adc:&quot;);    
-      Serial.println(analogRead(adcPin)-512);
-      delay(round(1.0/samplingFrequencyADC*1000));
-  }
-}
-
-</code></pre>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">samples</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;&gt;&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;adc:&quot;</span><span class="p">);</span><span class="w">    </span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">analogRead</span><span class="p">(</span><span class="n">adcPin</span><span class="p">)</span><span class="mi">-512</span><span class="p">);</span>
+<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">samplingFrequencyADC</span><span class="o">*</span><span class="mi">1000</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p><img alt="" src="../assets/images/2024-12-17-03-53-48.png" /></p>
 <h2 id="a-possible-alternative-using-the-pc">A possible alternative using the PC</h2>
 <p><img alt="" src="../assets/images/2024-12-17-04-23-56.png" /></p>
 <p><a href="https://forum.arduino.cc/t/how-to-read-data-from-audio-jack/458301/3">ref</a></p>
 <p><code>python3 -m pip install sounddevice</code></p>
-<pre><code class="language-python">
-# Use the sounddevice module
-# http://python-sounddevice.readthedocs.io/en/0.3.10/
+<div class="highlight"><pre><span></span><code><span class="c1"># Use the sounddevice module</span>
+<span class="c1"># http://python-sounddevice.readthedocs.io/en/0.3.10/</span>
 
-import numpy as np
-import sounddevice as sd
-import time
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sounddevice</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-# Samples per second
-sps = 44100
+<span class="c1"># Samples per second</span>
+<span class="n">sps</span> <span class="o">=</span> <span class="mi">44100</span>
 
-# Frequency / pitch
-freq_hz = 2
+<span class="c1"># Frequency / pitch</span>
+<span class="n">freq_hz</span> <span class="o">=</span> <span class="mi">2</span>
 
-# Duration
-duration_s = 5.0
+<span class="c1"># Duration</span>
+<span class="n">duration_s</span> <span class="o">=</span> <span class="mf">5.0</span>
 
-# Attenuation so the sound is reasonable
-atten = 1.0 # 0.3
+<span class="c1"># Attenuation so the sound is reasonable</span>
+<span class="n">atten</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># 0.3</span>
 
-# NumpPy magic to calculate the waveform
-each_sample_number = np.arange(duration_s * sps)
-waveform = np.sin(2 * np.pi * each_sample_number * freq_hz / sps)
-waveform_quiet = waveform * atten
+<span class="c1"># NumpPy magic to calculate the waveform</span>
+<span class="n">each_sample_number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">duration_s</span> <span class="o">*</span> <span class="n">sps</span><span class="p">)</span>
+<span class="n">waveform</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">each_sample_number</span> <span class="o">*</span> <span class="n">freq_hz</span> <span class="o">/</span> <span class="n">sps</span><span class="p">)</span>
+<span class="n">waveform_quiet</span> <span class="o">=</span> <span class="n">waveform</span> <span class="o">*</span> <span class="n">atten</span>
 
-# Play the waveform out the speakers
-sd.play(waveform_quiet, sps)
-time.sleep(duration_s)
-sd.stop()
-
-</code></pre>
+<span class="c1"># Play the waveform out the speakers</span>
+<span class="n">sd</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">waveform_quiet</span><span class="p">,</span> <span class="n">sps</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">duration_s</span><span class="p">)</span>
+<span class="n">sd</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
 <p><a href="https://onlinetonegenerator.com/">Online Tone Generator</a></p>
 <h2 id="fast-fourier-transform-fft">Fast Fourier Transform (FFT)</h2>
 <p><img alt="" src="../assets/images/2024-12-17-04-19-02.png" /></p>
 <p><a href="https://colab.research.google.com/drive/1nuZx095lzt2d9h42N7yNu13crGg9eS9A">Colab Notebook on FFT</a></p>
 <p><a href="https://github.com/kosme/arduinoFFT">arduinoFFT library</a></p>
-<pre><code class="language-c">
-#include &lt;Arduino.h&gt;
-#include &quot;arduinoFFT.h&quot;
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;arduinoFFT.h&quot;</span>
 
 
-// Define the DAC and ADC pins
-const int adcPin = 36;   // ADC1 (GPIO 34) for reading the sinusoid
-int samplingFrequencyADC = 27; // sampling theorem should be at least 2*frequency
-const uint16_t samples = 64; 
+<span class="c1">// Define the DAC and ADC pins</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">adcPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">36</span><span class="p">;</span><span class="w">   </span><span class="c1">// ADC1 (GPIO 34) for reading the sinusoid</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">samplingFrequencyADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">27</span><span class="p">;</span><span class="w"> </span><span class="c1">// sampling theorem should be at least 2*frequency</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span>
 
-double vReal[samples];
-double vImag[samples];
-
-
-/* Create FFT object */
-ArduinoFFT&lt;double&gt; FFTADC = ArduinoFFT&lt;double&gt;(vReal, vImag, samples, samplingFrequencyADC);
-
-void setup() {
-  Serial.begin(115200);
-  analogReadResolution(10); 
-  analogSetAttenuation(ADC_11db);  // Set ADC attenuation (default 0dB)
-}
-
-void loop() {
-
-  for(int i=0; i&lt;samples; i++)
-   {
-      vReal[i] = analogRead(adcPin)-512;
-      vImag[i] = 0;
-      /*
-      Serial.print(&quot;&gt;&quot;);
-      Serial.print(&quot;adc:&quot;);    
-      Serial.println(analogRead(adcPin)-512);
-      */
-      delay(round(1.0/samplingFrequencyADC*1000));
-  }
-
-  FFTADC.windowing(FFTWindow::Hamming, FFTDirection::Forward);  
-  FFTADC.compute(FFTDirection::Forward); 
-  FFTADC.complexToMagnitude();
-  double x = FFTADC.majorPeak();
-  Serial.print(&quot;ADC FFT: &quot;);
-  Serial.println(x, 6);
-
-  }
+<span class="kt">double</span><span class="w"> </span><span class="n">vReal</span><span class="p">[</span><span class="n">samples</span><span class="p">];</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">vImag</span><span class="p">[</span><span class="n">samples</span><span class="p">];</span>
 
 
-</code></pre>
+<span class="cm">/* Create FFT object */</span>
+<span class="n">ArduinoFFT</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FFTADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArduinoFFT</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vReal</span><span class="p">,</span><span class="w"> </span><span class="n">vImag</span><span class="p">,</span><span class="w"> </span><span class="n">samples</span><span class="p">,</span><span class="w"> </span><span class="n">samplingFrequencyADC</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="n">analogReadResolution</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span>
+<span class="w">  </span><span class="n">analogSetAttenuation</span><span class="p">(</span><span class="n">ADC_11db</span><span class="p">);</span><span class="w">  </span><span class="c1">// Set ADC attenuation (default 0dB)</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">samples</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">vReal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analogRead</span><span class="p">(</span><span class="n">adcPin</span><span class="p">)</span><span class="mi">-512</span><span class="p">;</span>
+<span class="w">      </span><span class="n">vImag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">      </span><span class="cm">/*</span>
+<span class="cm">      Serial.print(&quot;&gt;&quot;);</span>
+<span class="cm">      Serial.print(&quot;adc:&quot;);    </span>
+<span class="cm">      Serial.println(analogRead(adcPin)-512);</span>
+<span class="cm">      */</span>
+<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">samplingFrequencyADC</span><span class="o">*</span><span class="mi">1000</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">FFTADC</span><span class="p">.</span><span class="n">windowing</span><span class="p">(</span><span class="n">FFTWindow</span><span class="o">::</span><span class="n">Hamming</span><span class="p">,</span><span class="w"> </span><span class="n">FFTDirection</span><span class="o">::</span><span class="n">Forward</span><span class="p">);</span><span class="w">  </span>
+<span class="w">  </span><span class="n">FFTADC</span><span class="p">.</span><span class="n">compute</span><span class="p">(</span><span class="n">FFTDirection</span><span class="o">::</span><span class="n">Forward</span><span class="p">);</span><span class="w"> </span>
+<span class="w">  </span><span class="n">FFTADC</span><span class="p">.</span><span class="n">complexToMagnitude</span><span class="p">();</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FFTADC</span><span class="p">.</span><span class="n">majorPeak</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;ADC FFT: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
 <p><a href="https://github.com/andreavitaletti/documents/tree/main/PlatformIO/Projects/virtual%20sensor">source code</a></p>
 
 

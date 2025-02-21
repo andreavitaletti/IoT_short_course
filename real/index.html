@@ -661,9 +661,10 @@
 
 <h1 id="it-is-time-to-work-with-a-real-device">It is time to Work with a real device</h1>
 <p><a href="https://lastminuteengineers.com/getting-started-with-esp32/">Lastminuteengineers</a> and <a href="https://randomnerdtutorials.com/projects-esp32/">Random Nerd Tutorial</a> are plenty of excellent examples to integrate a multitude of sensors and actuators, and to interact with a number of protocols.</p>
-<p>!!! fact</p>
-<pre><code>Exactly the same code you wrote in the simulator, works on the real device, **but in the real device you can do even more!**
-</code></pre>
+<div class="admonition fact">
+<p class="admonition-title">Fact</p>
+<p>Exactly the same code you wrote in the simulator, works on the real device, <strong>but in the real device you can do even more!</strong></p>
+</div>
 <ul>
 <li>You can easily download the code from Wokwi in the form of a zip project file. </li>
 </ul>
@@ -678,7 +679,7 @@
 <li>Another option is to use <a href="https://platformio.org/">PlatformIO</a>. In particular I like the <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">vscode extension</a>. </li>
 <li>To work with the ESP32, this is the minimal setup for the platformio.ini file</li>
 </ul>
-<pre><code>[env:esp32dev]
+<div class="highlight"><pre><span></span><code>[env:esp32dev]
 platform = espressif32
 board = esp32dev
 framework = arduino
@@ -688,7 +689,7 @@ monitor_port = /dev/ttyUSB0
 
 ; Custom Serial Monitor speed (baud rate)
 monitor_speed = 115200
-</code></pre>
+</code></pre></div>
 <h2 id="from-wokwi-to-a-real-device">From <a href="https://wokwi.com/">Wokwi</a> to a real device</h2>
 <ol>
 <li>Compile the code and on the code editor press F1 to download the firmware. It is a .bin file, let's name it sketch.bin file </li>
