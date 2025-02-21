@@ -14,7 +14,7 @@
         <link rel="prev" href="../filters/">
       
       
-        <link rel="next" href="../Scale/">
+        <link rel="next" href="../scale/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -220,7 +220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Intro/" class="md-nav__link">
+      <a href="../intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -241,7 +241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Simulation/" class="md-nav__link">
+      <a href="../simulation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Real/" class="md-nav__link">
+      <a href="../real/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -283,7 +283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Sample/" class="md-nav__link">
+      <a href="../sample/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -325,7 +325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Digital_twin/" class="md-nav__link">
+      <a href="../twin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -346,7 +346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../OS/" class="md-nav__link">
+      <a href="../os/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -367,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Power_Consumption/" class="md-nav__link">
+      <a href="../energy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -409,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Iot_web3/" class="md-nav__link">
+      <a href="../web3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -430,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ML_on_nodes/" class="md-nav__link">
+      <a href="../ml/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -573,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Scale/" class="md-nav__link">
+      <a href="../scale/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -649,15 +649,13 @@
 
 <h1 id="interact-with-a-mobile-phone-via-ble">Interact with a Mobile Phone via BLE</h1>
 <p>Nowadays, mobile devices, such as our smart phone or watch are plenty of sensors. There are many examples to collect data from such sensors by mobile apps. </p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>In this course we are not interested in mobile applications using <strong>ONLY</strong> the sensors available in you mobile phone. </p>
-</div>
+<p>!!! warning</p>
+<pre><code>In this course we are not interested in mobile applications using **ONLY** the sensors available in you mobile phone.
+</code></pre>
 <p>Instead, we aim at developing solution where a node, in our case an ESP32, collects some sensor data and interact with the mobile phone (e.g. via BLE) to possibly enrich the observed data by the phone sensors and to deliver them to the backend.  </p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Remember, this is a course on IoT, we are not interested in fancy mobile app, and as much work is done by the node (i.e. the ESP32), as better it is. There are plenty of useful resources on developing fancy mobile apps and backends, but we are mostly interested in the node  </p>
-</div>
+<p>!!! warning</p>
+<pre><code>Remember, this is a course on IoT, we are not interested in fancy mobile app, and as much work is done by the node (i.e. the ESP32), as better it is. There are plenty of useful resources on developing fancy mobile apps and backends, but we are mostly interested in the node
+</code></pre>
 <p>For this reason, we will use fast prototyping mobile app tools. </p>
 <h2 id="remotexy"><a href="https://remotexy.com/">Remotexy</a></h2>
 <p><a href="https://remotexy.com/">Remotexy</a> it's probably the easiest way </p>
@@ -665,7 +663,7 @@
 <p><a href="https://thunkable.com/">Thunkable</a> is more powerful, but slightly more complex</p>
 <p><img alt="" src="../assets/images/2024-01-04-11-26-18.png" /></p>
 <p>The arduino code, adapted from https://www.instructables.com/ESP32-BLE-Android-App-Arduino-IDE-AWESOME/ is the following</p>
-<div class="highlight"><pre><span></span><code>/*
+<pre><code>/*
     Video: https://www.youtube.com/watch?v=oCMOYS71NIU
     Based on Neil Kolban example for IDF: https://github.com/nkolban/esp32-snippets/blob/master/cpp_utils/tests/BLE%20Tests/SampleNotify.cpp
     Ported to Arduino ESP32 by Evandro Copercini
@@ -810,7 +808,7 @@ void loop() {
     // Fabricate some arbitrary junk for now...
     txValue = analogRead(readPin) / 3.456; // This could be an actual sensor reading!
 
-    // Let&#39;s convert the value to a char array:
+    // Let's convert the value to a char array:
     char txString[8]; // make sure this is big enuffz
     dtostrf(txValue, 1, 2, txString); // float_val, min_width, digits_after_decimal, char_buffer
 
@@ -839,8 +837,9 @@ void loop() {
 
   delay(1000);
 }
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>// Adapted from https://github.com/SIMS-IOT-Devices/FreeRTOS-ESP-IDF-BLE-Server
+
+</code></pre>
+<pre><code>// Adapted from https://github.com/SIMS-IOT-Devices/FreeRTOS-ESP-IDF-BLE-Server
 
 #include &lt;stdio.h&gt;
 #include &quot;freertos/FreeRTOS.h&quot;
@@ -982,7 +981,7 @@ void app_main()
     ble_hs_cfg.sync_cb = ble_app_on_sync;      // 5 - Initialize application
     nimble_port_freertos_init(host_task);      // 6 - Run the thread
 }
-</code></pre></div>
+</code></pre>
 
 
 
@@ -1063,6 +1062,10 @@ void app_main()
     
     
       <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/Power_Consumption/">
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/real/">
       
       
-        <link rel="prev" href="../OS/">
+        <link rel="prev" href="../simulation/">
       
       
-        <link rel="next" href="../security/">
+        <link rel="next" href="../sample/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Energy matters - A Short Course on IoT</title>
+        <title>A real node - A Short Course on IoT</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#power-consumption" class="md-skip">
+        <a href="#it-is-time-to-work-with-a-real-device" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Energy matters
+              A real node
             
           </span>
         </div>
@@ -220,7 +220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Intro/" class="md-nav__link">
+      <a href="../intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -241,7 +241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Simulation/" class="md-nav__link">
+      <a href="../simulation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -259,10 +259,31 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Real/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    A real node
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -272,6 +293,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#from-wokwi-to-a-real-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Wokwi to a real device
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From Wokwi to a real device">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partition-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partition Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -283,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Sample/" class="md-nav__link">
+      <a href="../sample/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -325,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Digital_twin/" class="md-nav__link">
+      <a href="../twin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -346,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../OS/" class="md-nav__link">
+      <a href="../os/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -364,31 +429,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Energy matters
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../energy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -398,35 +442,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#energy-harvesting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Energy Harvesting
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -459,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Iot_web3/" class="md-nav__link">
+      <a href="../web3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -480,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ML_on_nodes/" class="md-nav__link">
+      <a href="../ml/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -564,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Scale/" class="md-nav__link">
+      <a href="../scale/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -605,11 +620,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#energy-harvesting" class="md-nav__link">
+  <a href="#from-wokwi-to-a-real-device" class="md-nav__link">
     <span class="md-ellipsis">
-      Energy Harvesting
+      From Wokwi to a real device
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="From Wokwi to a real device">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partition-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partition Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -629,80 +659,111 @@
 
 
 
-<h1 id="power-consumption">Power Consumption</h1>
-<p>https://www.electronicwings.com/esp32/esp32-deep-sleep-mode</p>
+<h1 id="it-is-time-to-work-with-a-real-device">It is time to Work with a real device</h1>
+<p><a href="https://lastminuteengineers.com/getting-started-with-esp32/">Lastminuteengineers</a> and <a href="https://randomnerdtutorials.com/projects-esp32/">Random Nerd Tutorial</a> are plenty of excellent examples to integrate a multitude of sensors and actuators, and to interact with a number of protocols.</p>
+<p>!!! fact</p>
+<pre><code>Exactly the same code you wrote in the simulator, works on the real device, **but in the real device you can do even more!**
+</code></pre>
 <ul>
-<li>Connect board VIN (red wire) to Arduino 5V if you are running a 5V board Arduino (Mega, etc.). If your board is 3V, connect to that instead.</li>
-<li>Connect board GND (black wire) to Arduino GND</li>
-<li>Connect board SCL (white wire) to Arduino SCL</li>
-<li>Connect board SDA (blue wire) to Arduino SDA</li>
-<li>Connect Vin+ to the positive terminal of the power supply for the circuit under test</li>
-<li>Connect Vin- to the positive terminal or lead of the load</li>
+<li>You can easily download the code from Wokwi in the form of a zip project file. </li>
 </ul>
-<p><img alt="" src="../assets/images/2024-11-28-11-17-03.png" /></p>
-<p><a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring" title="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">source</a></p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_INA219.h&gt;</span>
+<p><img alt="" src="../assets/images/2024-12-16-17-01-45.png" /></p>
+<ul>
+<li>One convenient possibility is to use <a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino IDE</a> </li>
+<li>Since we are using the ESP32, you have to follow these <a href="https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/">intructions</a></li>
+<li>Select the DOIT ESP32 DEVKIT V1 as in the picture below and upload the code</li>
+</ul>
+<p><img alt="" src="../assets/images/2023-07-18-13-48-40.png" /></p>
+<ul>
+<li>Another option is to use <a href="https://platformio.org/">PlatformIO</a>. In particular I like the <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">vscode extension</a>. </li>
+<li>To work with the ESP32, this is the minimal setup for the platformio.ini file</li>
+</ul>
+<pre><code>[env:esp32dev]
+platform = espressif32
+board = esp32dev
+framework = arduino
 
-<span class="n">Adafruit_INA219</span><span class="w"> </span><span class="n">ina219</span><span class="p">;</span>
+; Custom Serial Monitor port
+monitor_port = /dev/ttyUSB0
 
-<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span>
-<span class="p">{</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Serial</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="c1">// will pause Zero, Leonardo, etc until serial console opens</span>
-<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">currentFrequency</span><span class="p">;</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hello!&quot;</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Initialize the INA219.</span>
-<span class="w">  </span><span class="c1">// By default the initialization will use the largest range (32V, 2A).  However</span>
-<span class="w">  </span><span class="c1">// you can call a setCalibration function to change this range (see comments).</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="w"> </span><span class="n">ina219</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Failed to find INA219 chip&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="c1">// To use a slightly lower 32V, 1A range (higher precision on amps):</span>
-<span class="w">  </span><span class="c1">//ina219.setCalibration_32V_1A();</span>
-<span class="w">  </span><span class="c1">// Or to use a lower 16V, 400mA range (higher precision on volts and amps):</span>
-<span class="w">  </span><span class="c1">//ina219.setCalibration_16V_400mA();</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Measuring voltage and current with INA219 ...&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span>
-<span class="p">{</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">shuntvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">busvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">current_mA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">loadvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">power_mW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-
-<span class="w">  </span><span class="n">shuntvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ina219</span><span class="p">.</span><span class="n">getShuntVoltage_mV</span><span class="p">();</span>
-<span class="w">  </span><span class="n">busvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ina219</span><span class="p">.</span><span class="n">getBusVoltage_V</span><span class="p">();</span>
-<span class="w">  </span><span class="n">current_mA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ina219</span><span class="p">.</span><span class="n">getCurrent_mA</span><span class="p">();</span>
-<span class="w">  </span><span class="n">power_mW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ina219</span><span class="p">.</span><span class="n">getPower_mW</span><span class="p">();</span>
-<span class="w">  </span><span class="n">loadvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">busvoltage</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">shuntvoltage</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
-
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">busvoltage</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">shuntvoltage</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">loadvoltage</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">current_mA</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">power_mW</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
-
-<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><img alt="" src="../assets/images/power_no_sleep.png" />
-<img alt="" src="../assets/images/power_sleep.png" /></p>
-<p><a href="https://github.com/andreavitaletti/documents/tree/main/PlatformIO/Projects/power">source code</a></p>
-<h2 id="energy-harvesting">Energy Harvesting</h2>
+; Custom Serial Monitor speed (baud rate)
+monitor_speed = 115200
+</code></pre>
+<h2 id="from-wokwi-to-a-real-device">From <a href="https://wokwi.com/">Wokwi</a> to a real device</h2>
+<ol>
+<li>Compile the code and on the code editor press F1 to download the firmware. It is a .bin file, let's name it sketch.bin file </li>
+<li>
+<p><code>esptool.py --chip esp32 --port "/dev/ttyUSB0" --baud 921600  --before default_reset --after hard_reset write_flash  -z --flash_mode keep --flash_freq keep --flash_size keep 0x1000 "bootloader.bin" 0x8000 "partitions.bin" 0xe000 "boot_app0.bin" 0x10000 "sketch.bin"</code>
+Once partitions and bootloader are uploaded, you can simply upload the sketch. To upload for the first time the partitions and the bootloader you can simply used arduino IDE </p>
+</li>
+<li>
+<p><code>esptool.py --chip esp32 --port "/dev/ttyUSB0" --baud 921600  --before default_reset --after hard_reset write_flash  -z --flash_mode keep --flash_freq keep --flash_size keep 0x10000 ./sketch.bin</code></p>
+</li>
+</ol>
+<p>In principle you can even use a <a href="https://learn.adafruit.com/adafruit-metro-esp32-s2/web-serial-esptool">Web tool</a></p>
+<h3 id="partition-table"><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/partition-tables.html">Partition Table</a></h3>
+<table>
+<thead>
+<tr>
+<th># Name</th>
+<th>Type</th>
+<th>SubType</th>
+<th>Offset</th>
+<th>Size</th>
+<th>Flags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nvs</td>
+<td>data</td>
+<td>nvs</td>
+<td>0x9000</td>
+<td>0x5000</td>
+<td></td>
+</tr>
+<tr>
+<td>otadata</td>
+<td>data</td>
+<td>ota</td>
+<td>0xe000</td>
+<td>0x2000</td>
+<td></td>
+</tr>
+<tr>
+<td>app0</td>
+<td>app</td>
+<td>ota_0</td>
+<td><strong>0x10000</strong></td>
+<td>0x140000</td>
+<td></td>
+</tr>
+<tr>
+<td>app1</td>
+<td>app</td>
+<td>ota_1</td>
+<td>0x150000</td>
+<td>0x140000</td>
+<td></td>
+</tr>
+<tr>
+<td>spiffs</td>
+<td>data</td>
+<td>spiffs</td>
+<td>0x290000</td>
+<td>0x160000</td>
+<td></td>
+</tr>
+<tr>
+<td>coredump</td>
+<td>data</td>
+<td>coredump</td>
+<td>0x3F0000</td>
+<td>0x10000</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -783,6 +844,10 @@
     
     
       <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/Iot_web3/">
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/twin/">
       
       
-        <link rel="prev" href="../security/">
+        <link rel="prev" href="../wireless/">
       
       
-        <link rel="next" href="../ML_on_nodes/">
+        <link rel="next" href="../os/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>IoT and Web3 - A Short Course on IoT</title>
+        <title>Digital Twin - A Short Course on IoT</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iot-and-web3" class="md-skip">
+        <a href="#digital-twin" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              IoT and Web3
+              Digital Twin
             
           </span>
         </div>
@@ -220,7 +220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Intro/" class="md-nav__link">
+      <a href="../intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -241,7 +241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Simulation/" class="md-nav__link">
+      <a href="../simulation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Real/" class="md-nav__link">
+      <a href="../real/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -283,7 +283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Sample/" class="md-nav__link">
+      <a href="../sample/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -322,10 +322,31 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Digital_twin/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Digital Twin
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -335,6 +356,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-difference-between-static-and-dynamic-unbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      The difference between Static and Dynamic Unbalance
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -346,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../OS/" class="md-nav__link">
+      <a href="../os/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -367,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Power_Consumption/" class="md-nav__link">
+      <a href="../energy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -406,19 +456,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../web3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -428,7 +469,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -440,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ML_on_nodes/" class="md-nav__link">
+      <a href="../ml/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -524,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Scale/" class="md-nav__link">
+      <a href="../scale/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -558,6 +598,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-difference-between-static-and-dynamic-unbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      The difference between Static and Dynamic Unbalance
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -572,12 +629,9 @@
 
 
 
-<h1 id="iot-and-web3">IoT and Web3</h1>
-<p>In <a href="https://www.mdpi.com/2224-2708/11/2/20">Blockchain as IoT Economy Enabler: A Review of Architectural Aspects</a> we discuss how the IoT can benefit in interfacing the Blockchain and Web3 technologies. </p>
-<p>What if sharing a tiny space in your refrigerator could help preserve seed diversity? </p>
-<p>The Food and Agriculture Organization (FAO), estimates that 75% of crop diversity was lost since the 1900s. That lack of diversity presents a severe risk to the security of global food systems. Without seed diversity, it is difficult for plants to adapt to pests, diseases, and changing climate conditions.</p>
-<p>More details are available on the paper on <a href="https://lnkd.in/diR7wJ2R">arXiv</a></p>
-<p><a href="https://github.com/andreavitaletti/documents/tree/main/PlatformIO/Projects/web3E_SC">source code</a></p>
+<h1 id="digital-twin">Digital Twin</h1>
+<h2 id="the-difference-between-static-and-dynamic-unbalance">The difference between Static and Dynamic Unbalance</h2>
+<p>https://www.youtube.com/watch?v=JB8i7LtY3mU</p>
 
 
 
@@ -658,6 +712,10 @@
     
     
       <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
