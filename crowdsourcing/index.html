@@ -558,6 +558,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#monitoring-coronavirus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring Coronavirus
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -631,6 +640,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#monitoring-coronavirus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring Coronavirus
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -651,7 +669,7 @@
 <p>Nowadays, mobile devices, such as our smart phone or watch are plenty of sensors. There are many examples to collect data from such sensors by mobile apps. </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>In this course we are not interested in mobile applications using <strong>ONLY</strong> the sensors available in you mobile phone. </p>
+<p>In this course we are <strong>NOT interested</strong> in mobile applications using <strong>ONLY</strong> the sensors available in you mobile phone. </p>
 </div>
 <p>Instead, we aim at developing solution where a node, in our case an ESP32, collects some sensor data and interact with the mobile phone (e.g. via BLE) to possibly enrich the observed data by the phone sensors and to deliver them to the backend.  </p>
 <div class="admonition warning">
@@ -983,6 +1001,13 @@ void app_main()
     nimble_port_freertos_init(host_task);      // 6 - Run the thread
 }
 </code></pre></div>
+<h2 id="monitoring-coronavirus">Monitoring Coronavirus</h2>
+<p>A remarkable use of crowdsensing has been the use of mobile phones for contact tracing, during the COVID-19. Indeed smartphone apps, given accessibility in the time of physical distancing, were widely used for tracking, tracing and educating the public about COVID-19 as reported in <a href="https://www.nature.com/articles/s41587-022-01350-x">Smartphone apps in the COVID-19 pandemic</a>. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Despite this use case is not consistent with the requirement of integrating external sensors with the mobile phone, we will consider it for its obvious relevance. </p>
+</div>
+<p>Many efforts have been put in place to preserve tha anonymity in tracing, however the research community raised a number of issues, as discussed in <a href="https://risques-tracage.fr/docs/tracing-risks.pdf">Anonymous tracing, a dangerous oxymoron</a> </p>
 
 
 
