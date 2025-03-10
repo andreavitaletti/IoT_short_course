@@ -331,6 +331,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fast-fourier-transform-fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fast Fourier Transform (FFT)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-virtual-signal" class="md-nav__link">
     <span class="md-ellipsis">
       A virtual signal
@@ -367,15 +376,6 @@
   <a href="#a-possible-alternative-using-the-pc" class="md-nav__link">
     <span class="md-ellipsis">
       A possible alternative using the PC
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fast-fourier-transform-fft" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fast Fourier Transform (FFT)
     </span>
   </a>
   
@@ -647,6 +647,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fast-fourier-transform-fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fast Fourier Transform (FFT)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#a-virtual-signal" class="md-nav__link">
     <span class="md-ellipsis">
       A virtual signal
@@ -688,15 +697,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#fast-fourier-transform-fft" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fast Fourier Transform (FFT)
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -715,6 +715,105 @@
 
 <h1 id="sample-the-environment">Sample the environment</h1>
 <p>Usually IoT applications need to observe a physical phenomenon. This is done by sampling.</p>
+<h2 id="fast-fourier-transform-fft">Fast Fourier Transform (FFT)</h2>
+<p><img alt="" src="../assets/images/2024-12-17-04-19-02.png" /></p>
+<p><a href="https://colab.research.google.com/drive/1nuZx095lzt2d9h42N7yNu13crGg9eS9A">Colab Notebook on FFT</a></p>
+<p><a href="https://github.com/kosme/arduinoFFT">arduinoFFT library</a></p>
+<p>In the following <a href="https://github.com/kosme/arduinoFFT/blob/master/Examples/FFT_01/FFT_01.ino">example</a> the signal is generated internally by the node.</p>
+<div class="highlight"><pre><span></span><code><span class="n">include</span><span class="w"> </span><span class="o">&lt;</span><span class="n">arduinoFFT</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+
+<span class="cm">/*</span>
+<span class="cm">These values can be changed in order to evaluate the functions</span>
+<span class="cm">*/</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="c1">//This value MUST ALWAYS be a power of 2</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">signalFrequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">samplingFrequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5000</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">amplitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm">These are the input and output vectors</span>
+<span class="cm">Input vectors receive computed results from FFT</span>
+<span class="cm">*/</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">vReal</span><span class="p">[</span><span class="n">samples</span><span class="p">];</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">vImag</span><span class="p">[</span><span class="n">samples</span><span class="p">];</span>
+
+<span class="cm">/* Create FFT object */</span>
+<span class="n">ArduinoFFT</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FFT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArduinoFFT</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vReal</span><span class="p">,</span><span class="w"> </span><span class="n">vImag</span><span class="p">,</span><span class="w"> </span><span class="n">samples</span><span class="p">,</span><span class="w"> </span><span class="n">samplingFrequency</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">Serial</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Ready&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="cm">/* Build raw data */</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">ratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">twoPi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">signalFrequency</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">samplingFrequency</span><span class="p">;</span><span class="w"> </span><span class="c1">// Fraction of a complete cycle stored at each sample (in radians)</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">samples</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">vReal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int8_t</span><span class="p">(</span><span class="n">amplitude</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ratio</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span><span class="cm">/* Build data with positive and negative values*/</span>
+<span class="w">    </span><span class="n">vImag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"> </span><span class="c1">//Imaginary part must be zeroed in case of looping to avoid wrong calculations and overflows</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FFT</span><span class="p">.</span><span class="n">majorPeak</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="cm">/* Run Once */</span>
+<span class="w">  </span><span class="c1">// delay(2000); /* Repeat after delay */</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>More realistically the signal is observed by the ADC, as in the following <a href="https://github.com/kosme/arduinoFFT/blob/master/Examples/FFT_03/FFT_03.ino">example</a></p>
+<p><img alt="" src="../assets/images/2025-03-10-09-14-30.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;arduinoFFT.h&quot;</span>
+
+<span class="cm">/*</span>
+<span class="cm">These values can be changed in order to evaluate the functions</span>
+<span class="cm">*/</span>
+<span class="cp">#define CHANNEL 12</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="c1">//This value MUST ALWAYS be a power of 2</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">samplingFrequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="c1">//Hz, must be less than 10000 due to ADC</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sampling_period_us</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">microseconds</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm">These are the input and output vectors</span>
+<span class="cm">Input vectors receive computed results from FFT</span>
+<span class="cm">*/</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">vReal</span><span class="p">[</span><span class="n">samples</span><span class="p">];</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">vImag</span><span class="p">[</span><span class="n">samples</span><span class="p">];</span>
+
+<span class="cm">/* Create FFT object */</span>
+<span class="n">ArduinoFFT</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FFT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArduinoFFT</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vReal</span><span class="p">,</span><span class="w"> </span><span class="n">vImag</span><span class="p">,</span><span class="w"> </span><span class="n">samples</span><span class="p">,</span><span class="w"> </span><span class="n">samplingFrequency</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">sampling_period_us</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">round</span><span class="p">(</span><span class="mi">1000000</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">samplingFrequency</span><span class="p">));</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">Serial</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Ready&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="cm">/*SAMPLING*/</span>
+<span class="w">  </span><span class="n">microseconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">micros</span><span class="p">();</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">samples</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">      </span><span class="n">vReal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analogRead</span><span class="p">(</span><span class="n">CHANNEL</span><span class="p">);</span>
+<span class="w">      </span><span class="n">vImag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">      </span><span class="k">while</span><span class="p">(</span><span class="n">micros</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">microseconds</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sampling_period_us</span><span class="p">){</span>
+<span class="w">        </span><span class="c1">//empty loop</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">microseconds</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">sampling_period_us</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// ... </span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FFT</span><span class="p">.</span><span class="n">majorPeak</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">//Print out what frequency is the most dominant.</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="cm">/* Run Once */</span>
+<span class="w">  </span><span class="c1">// delay(2000); /* Repeat after delay */</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="a-virtual-signal">A virtual signal</h2>
 <p>A virtual signal is a practical approach to generate arbitrary signals using one EPS32 as the signal generator, and the other as the sampler. </p>
 <p>The two ESP32 are connected as in the following picture</p>
@@ -779,6 +878,7 @@ The node on the right sample the generated signal by the <a href="https://www.el
 <span class="p">}</span>
 </code></pre></div>
 <p><img alt="" src="../assets/images/2024-12-17-03-53-48.png" /></p>
+<p><a href="https://github.com/andreavitaletti/documents/tree/main/PlatformIO/Projects/virtual%20sensor">source code</a></p>
 <h2 id="a-possible-alternative-using-the-pc">A possible alternative using the PC</h2>
 <p><img alt="" src="../assets/images/2024-12-17-04-23-56.png" /></p>
 <p><a href="https://forum.arduino.cc/t/how-to-read-data-from-audio-jack/458301/3">ref</a></p>
@@ -813,56 +913,6 @@ The node on the right sample the generated signal by the <a href="https://www.el
 <span class="n">sd</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </code></pre></div>
 <p><a href="https://onlinetonegenerator.com/">Online Tone Generator</a></p>
-<h2 id="fast-fourier-transform-fft">Fast Fourier Transform (FFT)</h2>
-<p><img alt="" src="../assets/images/2024-12-17-04-19-02.png" /></p>
-<p><a href="https://colab.research.google.com/drive/1nuZx095lzt2d9h42N7yNu13crGg9eS9A">Colab Notebook on FFT</a></p>
-<p><a href="https://github.com/kosme/arduinoFFT">arduinoFFT library</a></p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;arduinoFFT.h&quot;</span>
-
-
-<span class="c1">// Define the DAC and ADC pins</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">adcPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">36</span><span class="p">;</span><span class="w">   </span><span class="c1">// ADC1 (GPIO 34) for reading the sinusoid</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">samplingFrequencyADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">27</span><span class="p">;</span><span class="w"> </span><span class="c1">// sampling theorem should be at least 2*frequency</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span>
-
-<span class="kt">double</span><span class="w"> </span><span class="n">vReal</span><span class="p">[</span><span class="n">samples</span><span class="p">];</span>
-<span class="kt">double</span><span class="w"> </span><span class="n">vImag</span><span class="p">[</span><span class="n">samples</span><span class="p">];</span>
-
-
-<span class="cm">/* Create FFT object */</span>
-<span class="n">ArduinoFFT</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FFTADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArduinoFFT</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vReal</span><span class="p">,</span><span class="w"> </span><span class="n">vImag</span><span class="p">,</span><span class="w"> </span><span class="n">samples</span><span class="p">,</span><span class="w"> </span><span class="n">samplingFrequencyADC</span><span class="p">);</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-<span class="w">  </span><span class="n">analogReadResolution</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span>
-<span class="w">  </span><span class="n">analogSetAttenuation</span><span class="p">(</span><span class="n">ADC_11db</span><span class="p">);</span><span class="w">  </span><span class="c1">// Set ADC attenuation (default 0dB)</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">samples</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="n">vReal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analogRead</span><span class="p">(</span><span class="n">adcPin</span><span class="p">)</span><span class="mi">-512</span><span class="p">;</span>
-<span class="w">      </span><span class="n">vImag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">      </span><span class="cm">/*</span>
-<span class="cm">      Serial.print(&quot;&gt;&quot;);</span>
-<span class="cm">      Serial.print(&quot;adc:&quot;);    </span>
-<span class="cm">      Serial.println(analogRead(adcPin)-512);</span>
-<span class="cm">      */</span>
-<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">samplingFrequencyADC</span><span class="o">*</span><span class="mi">1000</span><span class="p">));</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="n">FFTADC</span><span class="p">.</span><span class="n">windowing</span><span class="p">(</span><span class="n">FFTWindow</span><span class="o">::</span><span class="n">Hamming</span><span class="p">,</span><span class="w"> </span><span class="n">FFTDirection</span><span class="o">::</span><span class="n">Forward</span><span class="p">);</span><span class="w">  </span>
-<span class="w">  </span><span class="n">FFTADC</span><span class="p">.</span><span class="n">compute</span><span class="p">(</span><span class="n">FFTDirection</span><span class="o">::</span><span class="n">Forward</span><span class="p">);</span><span class="w"> </span>
-<span class="w">  </span><span class="n">FFTADC</span><span class="p">.</span><span class="n">complexToMagnitude</span><span class="p">();</span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FFTADC</span><span class="p">.</span><span class="n">majorPeak</span><span class="p">();</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;ADC FFT: &quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
-
-<span class="w">  </span><span class="p">}</span>
-</code></pre></div>
-<p><a href="https://github.com/andreavitaletti/documents/tree/main/PlatformIO/Projects/virtual%20sensor">source code</a></p>
 
 
 
