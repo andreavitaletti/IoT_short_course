@@ -950,8 +950,8 @@ on Microcontrollers for Industrial Applications</a> demonstrates how to implemen
 <li>Instead of a simple binary condition open/close you also want to know to what extent the door is open &rarr; potentiometer</li>
 <li>Finally all these information should be available online</li>
 </ol>
-<h2 id="mqtt"><a href="https://dev.to/hivemq_/series/18762">MQTT</a></h2>
-<p>MQTT is an example of Publish/Subscribe. </p>
+<h2 id="mqtt">MQTT</h2>
+<p><a href="https://dev.to/hivemq_/series/18762">MQTT</a> is an example of Publish/Subscribe. </p>
 <p><img alt="" src="../assets/images/2024-10-25-05-01-31.png" /></p>
 <p>TOPICS:</p>
 <ol>
@@ -963,8 +963,9 @@ on Microcontrollers for Industrial Applications</a> demonstrates how to implemen
 <li>myhome/groundfloor/# (1,2 and 3)</li>
 <li>myhome/# (1,2,3 and 4)</li>
 </ol>
-<h2 id="its-time-to-be-connected-by-mqtt">It's time to be connected by <a href="https://wokwi.com/projects/367405831605855233">MQTT</a>.</h2>
-<p>The most convenient way is to use your mobile an Access Point and configure SSID and password consequently.</p>
+<h2 id="its-time-to-be-connected-by-mqtt">It's time to be connected by MQTT.</h2>
+<p>A simulation of an MQTT connection is available <a href="https://wokwi.com/projects/367405831605855233">here</a> on Wokwi.</p>
+<p>The most convenient way to run on a real device is to use your mobile as an Access Point and configure SSID and password consequently.</p>
 <p>Note that the topics names are assigned to be consistent with the adafruit dashboard (see example below), but you are free to use any name you like.</p>
 <div class="highlight"><pre><span></span><code>mosquitto_pub -h test.mosquitto.org -t &quot;avitaletti/feeds/threshold&quot; -m 2345
 </code></pre></div>
