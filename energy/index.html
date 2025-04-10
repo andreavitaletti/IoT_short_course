@@ -696,7 +696,7 @@
 <li><a href="https://randomnerdtutorials.com/esp32-deep-sleep-arduino-ide-wake-up-sources/">ESP32 Deep Sleep with Arduino IDE and Wake Up Sources</a></li>
 </ul>
 <h2 id="how-to-measure-energy-consumption">How to measure energy consumption</h2>
-<p>In the following example, the LOAD is our ESP32 and we use the INA219 connected to an Arduino UNO to measure the power consumption. The same can be obtained using another ESP32 instead of the UNO.  </p>
+<p>In the following example, the LOAD is our ESP32 and we use the <a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">INA219</a> connected to an Arduino UNO to measure the power consumption. The same can be obtained using another ESP32 instead of the UNO, but remember the correct pins for SDA (default is GPIO 21) SCL (default is GPIO 22) (<a href="../assets/images/esp32_dev_kit_pinout_v1_mischianti.jpg">See the schematics</a>)</p>
 <ul>
 <li>Connect board VIN (red wire) to Arduino 5V if you are running a 5V board Arduino (Mega, etc.). If your board is 3V, connect to that instead.</li>
 <li>Connect board GND (black wire) to Arduino GND</li>
@@ -705,7 +705,7 @@
 <li>Connect Vin+ to the positive terminal of the power supply for the circuit under test</li>
 <li>Connect Vin- to the positive terminal or lead of the load</li>
 </ul>
-<p><img alt="" src="../assets/images/2024-11-28-11-17-03.png" /></p>
+<p><img alt="" src="../assets/images/2025-04-10-18-50-11.png" /></p>
 <p><a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring" title="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">source</a></p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_INA219.h&gt;</span>
@@ -768,6 +768,10 @@
 <p><img alt="" src="../assets/images/power_no_sleep.png" />
 <img alt="" src="../assets/images/power_sleep.png" /></p>
 <p><a href="https://github.com/andreavitaletti/documents/tree/main/PlatformIO/Projects/power">source code</a></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Write a simple code  that  mimics the diagram at the beginning of this section on a typical sensor working scenario and measure the consumption of each activity</p>
+</div>
 <h2 id="energy-harvesting">Energy Harvesting</h2>
 <p><a href="https://randomnerdtutorials.com/power-esp32-esp8266-solar-panels-battery-level-monitoring/">Power ESP32/ESP8266 with Solar Panels</a></p>
 
