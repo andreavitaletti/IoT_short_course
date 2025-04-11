@@ -716,8 +716,8 @@
 <h2 id="powering-the-esp32">Powering the ESP32</h2>
 <p>To power the ESP32 you can use <a href="https://esp32io.com/tutorials/how-to-power-esp32">several methods</a> </p>
 <p>The ESP32 works at 3.3V. You can apply 5V to the Vin and an internal voltage regulator drops it down to 3.3V, but this costs energy because it is because a linear regulator that converts the excess voltage into heat.  </p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>if you don't need 5V in you project, use 3.3V, it will save energy. However, finding suitable batteries is not easy!</p>
 <p>if the battery does not exceed 3.6V as in the LiFePO4, you can connect the battery to the 3.3V and bypass the voltage regulator</p>
 </div>
@@ -733,7 +733,10 @@
 </ul>
 <p><img alt="" src="../assets/images/2025-04-10-18-50-11.png" /></p>
 <p><a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring" title="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">source</a></p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// use https://github.com/nathandunk/BetterSerialPlotter to visualize the data</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_INA219.h&gt;</span>
 
 <span class="n">Adafruit_INA219</span><span class="w"> </span><span class="n">ina219</span><span class="p">;</span>
@@ -778,18 +781,23 @@
 <span class="w">  </span><span class="n">loadvoltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">busvoltage</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">shuntvoltage</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
 
 <span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">busvoltage</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//Serial.print(&quot;,&quot;);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">shuntvoltage</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//Serial.print(&quot;,&quot;);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">loadvoltage</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//Serial.print(&quot;,&quot;);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">current_mA</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">power_mW</span><span class="p">);</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//Serial.print(&quot;,&quot;);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">power_mW</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//Serial.println(&quot;&quot;);</span>
+<span class="w">  </span><span class="cm">/*</span>
 
-<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="cm">  delay(50);</span>
+<span class="cm">}</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="cm">/*</span>
 <span class="cm">  ESP32 Deep Sleep Mode Timer Wake UP</span>
@@ -827,7 +835,7 @@
 <p><img alt="" src="../assets/images/2025-04-11-10-45-59.png" /></p>
 <p><a href="https://github.com/andreavitaletti/PlatformIO/tree/main/Projects/power_simple">source code</a></p>
 <div class="admonition example">
-<p class="admonition-title">Example</p>
+<p class="admonition-title">exercise</p>
 <p>Write a simple code  that  mimics the diagram at the beginning of this section of a typical sensor working scenario and measure the consumption of each activity</p>
 </div>
 <h2 id="energy-harvesting">Energy Harvesting</h2>
