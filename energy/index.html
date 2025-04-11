@@ -437,6 +437,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#powering-the-esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      Powering the ESP32
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-to-measure-energy-consumption" class="md-nav__link">
     <span class="md-ellipsis">
       How to measure energy consumption
@@ -652,6 +661,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#powering-the-esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      Powering the ESP32
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-to-measure-energy-consumption" class="md-nav__link">
     <span class="md-ellipsis">
       How to measure energy consumption
@@ -695,6 +713,14 @@
 <li><a href="https://www.electronicwings.com/esp32/esp32-deep-sleep-mode">ESP32 Deep Sleep Mode</a></li>
 <li><a href="https://randomnerdtutorials.com/esp32-deep-sleep-arduino-ide-wake-up-sources/">ESP32 Deep Sleep with Arduino IDE and Wake Up Sources</a></li>
 </ul>
+<h2 id="powering-the-esp32">Powering the ESP32</h2>
+<p>To power the ESP32 you can use <a href="https://esp32io.com/tutorials/how-to-power-esp32">several methods</a> </p>
+<p>The ESP32 works at 3.3V. You can apply 5V to the Vin and an internal voltage regulator drops it down to 3.3V, but this costs energy because it is because a linear regulator that converts the excess voltage into heat.  </p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>if you don't need 5V in you project, use 3.3V, it will save energy. However, finding suitable batteries is not easy!</p>
+<p>if the battery does not exceed 3.6V as in the LiFePO4, you can connect the battery to the 3.3V and bypass the voltage regulator</p>
+</div>
 <h2 id="how-to-measure-energy-consumption">How to measure energy consumption</h2>
 <p>In the following example, the LOAD is our ESP32 and we use the <a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">INA219</a> connected to an Arduino UNO to measure the power consumption. The same can be obtained using another ESP32 instead of the UNO, but remember the correct pins for SDA (default is GPIO 21) SCL (default is GPIO 22) (<a href="../assets/images/esp32_dev_kit_pinout_v1_mischianti.jpg">See the schematics</a>)</p>
 <ul>
@@ -765,12 +791,44 @@
 <span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><img alt="" src="../assets/images/power_no_sleep.png" />
-<img alt="" src="../assets/images/power_sleep.png" /></p>
-<p><a href="https://github.com/andreavitaletti/documents/tree/main/PlatformIO/Projects/power">source code</a></p>
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm">  ESP32 Deep Sleep Mode Timer Wake UP</span>
+<span class="cm"> http:://www.electronicwings.com</span>
+<span class="cm">*/</span><span class="w"> </span>
+
+
+<span class="cp">#define Time_To_Sleep 5   </span><span class="c1">//Time ESP32 will go to sleep (in seconds)</span>
+<span class="cp">#define S_To_uS_Factor 1000000ULL      </span><span class="c1">//Conversion factor for micro seconds to seconds </span>
+
+<span class="n">RTC_DATA_ATTR</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bootCount</span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="c1">//Take some time to open up the Serial Monitor</span>
+
+<span class="w">  </span><span class="c1">//Increment boot number and print it every reboot</span>
+<span class="w">  </span><span class="o">++</span><span class="n">bootCount</span><span class="p">;</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Boot number: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">bootCount</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">//Set timer to 5 seconds</span>
+<span class="w"> </span><span class="n">esp_sleep_enable_timer_wakeup</span><span class="p">(</span><span class="n">Time_To_Sleep</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">S_To_uS_Factor</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Setup ESP32 to sleep for every &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">Time_To_Sleep</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="s">&quot; Seconds&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">//Go to sleep now</span>
+<span class="w">  </span><span class="n">esp_deep_sleep_start</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;This will not print!!&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// This will not get print,as ESP32 goes in Sleep mode.</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// We don&#39;t need loop as ESP32 will initilize each time.</span>
+</code></pre></div>
+<p>We use <a href="https://github.com/nathandunk/BetterSerialPlotter">Better Serial Pltter</a> to visualize the data.</p>
+<p><img alt="" src="../assets/images/2025-04-11-10-45-59.png" /></p>
+<p><a href="https://github.com/andreavitaletti/PlatformIO/tree/main/Projects/power_simple">source code</a></p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Write a simple code  that  mimics the diagram at the beginning of this section on a typical sensor working scenario and measure the consumption of each activity</p>
+<p>Write a simple code  that  mimics the diagram at the beginning of this section of a typical sensor working scenario and measure the consumption of each activity</p>
 </div>
 <h2 id="energy-harvesting">Energy Harvesting</h2>
 <p><a href="https://randomnerdtutorials.com/power-esp32-esp8266-solar-panels-battery-level-monitoring/">Power ESP32/ESP8266 with Solar Panels</a></p>
