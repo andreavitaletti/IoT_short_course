@@ -721,6 +721,7 @@
 <p>if you don't need 5V in you project, use 3.3V, it will save energy. However, finding suitable batteries is not easy!</p>
 <p>if the battery does not exceed 3.6V as in the LiFePO4, you can connect the battery to the 3.3V and bypass the voltage regulator</p>
 </div>
+<p><img alt="" src="../assets/images/2025-04-11-14-59-39.png" /></p>
 <h2 id="how-to-measure-energy-consumption">How to measure energy consumption</h2>
 <p>In the following example, the LOAD is our ESP32 and we use the <a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">INA219</a> connected to an Arduino UNO to measure the power consumption. The same can be obtained using another ESP32 instead of the UNO, but remember the correct pins for SDA (default is GPIO 21) SCL (default is GPIO 22) (<a href="../assets/images/esp32_dev_kit_pinout_v1_mischianti.jpg">See the schematics</a>)</p>
 <ul>
@@ -731,6 +732,7 @@
 <li>Connect Vin+ to the positive terminal of the power supply for the circuit under test</li>
 <li>Connect Vin- to the positive terminal or lead of the load</li>
 </ul>
+<p><a href="https://github.com/ShotokuTech/HeltecLoRa32v3_I2C/tree/main">Note on Heltec V3</a></p>
 <p><img alt="" src="../assets/images/2025-04-10-18-50-11.png" /></p>
 <p><a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring" title="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">source</a></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// use https://github.com/nathandunk/BetterSerialPlotter to visualize the data</span>
