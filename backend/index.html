@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/web3/">
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/backend/">
       
       
-        <link rel="prev" href="../security/">
+        <link rel="prev" href="../ml/">
       
       
-        <link rel="next" href="../ml/">
+        <link rel="next" href="../edge/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>IoT and Web3 - A Short Course on IoT</title>
+        <title>Backend - A Short Course on IoT</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iot-and-web3" class="md-skip">
+        <a href="#backend" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              IoT and Web3
+              Backend
             
           </span>
         </div>
@@ -471,19 +471,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../web3/" class="md-nav__link">
         
   
   
@@ -499,7 +490,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -535,10 +525,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../backend/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -554,6 +553,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -701,12 +701,18 @@
 
 
 
-<h1 id="iot-and-web3">IoT and Web3</h1>
-<p>In <a href="https://www.mdpi.com/2224-2708/11/2/20">Blockchain as IoT Economy Enabler: A Review of Architectural Aspects</a> we discuss how the IoT can benefit in interfacing the Blockchain and Web3 technologies. </p>
-<p>What if sharing a tiny space in your refrigerator could help preserve seed diversity? </p>
-<p>The Food and Agriculture Organization (FAO), estimates that 75% of crop diversity was lost since the 1900s. That lack of diversity presents a severe risk to the security of global food systems. Without seed diversity, it is difficult for plants to adapt to pests, diseases, and changing climate conditions.</p>
-<p>More details are available on the paper on <a href="https://lnkd.in/diR7wJ2R">arXiv</a></p>
-<p><a href="https://github.com/andreavitaletti/documents/tree/main/PlatformIO/Projects/web3E_SC">source code</a></p>
+<h1 id="backend">Backend</h1>
+<p>There are many options for a backend, but a nice solution I recommend is <a href="https://thingsboard.io/">ThingsBoard</a>.</p>
+<p>There is a demo version at <a href="https://demo.thingsboard.io/">https://demo.thingsboard.io/</a> which is perfect for experimenting.</p>
+<!-- login in my case as andrea.vitaletti<at>gmail.com -->
+
+<p>You can easily deliver data from your thing via <a href="../simulation/#mqtt">MQTT</a> as explained <a href="https://thingsboard.io/docs/reference/mqtt-api/">here</a></p>
+<div class="highlight"><pre><span></span><code>mosquitto_pub -d -q 1 -h &quot;$THINGSBOARD_HOST_NAME&quot; -p &quot;1883&quot; -t &quot;v1/devices/me/telemetry&quot; -u &quot;$ACCESS_TOKEN&quot; -m {&quot;temperature&quot;:25}
+</code></pre></div>
+<p>A convenient multiplatform tool for experimenting is <a href="https://mqttx.app/downloads">MQTTX</a>. Note that in some cases MQTT protocol is filtered out, so be sure you are in a network 
+that can easily deal with MQTT.</p>
+<p>Once you are satisfied by your experiments, you can easily move to a real thing as explained <a href="https://thingsboard.io/docs/devices-library/">here</a></p>
+<p><img alt="" src="../assets/images/arch_hw.png" /></p>
 
 
 
