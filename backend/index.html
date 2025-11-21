@@ -709,7 +709,11 @@
 <p>You can easily deliver data from your thing via <a href="../simulation/#mqtt">MQTT</a> as explained <a href="https://thingsboard.io/docs/reference/mqtt-api/">here</a></p>
 <div class="highlight"><pre><span></span><code>mosquitto_pub -d -q 1 -h &quot;$THINGSBOARD_HOST_NAME&quot; -p &quot;1883&quot; -t &quot;v1/devices/me/telemetry&quot; -u &quot;$ACCESS_TOKEN&quot; -m {&quot;temperature&quot;:25}
 </code></pre></div>
-<p>A convenient multiplatform tool for experimenting is <a href="https://mqttx.app/downloads">MQTTX</a>. Note that in some cases MQTT protocol is filtered out, so be sure you are in a network 
+<p>A convenient multiplatform tool for experimenting is <a href="https://mqttx.app/downloads">MQTTX</a>. </p>
+<p>The configuration is the one below where username is the access token</p>
+<p><img alt="" src="../assets/images/MQTT1.png" /></p>
+<p><img alt="" src="../assets/images/MQTT2.png" /></p>
+<p>Note that in some cases MQTT protocol is filtered out, so be sure you are in a network 
 that can easily deal with MQTT.</p>
 <p>Once you are satisfied by your experiments, you can easily move to a real thing as explained <a href="https://thingsboard.io/docs/devices-library/">here</a></p>
 <p><img alt="" src="../assets/images/arch_hw.png" /></p>
