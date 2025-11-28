@@ -877,6 +877,14 @@ that can easily deal with MQTT.</p>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Now instead of sending random temperature and humidity values, send the values read from a potentiometer connected to your node</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Caution</p>
+<p>Some pins might interfere. As an example pin 15 is used by the WiFi. If you use that pin for analogRead it does't read properly because it is occupied by the WiFi</p>
+</div>
 <p><img alt="" src="../assets/images/arch_hw.png" /></p>
 <h2 id="how-to-receive-a-command-on-the-node">How to receive a command on the node</h2>
 <p>The node subscribe to</p>
@@ -1047,7 +1055,10 @@ that can easily deal with MQTT.</p>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>NOTE: exactly the same process, namely publish/subscribe can be used to allow devices to communicate each other</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Exactly the same process, namely publish/subscribe on a specific topic, can be used to allow devices to communicate each other</p>
+</div>
 
 
 
