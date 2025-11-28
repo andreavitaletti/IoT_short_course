@@ -735,8 +735,6 @@
 
 <p>You can easily deliver data from your thing via <a href="../simulation/#mqtt">MQTT</a> as explained <a href="https://thingsboard.io/docs/reference/mqtt-api/">here</a></p>
 <div class="highlight"><pre><span></span><code>mosquitto_pub -d -q 1 -h &quot;$THINGSBOARD_HOST_NAME&quot; -p &quot;1883&quot; -t &quot;v1/devices/me/telemetry&quot; -u &quot;$ACCESS_TOKEN&quot; -m {&quot;temperature&quot;:25}
-
-$THINGSBOARD_HOST_NAME demo.thingsboard.io
 </code></pre></div>
 <p>A convenient multiplatform tool for experimenting is <a href="https://mqttx.app/downloads">MQTTX</a>. </p>
 <p>The configuration is the one below where username is the access token</p>
@@ -881,16 +879,175 @@ that can easily deal with MQTT.</p>
 </code></pre></div>
 <p><img alt="" src="../assets/images/arch_hw.png" /></p>
 <h2 id="how-to-receive-a-command-on-the-node">How to receive a command on the node</h2>
-<p>The node subscribe to </p>
-<div class="highlight"><pre><span></span><code>mosquitto_sub -h &quot;$THINGSBOARD_HOST_NAME&quot; -p &quot;1883&quot; -t &quot;v1/devices/me/rpc/request/+&quot; -u &quot;$ACCESS_TOKEN&quot;
+<p>The node subscribe to</p>
+<div class="highlight"><pre><span></span><code>mosquitto_sub -h &quot;$THINGSBOARD_HOST_NAME&quot; -p &quot;1883&quot; -t &quot;v1/devices/me/rpc/request/+&quot; -u &quot;$ACCESS_TOKEN&quot; 
 
-
-{&quot;method&quot;:&quot;setState&quot;,&quot;params&quot;:true}
-{&quot;method&quot;:&quot;setState&quot;,&quot;params&quot;:false}
-{&quot;method&quot;:&quot;setState&quot;,&quot;params&quot;:true}
-{&quot;method&quot;:&quot;setState&quot;,&quot;params&quot;:false}
+{&quot;method&quot;:&quot;setState&quot;,&quot;params&quot;:true} {&quot;method&quot;:&quot;setState&quot;,&quot;params&quot;:false} {&quot;method&quot;:&quot;setState&quot;,&quot;params&quot;:true} {&quot;method&quot;:&quot;setState&quot;,&quot;params&quot;:false}
 </code></pre></div>
 <p><img alt="" src="../assets/images/send_command.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WiFi.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;PubSubClient.h&gt;</span>
+
+<span class="c1">// --- Network Configuration ---</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">WIFI_SSID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w">             </span><span class="c1">// &lt;-- REPLACE with your Wi-Fi network name</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">WIFI_PASS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w">             </span><span class="c1">// &lt;-- REPLACE with your Wi-Fi password</span>
+
+<span class="c1">// --- ThingsBoard &amp; MQTT Configuration ---</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">TB_SERVER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;demo.thingsboard.io&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">TB_PORT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1883</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">TB_ACCESS_TOKEN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w">       </span><span class="c1">// &lt;-- REPLACE with your actual Device Access Token</span>
+
+<span class="c1">// Topics</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">TELEMETRY_TOPIC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;v1/devices/me/telemetry&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">ATTRIBUTES_TOPIC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;v1/devices/me/attributes&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">RPC_SUBSCRIBE_TOPIC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;v1/devices/me/rpc/request/+&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Topic for incoming RPC requests</span>
+
+<span class="c1">// --- Hardware Settings ---</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LED_PIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// GPIO 2 is usually the Built-in LED on ESP32</span>
+
+<span class="c1">// --- Initialize Clients ---</span>
+<span class="n">WiFiClient</span><span class="w"> </span><span class="n">espClient</span><span class="p">;</span>
+<span class="n">PubSubClient</span><span class="w"> </span><span class="nf">client</span><span class="p">(</span><span class="n">espClient</span><span class="p">);</span>
+
+<span class="c1">// Timing variables</span>
+<span class="kt">long</span><span class="w"> </span><span class="n">lastMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PUBLISH_INTERVAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span>
+
+<span class="c1">// Function prototypes</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup_wifi</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">reconnect_mqtt</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">publishTelemetry</span><span class="p">();</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">byte</span><span class="o">*</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">);</span><span class="w"> </span><span class="c1">// Callback prototype</span>
+
+<span class="c1">// =========================================================================</span>
+<span class="c1">// SETUP</span>
+<span class="c1">// =========================================================================</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Initialize LED</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w"> </span><span class="c1">// Start with LED off</span>
+
+<span class="w">  </span><span class="n">setup_wifi</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Set the MQTT server and the callback function for incoming messages</span>
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">setServer</span><span class="p">(</span><span class="n">TB_SERVER</span><span class="p">,</span><span class="w"> </span><span class="n">TB_PORT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">setCallback</span><span class="p">(</span><span class="n">on_message</span><span class="p">);</span><span class="w"> </span>
+<span class="p">}</span>
+
+<span class="c1">// =========================================================================</span>
+<span class="c1">// LOOP</span>
+<span class="c1">// =========================================================================</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">reconnect_mqtt</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">loop</span><span class="p">();</span><span class="w"> </span><span class="c1">// Keeps the MQTT connection alive and listens for incoming messages</span>
+
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastMsg</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">PUBLISH_INTERVAL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lastMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">    </span><span class="n">publishTelemetry</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// =========================================================================</span>
+<span class="c1">// HELPER FUNCTIONS</span>
+<span class="c1">// =========================================================================</span>
+
+<span class="c1">// 1. Connect to Wi-Fi</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup_wifi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Connecting to &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WIFI_SSID</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">WIFI_SSID</span><span class="p">,</span><span class="w"> </span><span class="n">WIFI_PASS</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">WL_CONNECTED</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">WiFi connected&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;IP address: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">localIP</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="c1">// 2. Reconnect to MQTT Broker</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">reconnect_mqtt</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Attempting MQTT connection to ThingsBoard...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Connect with ClientID (Token) and Username (Token)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">TB_ACCESS_TOKEN</span><span class="p">,</span><span class="w"> </span><span class="n">TB_ACCESS_TOKEN</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;connected!&quot;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Send attributes on connect</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ATTRIBUTES_TOPIC</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">firmware_version</span><span class="se">\&quot;</span><span class="s">:</span><span class="se">\&quot;</span><span class="s">1.0.0</span><span class="se">\&quot;</span><span class="s">}&quot;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// --- SUBSCRIBE TO RPC REQUESTS ---</span>
+<span class="w">      </span><span class="c1">// We must subscribe here so we re-subscribe if WiFi drops and reconnects</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">RPC_SUBSCRIBE_TOPIC</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Subscribed to RPC requests&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;failed, rc=&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">state</span><span class="p">());</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot; trying again in 5 seconds...&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 3. MQTT Callback (Handle incoming messages)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">byte</span><span class="o">*</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Message arrived [&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">topic</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;] &quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Convert payload to a String for easy parsing</span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">message</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">payload</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Check if the message is the &#39;setState&#39; method</span>
+<span class="w">  </span><span class="c1">// Payload example: {&quot;method&quot;:&quot;setState&quot;,&quot;params&quot;:true}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s">&quot;setState&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// Check for true/false in the params</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s">&quot;true&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Command: LED ON&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s">&quot;false&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Command: LED OFF&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 4. Generate and publish telemetry</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">publishTelemetry</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">10.0</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">humidity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">10.0</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">temperature</span><span class="se">\&quot;</span><span class="s">:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                   </span><span class="s">&quot;,</span><span class="se">\&quot;</span><span class="s">humidity</span><span class="se">\&quot;</span><span class="s">:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">humidity</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;}&quot;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="n">TELEMETRY_TOPIC</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">.</span><span class="n">c_str</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Published telemetry: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Failed to publish telemetry.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>NOTE: exactly the same process, namely publish/subscribe can be used to allow devices to communicate each other</p>
 
 
 
