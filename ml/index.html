@@ -662,7 +662,8 @@
 
 
 <h1 id="ml-playground">ML Playground</h1>
-<p><a href="https://playground.scienxlab.org/">https://playground.scienxlab.org/</a></p>
+<p><a href="https://playground.scienxlab.org/">https://playground.scienxlab.org/</a>
+<a href="https://mlplaygrounds.com/machine/learning/linearRegression.html">https://mlplaygrounds.com/machine/learning/linearRegression.html</a></p>
 <h1 id="tensorflow-lite-micro-on-esp32">Tensorflow Lite Micro on ESP32</h1>
 <p>Reference examples are available <a href="https://github.com/espressif/tflite-micro-esp-examples">here</a>. You have to download from github <a href="https://github.com/espressif/esp-nn">esp-nn</a> and <a href="https://github.com/espressif/esp32-camera">esp32-camera</a> and place them into the relative folders under components.</p>
 <p>Then go to examples/hello_worlds and as usual idf.py build, idf.py flash and finally idf.py monitor.</p>
@@ -672,6 +673,379 @@
 <li><a href="https://medium.com/@dmytro.korablyov/first-steps-with-esp32-and-tensorflow-lite-for-microcontrollers-c2d8e238accf">First steps with ESP32 and TensorFlow Lite for Microcontrollers</a></li>
 <li><a href="https://www.tensorflow.org/lite/microcontrollers/get_started_low_level">Get started with microcontrollers</a></li>
 </ul>
+<h2 id="anomaly-detection">Anomaly detection</h2>
+<p>Build a <strong>real-time anomaly detector</strong> that identifies unusual patterns in sensor data (e.g., temperature, vibration, or audio) directly on the ESP32 using TinyML.</p>
+<hr />
+<h2 id="step-1-choose-a-dataset-sensor">Step 1: Choose a dataset / sensor</h2>
+<p>Some options suitable for ESP32 sensors:</p>
+<table>
+<thead>
+<tr>
+<th>Sensor type</th>
+<th>Example dataset / task</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accelerometer</td>
+<td>Detect unusual movement of a device (falling, shaking)</td>
+<td>Use onboard MPU6050</td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>Detect abnormal temperature spikes</td>
+<td>Simple, easy for TinyML</td>
+</tr>
+<tr>
+<td>Microphone</td>
+<td>Detect unusual sounds (e.g., clapping, alarm)</td>
+<td>Use I2S mic, feasible with Edge Impulse</td>
+</tr>
+<tr>
+<td>Vibration</td>
+<td>Predict machine anomalies</td>
+<td>Requires IMU or piezo sensor</td>
+</tr>
+<tr>
+<td>## Step 2: Define the anomaly detection approach</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>There are several approaches suitable for TinyML:</p>
+<ol>
+<li><strong>Statistical thresholding</strong><ul>
+<li>Keep a running mean &amp; standard deviation of sensor readings.</li>
+<li>Flag readings that are &gt;2–3σ from the mean.</li>
+<li>Pros: very light, easy on ESP32 RAM.</li>
+<li>Cons: sensitive to noise.</li>
+</ul>
+</li>
+<li><strong>One-class ML model</strong><ul>
+<li>Train a model only on “normal” data, flag anything deviating.</li>
+<li>TinyML-compatible options:<ul>
+<li><strong>TensorFlow Lite for Microcontrollers (TFLM)</strong> with a small fully connected NN</li>
+<li><strong>Isolation Forest</strong> (can be converted to tiny NN)</li>
+<li><strong>Autoencoder</strong>: small network compressing and reconstructing input, high reconstruction error → anomaly</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>TinyML library examples</strong><ul>
+<li><strong>Edge Impulse Anomaly Detection</strong>: supports accelerometer, microphone, temp sensors. Generates ready-to-deploy TFLite micro models for ESP32.</li>
+</ul>
+</li>
+</ol>
+<h2 id="step-3-preprocessing-feature-extraction">Step 3: Preprocessing &amp; feature extraction</h2>
+<p>Depending on the sensor:</p>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accelerometer</td>
+<td>RMS, mean, variance, FFT energy</td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>Rolling mean, slope, variance</td>
+</tr>
+<tr>
+<td>Microphone</td>
+<td>MFCCs, energy, zero-crossing rate</td>
+</tr>
+<tr>
+<td>Vibration</td>
+<td>RMS, spectral centroid, peak-to-peak</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Keep the features small (&lt;10–20 floats) to fit TinyML models on ESP32.</p>
+</blockquote>
+<h2 id="step-4-train-the-model">Step 4: Train the model</h2>
+<ol>
+<li>Collect “normal” data with ESP32 or simulate in Python.</li>
+<li>Train a tiny autoencoder or fully connected NN (e.g., 2–3 hidden layers, 16–32 neurons each).</li>
+<li>Convert to <strong>TensorFlow Lite for Microcontrollers</strong>.</li>
+<li>Load onto ESP32 using Arduino, PlatformIO, or ESP-IDF.</li>
+</ol>
+<hr />
+<h2 id="step-5-run-inference-on-esp32">Step 5: Run inference on ESP32</h2>
+<ul>
+<li>Sample the sensor every X ms (e.g., 100 ms).</li>
+<li>Feed the features to the TinyML model.</li>
+<li>Compute anomaly score:<ul>
+<li>Autoencoder: <code>score = ||input - reconstructed||</code></li>
+<li>Threshold: if score &gt; threshold → anomaly</li>
+</ul>
+</li>
+<li>Optional: trigger an LED, buzzer, or send a message via Wi-Fi/LoRa.</li>
+</ul>
+<hr />
+<h2 id="exercise">Exercise</h2>
+<ol>
+<li>Collect <strong>1 minute of normal temperature data</strong> from ESP32 sensor.</li>
+<li>Train a <strong>TinyML autoencoder</strong> on this data.</li>
+<li>Introduce a <strong>synthetic anomaly</strong> (e.g., sudden spike).</li>
+<li>Deploy model on ESP32.</li>
+<li>Detect anomaly <strong>in real time</strong> and light up LED.</li>
+<li>Optional challenge: add <strong>wireless logging</strong> of anomalies to a server.</li>
+</ol>
+<h2 id="python-tensorflow-training-the-autoencoder">Python / TensorFlow – Training the Autoencoder</h2>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># tinyml_anomaly_train.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+
+<span class="c1"># Simulated &quot;normal&quot; temperature data</span>
+<span class="n">normal_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">25.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># 1000 samples</span>
+
+<span class="c1"># Autoencoder model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">normal_data</span><span class="p">,</span> <span class="n">normal_data</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># Save as TFLite model</span>
+<span class="n">converter</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">lite</span><span class="o">.</span><span class="n">TFLiteConverter</span><span class="o">.</span><span class="n">from_keras_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="n">tflite_model</span> <span class="o">=</span> <span class="n">converter</span><span class="o">.</span><span class="n">convert</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;autoencoder.tflite&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tflite_model</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model saved as autoencoder.tflite&quot;</span><span class="p">)</span>
+</code></pre></div>
+✅ This trains a tiny autoencoder on normal temperature values.</p>
+<h2 id="arduino-esp32-load-run-tflite-model">Arduino / ESP32 – Load &amp; Run TFLite Model</h2>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;TensorFlowLite.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;model_data.h&quot;</span><span class="c1">  // autoencoder.tflite converted to a C array</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tensorflow/lite/micro/all_ops_resolver.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tensorflow/lite/micro/micro_interpreter.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tensorflow/lite/schema/schema_generated.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;tensorflow/lite/version.h&quot;</span>
+
+<span class="c1">// ----------------- Settings -----------------</span>
+<span class="cp">#define SENSOR_PIN 34</span>
+<span class="cp">#define LED_PIN 2</span>
+<span class="cp">#define TFLITE_MODEL autoencoder_model_data</span>
+<span class="cp">#define TFLITE_MODEL_SIZE autoencoder_model_data_len</span>
+<span class="cp">#define ANOMALY_THRESHOLD 0.5  </span><span class="c1">// Adjust based on training</span>
+
+<span class="c1">// ----------------- Globals -----------------</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kTensorArenaSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="p">;</span>
+<span class="kt">uint8_t</span><span class="w"> </span><span class="n">tensor_arena</span><span class="p">[</span><span class="n">kTensorArenaSize</span><span class="p">];</span>
+
+<span class="n">tflite</span><span class="o">::</span><span class="n">MicroInterpreter</span><span class="o">*</span><span class="w"> </span><span class="n">interpreter</span><span class="p">;</span>
+<span class="n">TfLiteTensor</span><span class="o">*</span><span class="w"> </span><span class="n">input</span><span class="p">;</span>
+<span class="n">TfLiteTensor</span><span class="o">*</span><span class="w"> </span><span class="n">output</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Load model</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">tflite</span><span class="o">::</span><span class="n">Model</span><span class="o">*</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tflite</span><span class="o">::</span><span class="n">GetModel</span><span class="p">(</span><span class="n">TFLITE_MODEL</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">model</span><span class="o">-&gt;</span><span class="n">version</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TFLITE_SCHEMA_VERSION</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Model schema mismatch!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Ops resolver</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">tflite</span><span class="o">::</span><span class="n">AllOpsResolver</span><span class="w"> </span><span class="n">resolver</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// Interpreter</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">tflite</span><span class="o">::</span><span class="n">MicroInterpreter</span><span class="w"> </span><span class="n">static_interpreter</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">resolver</span><span class="p">,</span><span class="w"> </span><span class="n">tensor_arena</span><span class="p">,</span><span class="w"> </span><span class="n">kTensorArenaSize</span><span class="p">);</span>
+<span class="w">  </span><span class="n">interpreter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">static_interpreter</span><span class="p">;</span>
+<span class="w">  </span><span class="n">interpreter</span><span class="o">-&gt;</span><span class="n">AllocateTensors</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">interpreter</span><span class="o">-&gt;</span><span class="n">input</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">interpreter</span><span class="o">-&gt;</span><span class="n">output</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// --- Read sensor ---</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analogRead</span><span class="p">(</span><span class="n">SENSOR_PIN</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">3.3</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">4095.0</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w">  </span><span class="c1">// example scaling</span>
+<span class="w">  </span><span class="n">input</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// --- Run inference ---</span>
+<span class="w">  </span><span class="n">TfLiteStatus</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">interpreter</span><span class="o">-&gt;</span><span class="n">Invoke</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">kTfLiteOk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Invoke failed&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">recon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">.</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">anomaly_score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">abs</span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">recon</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Temp: &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot; | Recon: &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">recon</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot; | Score: &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">anomaly_score</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// --- Check anomaly ---</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">anomaly_score</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">ANOMALY_THRESHOLD</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">  </span><span class="c1">// anomaly detected</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span><span class="w">  </span><span class="c1">// sample every 200ms</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><code>model_data.h</code> can be generated from <code>autoencoder.tflite</code> using:
+<code>xxd -i autoencoder.tflite &gt; model_data.h</code></li>
+<li><code>ANOMALY_THRESHOLD</code> should be tuned based on reconstruction error on validation data.</li>
+<li>Sensor reading is simulated here — replace with your <strong>real sensor</strong> (temperature, accelerometer, etc.).</li>
+<li>Very lightweight: <strong>fits ESP32 with ~2 KB tensor arena</strong>.</li>
+</ol>
+<h2 id="why-autoencoder">Why Autoencoder?</h2>
+<p>We want to <strong>detect anomalies</strong> in sensor data, e.g., temperature spikes, unusual vibration, or abnormal movement patterns.</p>
+<p>Key points:</p>
+<ul>
+<li><strong>Normal data is abundant</strong></li>
+<li><strong>Anomalies are rare</strong> or hard to label in advance</li>
+</ul>
+<p>This is a classic <strong>unsupervised anomaly detection problem</strong>.</p>
+<p>An <strong>autoencoder</strong> is a neural network trained to <strong>reconstruct its input</strong>:</p>
+<p><code>Input x  →  Encoder → Latent Space → Decoder → Output x̂ (reconstruction)</code></p>
+<ul>
+<li>It <strong>learns the patterns of “normal” data</strong>.</li>
+<li>If you feed it a <strong>normal sample</strong>, it reconstructs it accurately → low reconstruction error.</li>
+<li>If you feed it an <strong>anomalous sample</strong>, it cannot reconstruct it well → high reconstruction error.</li>
+</ul>
+<p>So the <strong>reconstruction error</strong> can be used as an <strong>anomaly score</strong>:</p>
+<p>Anomaly Score == ∣∣x−x^∣∣</p>
+<table>
+<thead>
+<tr>
+<th>Advantage</th>
+<th>Why it matters for ESP32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lightweight</strong></td>
+<td>A small autoencoder (few layers, few neurons) can run on a microcontroller.</td>
+</tr>
+<tr>
+<td><strong>No labeled anomalies needed</strong></td>
+<td>Only needs normal data to train. Useful because anomalies are rare.</td>
+</tr>
+<tr>
+<td><strong>Generalizable</strong></td>
+<td>Can detect anomalies that were not seen during training.</td>
+</tr>
+<tr>
+<td><strong>Simple inference</strong></td>
+<td>Forward pass only → low latency → real-time detection.</td>
+</tr>
+<tr>
+<td>## Alternative approaches vs autoencoder</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Pros</th>
+<th>Cons for ESP32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Statistical threshold (mean ± 3σ)</td>
+<td>Very light</td>
+<td>Doesn’t capture complex patterns; sensitive to noise</td>
+</tr>
+<tr>
+<td>One-class SVM</td>
+<td>Can capture nonlinear boundaries</td>
+<td>Memory-heavy; slower inference</td>
+</tr>
+<tr>
+<td>Isolation Forest</td>
+<td>Good for multidimensional data</td>
+<td>Not trivial to run on microcontrollers</td>
+</tr>
+<tr>
+<td>Autoencoder</td>
+<td>Captures complex patterns, light</td>
+<td>Needs tiny neural network tuning</td>
+</tr>
+</tbody>
+</table>
+<p>✅ Autoencoder is a <strong>perfect balance</strong> between capability and feasibility for TinyML on microcontrollers.</p>
+<h2 id="intuition">Intuition</h2>
+<p>Think of it like this:</p>
+<ul>
+<li>Autoencoder learns a <strong>“normal sensor behavior fingerprint.”</strong></li>
+<li>Anything that deviates from that fingerprint → flagged as anomaly.    </li>
+<li>Works for <strong>time series</strong>, <strong>multivariate data</strong>, or even <strong>audio features (MFCCs)</strong>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>         Normal Data                 Anomalous Data
+       ----------------          ----------------
+       Temp = 25 ± 0.5             Temp spike = 30
+           |                            |
+           v                            v
+      +-------------+             +-------------+
+      |   Encoder   |             |   Encoder   |
+      +-------------+             +-------------+
+           |                            |
+           v                            v
+     Latent representation         Latent representation
+           |                            |
+           v                            v
+      +-------------+             +-------------+
+      |   Decoder   |             |   Decoder   |
+      +-------------+             +-------------+
+           |                            |
+           v                            v
+      Reconstructed Temp = 25 ± 0.5   Reconstructed Temp ≈ 25.1
+           |                            |
+           v                            v
+   Reconstruction error ≈ 0        Reconstruction error ≈ 4.9
+           |                            |
+           v                            v
+   ✅ Normal                       ⚠️ Anomaly detected
+</code></pre></div>
+<ul>
+<li><strong>Normal Data</strong><ul>
+<li>Autoencoder is trained on “normal” temperature readings (~25°C).</li>
+<li>Encoder compresses input → decoder reconstructs it almost perfectly.</li>
+<li><strong>Reconstruction error ≈ 0 → Not an anomaly.</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Anomalous Data</strong></p>
+<ul>
+<li>Temperature suddenly spikes to 30°C.</li>
+<li>Autoencoder has <strong>never seen this pattern</strong>, so reconstruction fails.</li>
+<li><strong>Reconstruction error is high → anomaly detected.</strong></li>
+</ul>
+</li>
+<li>
+<p>Works <strong>without labeled anomalies</strong>    </p>
+</li>
+<li><strong>Lightweight computation</strong>: forward pass only</li>
+<li>Can extend to <strong>multivariate input</strong> (temperature + humidity + vibration)</li>
+<li>Threshold on reconstruction error decides <strong>anomaly vs normal</strong></li>
+</ul>
+<p><img alt="reconstruction_error.png" src="../assets/images/reconstruction_error.png" /></p>
+<p><img alt="signal_vs_reconstruction-2026212474173.png" src="../assets/images/signal_vs_reconstruction-2026212474173.png" /></p>
 
 
 

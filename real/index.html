@@ -305,6 +305,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#reference-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arduino IDE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platformio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platformio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#from-wokwi-to-a-real-device" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -718,6 +751,39 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#reference-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arduino IDE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platformio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platformio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#from-wokwi-to-a-real-device" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -772,20 +838,28 @@
 <li>You can easily download the code from Wokwi in the form of a zip project file. </li>
 </ul>
 <p><img alt="" src="../assets/images/2024-12-16-17-01-45.png" /></p>
+<h2 id="reference-hardware">Reference Hardware</h2>
+<p>You are free to use any hardware, but most of the examples will be based on the <a href="https://docs.espressif.com/projects/esp-idf/en/v5.1/esp32/hw-reference/index.html">ESP32</a> </p>
+<p>It is relatively cheap and powerful. </p>
+<h2 id="arduino-ide">Arduino IDE</h2>
 <ul>
 <li>One convenient possibility is to use <a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino IDE</a> </li>
 <li>Since we are using the ESP32, you have to follow these <a href="https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/">intructions</a></li>
 <li>Select the DOIT ESP32 DEVKIT V1 as in the picture below and upload the code</li>
 </ul>
 <p><img alt="" src="../assets/images/2023-07-18-13-48-40.png" /></p>
+<h2 id="platformio">Platformio</h2>
 <ul>
-<li>Another option is to use <a href="https://platformio.org/">PlatformIO</a>. In particular I like the <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">vscode extension</a>. </li>
+<li>Another option is to use <a href="https://platformio.org/">PlatformIO</a>. In particular I like the <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">vscode extension</a>.</li>
+<li><a href="https://docs.platformio.org/en/latest/core/quickstart.html">Quick Start</a></li>
 <li>To work with the ESP32, this is the minimal setup for the platformio.ini file</li>
 </ul>
 <div class="highlight"><pre><span></span><code>[env:esp32dev]
 platform = espressif32
-board = esp32dev
+;board = esp32dev
+board = esp32doit-devkit-v1
 framework = arduino
+; framework = espidf
 
 ; Custom Serial Monitor port
 monitor_port = /dev/ttyUSB0
