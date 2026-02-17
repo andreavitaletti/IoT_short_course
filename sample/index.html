@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -359,10 +359,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fast-fourier-transform-fft" class="md-nav__link">
+  <a href="#sampling-how-often-fast-fourier-transform-fft" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fast Fourier Transform (FFT)
+        Sampling? How often: Fast Fourier Transform (FFT)
       
     </span>
   </a>
@@ -370,61 +370,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-virtual-signal" class="md-nav__link">
+  <a href="#a-simple-experimental-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A virtual signal
+        A simple experimental setup
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="A virtual signal">
+    <nav class="md-nav" aria-label="A simple experimental setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-signal-generator" class="md-nav__link">
+  <a href="#esp32-a-the-generator-sender" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Signal Generator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-sampler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Sampler
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-possible-alternative-using-the-pc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A possible alternative using the PC
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="A possible alternative using the PC">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#wiring-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Wiring Diagram
+        ESP32 A: The Generator (Sender)
       
     </span>
   </a>
@@ -443,59 +404,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#a-quick-tip-on-performance" class="md-nav__link">
+  <a href="#is-sampling-frequency-sufficient" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A Quick Tip on Performance
+        Is sampling frequency sufficient?
       
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#simple-analysis" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sampler-in-freertos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Simple Analysis
+        The Sampler in FreeRTOS
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1-the-generator-frequency-esp32-a" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. The Generator Frequency (ESP32 A)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-the-sampler-frequency-esp32-b" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. The Sampler Frequency (ESP32 B)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-is-this-a-good-match" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Is this a good match?
-      
-    </span>
-  </a>
-  
-</li>
+    <nav class="md-nav" aria-label="The Sampler in FreeRTOS">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#how-to-go-faster" class="md-nav__link">
@@ -509,10 +443,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-the-high-speed-generator-sender" class="md-nav__link">
+  <a href="#the-high-speed-generator-sender" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. The High-Speed Generator (Sender)
+        The High-Speed Generator (Sender)
       
     </span>
   </a>
@@ -520,10 +454,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-the-high-speed-sampler-receiver" class="md-nav__link">
+  <a href="#the-high-speed-sampler-receiver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. The High-Speed Sampler (Receiver)
+        The High-Speed Sampler (Receiver)
       
     </span>
   </a>
@@ -597,10 +531,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-experiment-final-boss" class="md-nav__link">
+  <a href="#other-experiments" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Experiment "Final Boss"
+        Other experiments
       
     </span>
   </a>
@@ -609,6 +543,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-possible-alternative-using-the-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A possible alternative using the PC
+      
+    </span>
+  </a>
   
 </li>
       
@@ -971,10 +916,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fast-fourier-transform-fft" class="md-nav__link">
+  <a href="#sampling-how-often-fast-fourier-transform-fft" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fast Fourier Transform (FFT)
+        Sampling? How often: Fast Fourier Transform (FFT)
       
     </span>
   </a>
@@ -982,61 +927,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-virtual-signal" class="md-nav__link">
+  <a href="#a-simple-experimental-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A virtual signal
+        A simple experimental setup
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="A virtual signal">
+    <nav class="md-nav" aria-label="A simple experimental setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-signal-generator" class="md-nav__link">
+  <a href="#esp32-a-the-generator-sender" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Signal Generator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-sampler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Sampler
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-possible-alternative-using-the-pc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A possible alternative using the PC
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="A possible alternative using the PC">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#wiring-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Wiring Diagram
+        ESP32 A: The Generator (Sender)
       
     </span>
   </a>
@@ -1055,59 +961,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#a-quick-tip-on-performance" class="md-nav__link">
+  <a href="#is-sampling-frequency-sufficient" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A Quick Tip on Performance
+        Is sampling frequency sufficient?
       
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#simple-analysis" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sampler-in-freertos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Simple Analysis
+        The Sampler in FreeRTOS
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1-the-generator-frequency-esp32-a" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. The Generator Frequency (ESP32 A)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-the-sampler-frequency-esp32-b" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. The Sampler Frequency (ESP32 B)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-is-this-a-good-match" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Is this a good match?
-      
-    </span>
-  </a>
-  
-</li>
+    <nav class="md-nav" aria-label="The Sampler in FreeRTOS">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#how-to-go-faster" class="md-nav__link">
@@ -1121,10 +1000,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-the-high-speed-generator-sender" class="md-nav__link">
+  <a href="#the-high-speed-generator-sender" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. The High-Speed Generator (Sender)
+        The High-Speed Generator (Sender)
       
     </span>
   </a>
@@ -1132,10 +1011,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-the-high-speed-sampler-receiver" class="md-nav__link">
+  <a href="#the-high-speed-sampler-receiver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. The High-Speed Sampler (Receiver)
+        The High-Speed Sampler (Receiver)
       
     </span>
   </a>
@@ -1209,10 +1088,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-experiment-final-boss" class="md-nav__link">
+  <a href="#other-experiments" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Experiment "Final Boss"
+        Other experiments
       
     </span>
   </a>
@@ -1221,6 +1100,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-possible-alternative-using-the-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A possible alternative using the PC
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1243,12 +1133,16 @@
 
 <h1 id="sample-the-environment">Sample the environment</h1>
 <p>Usually IoT applications need to observe a physical phenomenon. This is done by sampling.</p>
-<h2 id="fast-fourier-transform-fft">Fast Fourier Transform (FFT)</h2>
+<h2 id="sampling-how-often-fast-fourier-transform-fft">Sampling? How often: Fast Fourier Transform (FFT)</h2>
 <p><img alt="" src="../assets/images/2024-12-17-04-19-02.png" /></p>
 <p><a href="https://colab.research.google.com/drive/1nuZx095lzt2d9h42N7yNu13crGg9eS9A">Colab Notebook on FFT</a></p>
-<p><a href="https://github.com/kosme/arduinoFFT">arduinoFFT library</a></p>
-<p>In the following <a href="https://github.com/kosme/arduinoFFT/blob/master/Examples/FFT_01/FFT_01.ino">example</a> the signal is generated internally by the node.</p>
-<p><a href="https://wokwi.com/projects/424775322523875329">on wokwi</a></p>
+<!--
+[arduinoFFT library](https://github.com/kosme/arduinoFFT)
+
+In the following [example](https://github.com/kosme/arduinoFFT/blob/master/Examples/FFT_01/FFT_01.ino) the signal is generated internally by the node.
+
+[on wokwi](https://wokwi.com/projects/424775322523875329)
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arduinoFFT.h&gt;</span>
 
 <span class="cm">/*</span>
@@ -1346,8 +1240,10 @@
 <span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Note that FFT.majorPeak() <code>Returns an estimation of the dominant frequency according to the interpolation of the biggest peak found on the magnitude array.</code> which is  503.166771 while the max frequency of the a peak is arodun 1200 as expected. Indeed the Computed magnitudes are:</p>
-<p><div class="highlight"><pre><span></span><code>0.000000Hz 19.3725
+
+Note that FFT.majorPeak() ``Returns an estimation of the dominant frequency according to the interpolation of the biggest peak found on the magnitude array`` which is  503.166771 while the max frequency of the a peak is around 1200 as expected. Indeed the Computed magnitudes are:
+
+<div class="highlight"><pre><span></span><code>0.000000Hz 19.3725
 78.125000Hz 19.4808
 156.250000Hz 19.4963
 234.375000Hz 17.5681
@@ -1380,10 +1276,14 @@
 2343.750000Hz 9.3029
 2421.875000Hz 9.2381
 </code></pre></div>
-<img alt="" src="../assets/images/2025-04-04-17-13-56.png" /></p>
-<p>More realistically the signal is observed by the ADC, as in the following <a href="https://github.com/kosme/arduinoFFT/blob/master/Examples/FFT_03/FFT_03.ino">example</a></p>
-<p><img alt="" src="../assets/images/2025-03-10-09-14-30.png" /></p>
-<p><a href="https://wokwi.com/projects/425024705467787265">on wokwi</a></p>
+![](assets/images/2025-04-04-17-13-56.png)
+
+More realistically the signal is observed by the ADC, as in the following [example](https://github.com/kosme/arduinoFFT/blob/master/Examples/FFT_03/FFT_03.ino)
+
+![](assets/images/2025-03-10-09-14-30.png)
+
+[on wokwi](https://wokwi.com/projects/425024705467787265)
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;arduinoFFT.h&quot;</span>
 
 <span class="cm">/*</span>
@@ -1433,13 +1333,46 @@
 <span class="w">  </span><span class="c1">// delay(2000); /* Repeat after delay */</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="a-virtual-signal">A virtual signal</h2>
+-->
+<h2 id="a-simple-experimental-setup">A simple experimental setup</h2>
 <p>A virtual signal is a practical approach to generate arbitrary signals using one EPS32 as the signal generator, and the other as the sampler. </p>
 <p>The two ESP32 are connected as in the following picture</p>
 <p><img alt="" src="../assets/images/2024-12-16-17-23-45.png" /></p>
 <p>The node on the left works as a <strong>virtual signal</strong>, it generates a signal using the <a href="https://www.electronicwings.com/esp32/dac-digital-to-analog-converter-esp32">DAC</a> on PIN 25. 
-The node on the right sample the generated signal by the <a href="https://www.electronicwings.com/esp32/adc-of-esp32">ADC</a> and print the <a href="">FFT</a>. </p>
-<h3 id="the-signal-generator">The Signal Generator</h3>
+The node on the right sample the generated signal by the <a href="https://www.electronicwings.com/esp32/adc-of-esp32">ADC</a>  on pin 34</p>
+<table>
+<thead>
+<tr>
+<th><strong>ESP32 A (Sender)</strong></th>
+<th><strong>Connection Type</strong></th>
+<th><strong>ESP32 B (Receiver)</strong></th>
+<th><strong>Purpose</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPIO25</strong> (DAC1)</td>
+<td><span class="arithmatex">\(\rightarrow\)</span></td>
+<td><strong>GPIO34</strong> (ADC1)</td>
+<td>Signal Path</td>
+</tr>
+<tr>
+<td><strong>GND</strong></td>
+<td><span class="arithmatex">\(\longleftrightarrow\)</span></td>
+<td><strong>GND</strong></td>
+<td>Common Reference</td>
+</tr>
+<tr>
+<td><strong>USB Power</strong></td>
+<td></td>
+<td><strong>USB Power</strong></td>
+<td>Power Supply</td>
+</tr>
+</tbody>
+</table>
+<!--
+### The Signal Generator
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
 
 <span class="c1">// Define the DAC and ADC pins</span>
@@ -1471,8 +1404,11 @@ The node on the right sample the generated signal by the <a href="https://www.el
 
 <span class="p">}</span>
 </code></pre></div>
-<p><img alt="" src="../assets/images/2024-12-17-03-54-47.png" /></p>
-<h3 id="the-sampler">The Sampler</h3>
+
+![](assets/images/2024-12-17-03-54-47.png)
+
+### The Sampler
+
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
 
 <span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">adcPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">34</span><span class="p">;</span><span class="w">   </span><span class="c1">// ADC1 (GPIO 34) for reading the sinusoid</span>
@@ -1496,84 +1432,13 @@ The node on the right sample the generated signal by the <a href="https://www.el
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><img alt="" src="../assets/images/2024-12-17-03-53-48.png" /></p>
-<p><a href="https://github.com/andreavitaletti/documents/tree/main/PlatformIO/Projects/virtual%20sensor">source code</a></p>
-<h2 id="a-possible-alternative-using-the-pc">A possible alternative using the PC</h2>
-<p><img alt="" src="../assets/images/2024-12-17-04-23-56.png" /></p>
-<p><a href="https://forum.arduino.cc/t/how-to-read-data-from-audio-jack/458301/3">ref</a></p>
-<p><code>python3 -m pip install sounddevice</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Use the sounddevice module</span>
-<span class="c1"># http://python-sounddevice.readthedocs.io/en/0.3.10/</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sounddevice</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+![](assets/images/2024-12-17-03-53-48.png)
 
-<span class="c1"># Samples per second</span>
-<span class="n">sps</span> <span class="o">=</span> <span class="mi">44100</span>
+[source code](https://github.com/andreavitaletti/documents/tree/main/PlatformIO/Projects/virtual%20sensor)
+-->
 
-<span class="c1"># Frequency / pitch</span>
-<span class="n">freq_hz</span> <span class="o">=</span> <span class="mi">2</span>
-
-<span class="c1"># Duration</span>
-<span class="n">duration_s</span> <span class="o">=</span> <span class="mf">5.0</span>
-
-<span class="c1"># Attenuation so the sound is reasonable</span>
-<span class="n">atten</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># 0.3</span>
-
-<span class="c1"># NumpPy magic to calculate the waveform</span>
-<span class="n">each_sample_number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">duration_s</span> <span class="o">*</span> <span class="n">sps</span><span class="p">)</span>
-<span class="n">waveform</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">each_sample_number</span> <span class="o">*</span> <span class="n">freq_hz</span> <span class="o">/</span> <span class="n">sps</span><span class="p">)</span>
-<span class="n">waveform_quiet</span> <span class="o">=</span> <span class="n">waveform</span> <span class="o">*</span> <span class="n">atten</span>
-
-<span class="c1"># Play the waveform out the speakers</span>
-<span class="n">sd</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">waveform_quiet</span><span class="p">,</span> <span class="n">sps</span><span class="p">)</span>
-<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">duration_s</span><span class="p">)</span>
-<span class="n">sd</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-</code></pre></div>
-<p><a href="https://onlinetonegenerator.com/">Online Tone Generator</a></p>
-<h3 id="wiring-diagram">Wiring Diagram</h3>
-<table>
-<thead>
-<tr>
-<th><strong>ESP32 A (Sender)</strong></th>
-<th><strong>Connection Type</strong></th>
-<th><strong>ESP32 B (Receiver)</strong></th>
-<th><strong>Purpose</strong></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>GPIO25</strong> (DAC1)</td>
-<td><span class="arithmatex">\(\rightarrow\)</span></td>
-<td><strong>GPIO34</strong> (ADC1)</td>
-<td>Signal Path</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>GND</strong></td>
-<td><span class="arithmatex">\(\longleftrightarrow\)</span></td>
-<td><strong>GND</strong></td>
-<td>Common Reference</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>USB Power</strong></td>
-<td></td>
-<td><strong>USB Power</strong></td>
-<td>Power Supply</td>
-<td></td>
-</tr>
-<tr>
-<td>### ESP32 A: The Generator (Sender)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<h3 id="esp32-a-the-generator-sender">ESP32 A: The Generator (Sender)</h3>
 <p>This code uses a pre-calculated lookup table (LUT) to store sine values. This is much more efficient than calculating <code>sin()</code> on the fly, allowing for a smoother signal.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// ESP32 SENDER CODE</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
@@ -1597,6 +1462,18 @@ The node on the right sample the generated signal by the <a href="https://www.el
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>The frequency is calculated by how long it takes to step through all <strong>256 points</strong> of the lookup table.</p>
+<ul>
+<li><strong>Delay per step:</strong> <code>100 microseconds</code> (<span class="arithmatex">\(\mu s\)</span>)</li>
+<li><strong>Total steps:</strong> 256</li>
+<li><strong>Time for 1 full wave (<span class="arithmatex">\(T\)</span>):</strong> <span class="arithmatex">\(256 \times 100 \mu s = 25,600 \mu s\)</span> (or <strong>0.0256 seconds</strong>)</li>
+</ul>
+<p>To find the frequency (<span class="arithmatex">\(f\)</span>), we use:</p>
+<div class="arithmatex">\[f = \frac{1}{T} = \frac{1}{0.0256} \approx 39 \text{ Hz}\]</div>
+<blockquote>
+<p><strong>Note:</strong> The actual frequency will be slightly lower (closer to <strong>37-38 Hz</strong>) because the <code>dacWrite()</code> function and the <code>for</code> loop overhead add a few extra microseconds per step.</p>
+</blockquote>
+<hr />
 <h3 id="esp32-b-the-receiver-sampler">ESP32 B: The Receiver (Sampler)</h3>
 <p>This code reads the signal and prints it to the Serial Plotter. Note the use of <code>analogReadAttenuation</code>, which sets the voltage range to approximately 0V–3.1V to better match the DAC output.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// ESP32 RECEIVER CODE</span>
@@ -1621,64 +1498,105 @@ The node on the right sample the generated signal by the <a href="https://www.el
 <span class="w">  </span><span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w"> </span><span class="c1">// Sample rate control</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="a-quick-tip-on-performance">A Quick Tip on Performance</h3>
 <p>The ESP32's <code>analogRead()</code> takes about <strong>10µs to 20µs</strong>. If you find the wave looks "steppy" or jagged, it’s usually due to electrical noise or the sampling interval. If you want to go faster (into the kHz range), the <code>dacWrite</code> method used here will eventually hit a bottleneck.</p>
-<h3 id="simple-analysis">Simple Analysis</h3>
-<h3 id="1-the-generator-frequency-esp32-a">1. The Generator Frequency (ESP32 A)</h3>
-<p>In the code I provided, the frequency is calculated by how long it takes to step through all <strong>256 points</strong> of the lookup table.</p>
-<ul>
-<li>
-<p><strong>Delay per step:</strong> <code>100 microseconds</code> (<span class="arithmatex">\(\mu s\)</span>)</p>
-</li>
-<li>
-<p><strong>Total steps:</strong> 256</p>
-</li>
-<li>
-<p><strong>Time for 1 full wave (<span class="arithmatex">\(T\)</span>):</strong> <span class="arithmatex">\(256 \times 100 \mu s = 25,600 \mu s\)</span> (or <strong>0.0256 seconds</strong>)</p>
-</li>
-</ul>
-<p>To find the frequency (<span class="arithmatex">\(f\)</span>), we use:</p>
-<div class="arithmatex">\[f = \frac{1}{T} = \frac{1}{0.0256} \approx 39 \text{ Hz}\]</div>
-<blockquote>
-<p><strong>Note:</strong> The actual frequency will be slightly lower (closer to <strong>37-38 Hz</strong>) because the <code>dacWrite()</code> function and the <code>for</code> loop overhead add a few extra microseconds per step.</p>
-</blockquote>
-<hr />
-<h3 id="2-the-sampler-frequency-esp32-b">2. The Sampler Frequency (ESP32 B)</h3>
 <p>The sampling frequency (<span class="arithmatex">\(f_s\)</span>) is how many times per second the ADC "looks" at the incoming voltage.</p>
 <ul>
-<li>
-<p><strong>Delay per sample:</strong> <code>500 microseconds</code> (<span class="arithmatex">\(\mu s\)</span>)</p>
-</li>
-<li>
-<p><strong>ADC conversion time:</strong> approx. <code>10-20 microseconds</code></p>
-</li>
-<li>
-<p><strong>Serial print time:</strong> approx. <code>50-100 microseconds</code> (at 115200 baud)</p>
-</li>
+<li><strong>Delay per sample:</strong> <code>500 microseconds</code> (<span class="arithmatex">\(\mu s\)</span>)</li>
+<li><strong>ADC conversion time:</strong> approx. <code>10-20 microseconds</code></li>
+<li><strong>Serial print time:</strong> approx. <code>50-100 microseconds</code> (at 115200 baud)</li>
 </ul>
 <p>Total time per sample is roughly <strong>600 <span class="arithmatex">\(\mu s\)</span></strong>.</p>
 <div class="arithmatex">\[f_s = \frac{1}{600 \times 10^{-6}} \approx 1,666 \text{ Hz} \text{ (or 1.6 kHz)}\]</div>
 <hr />
-<h3 id="3-is-this-a-good-match">3. Is this a good match?</h3>
+<h3 id="is-sampling-frequency-sufficient">Is sampling frequency sufficient?</h3>
 <p>According to the <strong>Nyquist-Shannon Sampling Theorem</strong>, your sampling frequency must be at least <strong>twice</strong> the signal frequency to avoid "aliasing" (where the signal looks like a completely different wave).</p>
 <ul>
-<li>
-<p><strong>Your Signal:</strong> ~39 Hz</p>
-</li>
-<li>
-<p><strong>Your Sampler:</strong> ~1,666 Hz</p>
-</li>
-<li>
-<p><strong>Oversampling Ratio:</strong> ~42x</p>
-</li>
+<li><strong>Signal:</strong> ~39 Hz</li>
+<li><strong>Sampler:</strong> ~1,666 Hz</li>
+<li><strong>Oversampling Ratio:</strong> ~42x</li>
 </ul>
-<p>This is excellent! A 42x oversampling ratio means you will get a very high-fidelity reconstruction of the sine wave on your Serial Plotter.</p>
+<p>A 42x oversampling ratio means you will get a very high-fidelity reconstruction of the sine wave on your Serial Plotter.</p>
+<h2 id="the-sampler-in-freertos">The Sampler in  FreeRTOS</h2>
+<p>Two tasks, one samples the environment the other perform a computation on the samples</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
+
+<span class="c1">// Configuration</span>
+<span class="cp">#define ADC_PIN 34</span>
+<span class="cp">#define WINDOW_SIZE 20  </span><span class="c1">// Number of samples to average</span>
+<span class="cp">#define QUEUE_LEN 50    </span><span class="c1">// Size of the data buffer</span>
+
+<span class="c1">// Handle for the Queue</span>
+<span class="n">QueueHandle_t</span><span class="w"> </span><span class="n">adcQueue</span><span class="p">;</span>
+
+<span class="c1">// Task 1: High-frequency sampling</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">taskSampleADC</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pvParameters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">rawValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">analogRead</span><span class="p">(</span><span class="n">ADC_PIN</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Send sample to queue (don&#39;t block if full to keep timing consistent)</span>
+<span class="w">        </span><span class="n">xQueueSend</span><span class="p">(</span><span class="n">adcQueue</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rawValue</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Sampling at ~2kHz (500us)</span>
+<span class="w">        </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span><span class="w"> </span>
+<span class="w">        </span><span class="c1">// Note: For microsecond precision, use micros() timing or a hardware timer</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Task 2: Computation and Reporting</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">taskAverageADC</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pvParameters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">receivedValue</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Wait for data from the queue (block indefinitely until data arrives)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">xQueueReceive</span><span class="p">(</span><span class="n">adcQueue</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">receivedValue</span><span class="p">,</span><span class="w"> </span><span class="n">portMAX_DELAY</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">receivedValue</span><span class="p">;</span>
+<span class="w">            </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+
+<span class="w">            </span><span class="c1">// Once we have enough samples, calculate and print</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">WINDOW_SIZE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">float</span><span class="w"> </span><span class="n">average</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">WINDOW_SIZE</span><span class="p">;</span>
+
+<span class="w">                </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Min:0,Max:4095,AvgSignal:&quot;</span><span class="p">);</span>
+<span class="w">                </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">average</span><span class="p">);</span>
+
+<span class="w">                </span><span class="c1">// Reset for next window</span>
+<span class="w">                </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">                </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">    </span><span class="n">analogSetAttenuation</span><span class="p">(</span><span class="n">ADC_11db</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Create the queue to hold &#39;int&#39; types</span>
+<span class="w">    </span><span class="n">adcQueue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xQueueCreate</span><span class="p">(</span><span class="n">QUEUE_LEN</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">adcQueue</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Create Producer Task (Higher priority)</span>
+<span class="w">        </span><span class="n">xTaskCreate</span><span class="p">(</span><span class="n">taskSampleADC</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SampleTask&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2048</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Create Consumer Task (Lower priority)</span>
+<span class="w">        </span><span class="n">xTaskCreate</span><span class="p">(</span><span class="n">taskAverageADC</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AverageTask&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2048</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// FreeRTOS uses the tasks; loop() stays empty or handles low-priority UI</span>
+<span class="w">    </span><span class="n">vTaskDelete</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
 <h3 id="how-to-go-faster">How to go faster</h3>
-<p>If you want to reach <strong>Kilohertz</strong> signal frequencies, the <code>delayMicroseconds()</code> approach becomes unreliable because the "background noise" of the code (the time it takes to process the loop) becomes a large percentage of the total time. That is when we switch to <strong>I2S (Inter-IC Sound)</strong>, which uses a hardware clock to "push" data to the DAC or "pull" it from the ADC at exact intervals, like a metronome.</p>
-<p>Using <strong>I2S (Inter-IC Sound)</strong> is like moving from a manual gearbox to an automatic one. Instead of the CPU manually toggling the DAC or reading the ADC in a loop, the I2S hardware uses a dedicated clock to stream data in the background. This allows for frequencies in the <strong>kilohertz (kHz)</strong> range with perfect timing.</p>
+<p>In previous sections we achieve Hz frequencies, If you want to reach <strong>Kilohertz</strong> signal frequencies, the <code>delayMicroseconds()</code> approach becomes unreliable because the "background noise" of the code (the time it takes to process the loop) becomes a large percentage of the total time. That is when we switch to <strong>I2S (Inter-IC Sound)</strong>, which uses a hardware clock to "push" data to the DAC or "pull" it from the ADC at exact intervals, like a metronome.</p>
+<p>Instead of the CPU manually toggling the DAC or reading the ADC in a loop, the I2S hardware uses a dedicated clock to stream data in the background. This allows for frequencies in the <strong>kilohertz (kHz)</strong> range with perfect timing.</p>
 <p>On the ESP32, the I2S peripheral can be "routed" directly to the internal DAC and ADC.</p>
 <hr />
-<h3 id="1-the-high-speed-generator-sender">1. The High-Speed Generator (Sender)</h3>
+<h3 id="the-high-speed-generator-sender">The High-Speed Generator (Sender)</h3>
 <p>This code configures I2S to "pump" a sine wave out of the DAC at a high sample rate. Note that for I2S to DAC, we use a 16-bit buffer even though the DAC is 8-bit (the hardware expects it this way).</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;driver/i2s.h&quot;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span>
@@ -1721,7 +1639,7 @@ The node on the right sample the generated signal by the <a href="https://www.el
 <span class="p">}</span>
 </code></pre></div>
 <hr />
-<h3 id="2-the-high-speed-sampler-receiver">2. The High-Speed Sampler (Receiver)</h3>
+<h3 id="the-high-speed-sampler-receiver">The High-Speed Sampler (Receiver)</h3>
 <p>The receiver uses I2S to read from the ADC. This is much faster than <code>analogRead()</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;driver/i2s.h&quot;</span>
 
@@ -1779,68 +1697,67 @@ The node on the right sample the generated signal by the <a href="https://www.el
 <p>To do this, we’ll use the <code>arduinoFFT</code> library. You will need to install it via the Arduino Library Manager (<strong>Sketch &gt; Include Library &gt; Manage Libraries...</strong> and search for "arduinoFFT").</p>
 <h3 id="the-receiver-fft-code-esp32-b">The Receiver FFT Code (ESP32 B)</h3>
 <p>This code collects a batch of samples (usually a power of 2, like 128 or 256) and converts that "Time Domain" data into "Frequency Domain" data.</p>
-<p>C++</p>
-<div class="highlight"><pre><span></span><code>#include &quot;driver/i2s.h&quot;
-#include &quot;arduinoFFT.h&quot;
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;driver/i2s.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;arduinoFFT.h&quot;</span>
 
-#define SAMPLE_RATE 44100
-#define SAMPLES 256             // Must be a power of 2
-#define SAMPLING_FREQ 44100     // Match the Sender
+<span class="cp">#define SAMPLE_RATE 44100</span>
+<span class="cp">#define SAMPLES 256             </span><span class="c1">// Must be a power of 2</span>
+<span class="cp">#define SAMPLING_FREQ 44100     </span><span class="c1">// Match the Sender</span>
 
-double vReal[SAMPLES];
-double vImag[SAMPLES];
-ArduinoFFT&lt;double&gt; FFT = ArduinoFFT&lt;double&gt;(vReal, vImag, SAMPLES, SAMPLING_FREQ);
+<span class="kt">double</span><span class="w"> </span><span class="n">vReal</span><span class="p">[</span><span class="n">SAMPLES</span><span class="p">];</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">vImag</span><span class="p">[</span><span class="n">SAMPLES</span><span class="p">];</span>
+<span class="n">ArduinoFFT</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FFT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArduinoFFT</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vReal</span><span class="p">,</span><span class="w"> </span><span class="n">vImag</span><span class="p">,</span><span class="w"> </span><span class="n">SAMPLES</span><span class="p">,</span><span class="w"> </span><span class="n">SAMPLING_FREQ</span><span class="p">);</span>
 
-void setup() {
-  Serial.begin(115200);
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
 
-  // I2S Configuration (Same as previous Receiver code)
-  i2s_config_t i2s_config = {
-    .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX | I2S_MODE_ADC_BUILT_IN),
-    .sample_rate = SAMPLE_RATE,
-    .bits_per_sample = I2S_BITS_PER_SAMPLE_16BIT,
-    .channel_format = I2S_CHANNEL_FMT_ONLY_RIGHT,
-    .communication_format = I2S_COMM_FORMAT_STAND_I2S,
-    .dma_buf_count = 8,
-    .dma_buf_len = 64,
-    .use_apll = false
-  };
+<span class="w">  </span><span class="c1">// I2S Configuration (Same as previous Receiver code)</span>
+<span class="w">  </span><span class="n">i2s_config_t</span><span class="w"> </span><span class="n">i2s_config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">.</span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i2s_mode_t</span><span class="p">)(</span><span class="n">I2S_MODE_MASTER</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">I2S_MODE_RX</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">I2S_MODE_ADC_BUILT_IN</span><span class="p">),</span>
+<span class="w">    </span><span class="p">.</span><span class="n">sample_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SAMPLE_RATE</span><span class="p">,</span>
+<span class="w">    </span><span class="p">.</span><span class="n">bits_per_sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">I2S_BITS_PER_SAMPLE_16BIT</span><span class="p">,</span>
+<span class="w">    </span><span class="p">.</span><span class="n">channel_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">I2S_CHANNEL_FMT_ONLY_RIGHT</span><span class="p">,</span>
+<span class="w">    </span><span class="p">.</span><span class="n">communication_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">I2S_COMM_FORMAT_STAND_I2S</span><span class="p">,</span>
+<span class="w">    </span><span class="p">.</span><span class="n">dma_buf_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">    </span><span class="p">.</span><span class="n">dma_buf_len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span>
+<span class="w">    </span><span class="p">.</span><span class="n">use_apll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">  </span><span class="p">};</span>
 
-  i2s_driver_install(I2S_NUM_0, &amp;i2s_config, 0, NULL);
-  i2s_set_adc_mode(ADC_UNIT_1, ADC1_CHANNEL_6); // GPIO34
-  i2s_adc_enable(I2S_NUM_0);
-}
+<span class="w">  </span><span class="n">i2s_driver_install</span><span class="p">(</span><span class="n">I2S_NUM_0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i2s_config</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+<span class="w">  </span><span class="n">i2s_set_adc_mode</span><span class="p">(</span><span class="n">ADC_UNIT_1</span><span class="p">,</span><span class="w"> </span><span class="n">ADC1_CHANNEL_6</span><span class="p">);</span><span class="w"> </span><span class="c1">// GPIO34</span>
+<span class="w">  </span><span class="n">i2s_adc_enable</span><span class="p">(</span><span class="n">I2S_NUM_0</span><span class="p">);</span>
+<span class="p">}</span>
 
-void loop() {
-  // 1. Collect SAMPLES from I2S
-  for (int i = 0; i &lt; SAMPLES; i++) {
-    uint16_t sample;
-    size_t bytes_read;
-    i2s_read(I2S_NUM_0, &amp;sample, sizeof(sample), &amp;bytes_read, portMAX_DELAY);
-    vReal[i] = (double)(sample &amp; 0x0FFF); // Raw ADC value
-    vImag[i] = 0.0;                       // Imaginary part is 0 for real signals
-  }
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 1. Collect SAMPLES from I2S</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SAMPLES</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">sample</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">bytes_read</span><span class="p">;</span>
+<span class="w">    </span><span class="n">i2s_read</span><span class="p">(</span><span class="n">I2S_NUM_0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sample</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bytes_read</span><span class="p">,</span><span class="w"> </span><span class="n">portMAX_DELAY</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vReal</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">sample</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x0FFF</span><span class="p">);</span><span class="w"> </span><span class="c1">// Raw ADC value</span>
+<span class="w">    </span><span class="n">vImag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w">                       </span><span class="c1">// Imaginary part is 0 for real signals</span>
+<span class="w">  </span><span class="p">}</span>
 
-  // 2. Process FFT
-  FFT.windowing(FFT_WIN_TYP_HAMMING, FFT_FORWARD); // Smooth the data
-  FFT.compute(FFT_FORWARD);
-  FFT.complexToMagnitude();
+<span class="w">  </span><span class="c1">// 2. Process FFT</span>
+<span class="w">  </span><span class="n">FFT</span><span class="p">.</span><span class="n">windowing</span><span class="p">(</span><span class="n">FFT_WIN_TYP_HAMMING</span><span class="p">,</span><span class="w"> </span><span class="n">FFT_FORWARD</span><span class="p">);</span><span class="w"> </span><span class="c1">// Smooth the data</span>
+<span class="w">  </span><span class="n">FFT</span><span class="p">.</span><span class="n">compute</span><span class="p">(</span><span class="n">FFT_FORWARD</span><span class="p">);</span>
+<span class="w">  </span><span class="n">FFT</span><span class="p">.</span><span class="n">complexToMagnitude</span><span class="p">();</span>
 
-  // 3. Find the Peak Frequency
-  double peak = FFT.majorPeak();
+<span class="w">  </span><span class="c1">// 3. Find the Peak Frequency</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">peak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FFT</span><span class="p">.</span><span class="n">majorPeak</span><span class="p">();</span>
 
-  // 4. Output to Serial Plotter
-  // This will show a spike at the frequency of your sine wave
-  for (int i = 2; i &lt; (SAMPLES / 2); i++) { // Skip DC offset at index 0-1
-    Serial.println(vReal[i]); 
-  }
+<span class="w">  </span><span class="c1">// 4. Output to Serial Plotter</span>
+<span class="w">  </span><span class="c1">// This will show a spike at the frequency of your sine wave</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">SAMPLES</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Skip DC offset at index 0-1</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">vReal</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"> </span>
+<span class="w">  </span><span class="p">}</span>
 
-  Serial.print(&quot;Detected Peak: &quot;);
-  Serial.print(peak);
-  Serial.println(&quot; Hz&quot;);
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Detected Peak: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">peak</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot; Hz&quot;</span><span class="p">);</span>
 
-  delay(500); // Pause so we can read the text
-}
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w"> </span><span class="c1">// Pause so we can read the text</span>
+<span class="p">}</span>
 </code></pre></div>
 <hr />
 <h3 id="how-to-interpret-the-results">How to Interpret the Results</h3>
@@ -1859,19 +1776,46 @@ void loop() {
 <h3 id="why-use-a-window-hamming">Why use a "Window" (Hamming)?</h3>
 <p>In the code, you'll see <code>FFT_WIN_TYP_HAMMING</code>. If your sample starts or ends in the middle of a wave cycle, it creates "spectral leakage" (noise in the frequency graph). The Windowing function fades the beginning and end of your sample buffer to zero to make the math cleaner and the peak sharper.</p>
 <hr />
-<h3 id="the-experiment-final-boss">The Experiment "Final Boss"</h3>
-<p>Now that you have the infrastructure, you can try these variations:</p>
+<h3 id="other-experiments">Other experiments</h3>
 <ol>
-<li>
-<p><strong>Change the Sender Frequency:</strong> Change <code>SINE_FREQ</code> to 1000.0 and watch the peak move to the right on the receiver's plot.</p>
-</li>
-<li>
-<p><strong>Add Noise:</strong> Try touching the signal wire with your finger. You'll see the "noise floor" (the messy small bumps at the bottom of the graph) jump up.</p>
-</li>
-<li>
-<p><strong>Square Wave:</strong> Change the Sender to output a square wave instead of a sine wave. In the FFT, you will see the <strong>fundamental frequency</strong> plus a series of "harmonics" (smaller peaks at 3x, 5x, and 7x the frequency).</p>
-</li>
+<li><strong>Change the Sender Frequency:</strong> Change <code>SINE_FREQ</code> to 1000.0 and watch the peak move to the right on the receiver's plot.    </li>
+<li><strong>Add Noise:</strong> Try touching the signal wire with your finger. You'll see the "noise floor" (the messy small bumps at the bottom of the graph) jump up.</li>
+<li><strong>Square Wave:</strong> Change the Sender to output a square wave instead of a sine wave. In the FFT, you will see the <strong>fundamental frequency</strong> plus a series of "harmonics" (smaller peaks at 3x, 5x, and 7x the frequency).</li>
 </ol>
+<h2 id="a-possible-alternative-using-the-pc">A possible alternative using the PC</h2>
+<p><img alt="" src="../assets/images/2024-12-17-04-23-56.png" /></p>
+<p><a href="https://forum.arduino.cc/t/how-to-read-data-from-audio-jack/458301/3">ref</a></p>
+<p><code>python3 -m pip install sounddevice</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Use the sounddevice module</span>
+<span class="c1"># http://python-sounddevice.readthedocs.io/en/0.3.10/</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sounddevice</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="c1"># Samples per second</span>
+<span class="n">sps</span> <span class="o">=</span> <span class="mi">44100</span>
+
+<span class="c1"># Frequency / pitch</span>
+<span class="n">freq_hz</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Duration</span>
+<span class="n">duration_s</span> <span class="o">=</span> <span class="mf">5.0</span>
+
+<span class="c1"># Attenuation so the sound is reasonable</span>
+<span class="n">atten</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># 0.3</span>
+
+<span class="c1"># NumpPy magic to calculate the waveform</span>
+<span class="n">each_sample_number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">duration_s</span> <span class="o">*</span> <span class="n">sps</span><span class="p">)</span>
+<span class="n">waveform</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">each_sample_number</span> <span class="o">*</span> <span class="n">freq_hz</span> <span class="o">/</span> <span class="n">sps</span><span class="p">)</span>
+<span class="n">waveform_quiet</span> <span class="o">=</span> <span class="n">waveform</span> <span class="o">*</span> <span class="n">atten</span>
+
+<span class="c1"># Play the waveform out the speakers</span>
+<span class="n">sd</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">waveform_quiet</span><span class="p">,</span> <span class="n">sps</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">duration_s</span><span class="p">)</span>
+<span class="n">sd</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+<p><a href="https://onlinetonegenerator.com/">Online Tone Generator</a></p>
 
 
 
@@ -1952,10 +1896,10 @@ void loop() {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
