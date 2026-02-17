@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/edge/">
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/premise/">
       
       
-        <link rel="prev" href="../backend/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../filters/">
+        <link rel="next" href="../intro/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Edge computing - A Short Course on IoT</title>
+        <title>Premise - A Short Course on IoT</title>
       
     
     
@@ -73,11 +73,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#edge-computing" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -109,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Edge computing
+              Premise
             
           </span>
         </div>
@@ -188,10 +183,17 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../premise/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -207,6 +209,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -539,19 +542,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../edge/" class="md-nav__link">
         
   
   
@@ -567,7 +561,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -670,8 +663,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -688,7 +679,32 @@
 
 
 
-<h1 id="edge-computing">Edge Computing</h1>
+  <h1>Premise</h1>
+
+<p>If you ask multiple people what the Internet of Things (IoT) is, you will likely get many different answers. Devices such as a Raspberry Pi, Jetson Nano, Arduino Uno, or ESP32 are all legitimately considered IoT devices, but they differ significantly in capabilities.</p>
+<p>The Raspberry Pi, Jetson Nano, and Arduino Uno Q can handle relatively complex tasks, including AI workloads, whereas the resource-constrained ESP32 cannot easily achieve the same performance.</p>
+<p>In this course, we make an <strong>unconditional choice</strong>: students will work with the <strong>ESP32 powered by a battery</strong></p>
+<p><strong>Why?</strong></p>
+<ul>
+<li>It presents a greater challenge, encouraging careful design.</li>
+<li>Solutions developed for the resource-limited ESP32 will generally scale easily to more powerful devices.</li>
+<li>The battery force you to design power efficient solutions</li>
+<li>From a teaching perspective, it provides the most valuable learning experience, emphasising efficiency and thoughtful system design.</li>
+</ul>
+<p>Regardless of the fact that, for simplicity, you might use a more resource-demanding (“non-IoT‑friendly”) technology, we expect you to <strong>demonstrate a thoughtful design process and provide a prototype</strong> that shows how you optimised limited resources to meet your application’s requirements.</p>
+<p>It is well known that Wi-Fi is not particularly IoT-friendly, as it consumes a significant amount of energy. At the same time, most ESP32 devices natively support Wi-Fi, making it a very convenient choice.</p>
+<p>While we encourage you to challenge yourself with more IoT-friendly technologies (e.g., LoRa), using WiFi is perfectly acceptable <strong>provided that you demonstrate the following</strong>:</p>
+<ol>
+<li>You clarify what is the most suitable technology and you are aware of pros and cons;</li>
+<li>You measure and report the energy consumption of your solution employing WiFi;</li>
+<li>You discuss whether your design meets the requirements of your application;</li>
+<li>You optimise your design to meet the requirements (e.g. applying energy-aware mechanisms such as duty cycling, sleep modes, or other techniques) under <strong>suitable assumptions</strong> (e.g. assuming you are using LoRa instead of WiFi).</li>
+</ol>
+<p>This approach ensures that even when using convenient technologies like Wi-Fi, you remain mindful of IoT constraints and practice efficient design principles.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We value the process and the right questions with sound answers more than the final product.</p>
+</div>
 
 
 
