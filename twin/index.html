@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -517,6 +517,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#water-distribution-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Water Distribution Systems
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Water Distribution Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32-as-a-node-in-epanet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32 as a node in EPANET
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -926,6 +954,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#water-distribution-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Water Distribution Systems
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Water Distribution Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esp32-as-a-node-in-epanet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32 as a node in EPANET
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1103,6 +1159,47 @@
 <p><span class="arithmatex">\(m \ddot{x} = m_e ​r \omega^2 cos(\omega t)\)</span></p>
 <p><span class="arithmatex">\(m \ddot{y} = m_e ​r \omega^2 sin(\omega t)\)</span></p>
 <p>This allows us to estimate the accelerations under the simplistic assumptions we made. </p>
+<h2 id="water-distribution-systems">Water Distribution Systems</h2>
+<p><a href="https://www.epa.gov/water-research/epanet">EPANET</a> is  a software application used throughout the world to model water distribution systems. A convenient way to experiment with EPANET is <a href="https://epanetjs.com/">epanet-js</a> that claims to be </p>
+<blockquote>
+<p>The EPANET you know, but modern, enhanced, and entirely in your browser</p>
+</blockquote>
+<p><img alt="image-20263135418791.png" src="../assets/images/image-20263135418791.png" /></p>
+<h3 id="esp32-as-a-node-in-epanet">ESP32 as a node in EPANET</h3>
+<p>We can run epanet-js on nodejs and specifically run a bridge interfacing the EPANET model, in the following '01-uk-style.inp',  with the ESP32 via the serial interface. </p>
+<p>In other words we can use the ESP32 as a sensor of a simulated water distribution network</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Project</span><span class="p">,</span><span class="w"> </span><span class="nx">Workspace</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;epanet-js&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SerialPort</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;serialport&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">SerialPort</span><span class="p">({</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/dev/ttyACM0&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">baudRate</span><span class="o">:</span><span class="w"> </span><span class="mf">9600</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Serial Port Error:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Workspace is synchronous — no await, no loadModule()</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Workspace</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Project</span><span class="p">(</span><span class="nx">ws</span><span class="p">);</span>
+<span class="nx">https</span><span class="o">:</span><span class="c1">//github.com/KIOS-Research/epanet-function-test/blob/master/Net1.inp</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="s1">&#39;net.inp&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;01-uk-style.inp&#39;</span><span class="p">));</span>
+<span class="nx">model</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;net.inp&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;net.rpt&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;net.out&#39;</span><span class="p">);</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">runSimulation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">model</span><span class="p">.</span><span class="nx">solveH</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">flow</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">model</span><span class="p">.</span><span class="nx">getLinkValue</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">model</span><span class="p">.</span><span class="nx">getLinkValue</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">pressure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">model</span><span class="p">.</span><span class="nx">getNodeValue</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">11</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`PIPE,1,</span><span class="si">${</span><span class="nx">flow</span><span class="si">}</span><span class="sb">,</span><span class="si">${</span><span class="nx">velocity</span><span class="si">}</span><span class="sb">,</span><span class="si">${</span><span class="nx">pressure</span><span class="si">}</span><span class="sb">\n`</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`[EPANET] </span><span class="si">${</span><span class="nx">message</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span><span class="si">}</span><span class="sb"> -&gt; Sending to Arduino`</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">port</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Write error:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="nx">setInterval</span><span class="p">(</span><span class="nx">runSimulation</span><span class="p">,</span><span class="w"> </span><span class="mf">3000</span><span class="p">);</span>
+</code></pre></div>
 
 
 
@@ -1183,10 +1280,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

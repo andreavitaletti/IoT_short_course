@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -854,6 +854,153 @@
 <p>Second edition of the course 25th, 29th and 31st Of October and 4th of November 2024 in the <a href="https://btu.edu.ge/en/home-english/">Business and Technology University</a> (Tbilisi, Georgia) during an <a href="https://erasmus-plus.ec.europa.eu/resources-and-tools/mobility-and-learning-agreements/mobility-agreements">Erasmus+</a> staff mobility for teaching visit. Two groups of 10 students each. </p>
 <p><img alt="" src="assets/images/BTU.jpg" />
 <img alt="" src="assets/images/BTU1.jpg" /></p>
+<!--
+
+TRICKS
+
+  - pymdownx.snippets:
+      check_paths: true
+      url_download: true
+
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm"> Basic ESP8266 MQTT example</span>
+<span class="cm"> This sketch demonstrates the capabilities of the pubsub library in combination</span>
+<span class="cm"> with the ESP8266 board/library.</span>
+<span class="cm"> It connects to an MQTT server then:</span>
+<span class="cm">  - publishes &quot;hello world&quot; to the topic &quot;outTopic&quot; every two seconds</span>
+<span class="cm">  - subscribes to the topic &quot;inTopic&quot;, printing out any messages</span>
+<span class="cm">    it receives. NB - it assumes the received payloads are strings not binary</span>
+<span class="cm">  - If the first character of the topic &quot;inTopic&quot; is an 1, switch ON the ESP Led,</span>
+<span class="cm">    else switch it off</span>
+<span class="cm"> It will reconnect to the server if the connection is lost using a blocking</span>
+<span class="cm"> reconnect function. See the &#39;mqtt_reconnect_nonblocking&#39; example for how to</span>
+<span class="cm"> achieve the same result without blocking the main loop.</span>
+<span class="cm"> To install the ESP8266 board, (using Arduino 1.6.4+):</span>
+<span class="cm">  - Add the following 3rd party board manager under &quot;File -&gt; Preferences -&gt; Additional Boards Manager URLs&quot;:</span>
+<span class="cm">       http://arduino.esp8266.com/stable/package_esp8266com_index.json</span>
+<span class="cm">  - Open the &quot;Tools -&gt; Board -&gt; Board Manager&quot; and click install for the ESP8266&quot;</span>
+<span class="cm">  - Select your ESP8266 in &quot;Tools -&gt; Board&quot;</span>
+<span class="cm">*/</span>
+<span class="c1">// Arduino_JSON - Version: Latest </span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino_JSON.h&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ESP8266WiFi.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;PubSubClient.h&gt;</span>
+<span class="c1">// Update these with values suitable for your network.</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">ssid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SECRET_SSID</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SECRET_PWD</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">mqtt_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;demo.thingsboard.io&quot;</span><span class="p">;</span>
+
+<span class="n">WiFiClient</span><span class="w"> </span><span class="n">espClient</span><span class="p">;</span>
+<span class="n">PubSubClient</span><span class="w"> </span><span class="nf">client</span><span class="p">(</span><span class="n">espClient</span><span class="p">);</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">lastMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="cp">#define MSG_BUFFER_SIZE (50)</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">msg</span><span class="p">[</span><span class="n">MSG_BUFFER_SIZE</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup_wifi</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// We start by connecting to a WiFi network</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Connecting to &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">ssid</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">WiFi</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">WIFI_STA</span><span class="p">);</span>
+<span class="w">  </span><span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">WL_CONNECTED</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">randomSeed</span><span class="p">(</span><span class="n">micros</span><span class="p">());</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;WiFi connected&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;IP address: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">localIP</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">byte</span><span class="o">*</span><span class="w"> </span><span class="n">payload</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+
+<span class="n">String</span><span class="w"> </span><span class="n">str_pay</span><span class="p">((</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
+
+<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">topic</span><span class="p">);</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">str_pay</span><span class="p">);</span>
+
+<span class="c1">// https://github.com/arduino-libraries/Arduino_JSON/blob/master/examples/JSONObject/JSONObject.ino</span>
+<span class="n">JSONVar</span><span class="w"> </span><span class="n">myObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">str_pay</span><span class="p">);</span>
+
+<span class="c1">// [v1/devices/me/rpc/request/14] {&quot;method&quot;:&quot;setValue&quot;,&quot;params&quot;:true}</span>
+
+<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">((</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="n">myObject</span><span class="p">[</span><span class="s">&quot;params&quot;</span><span class="p">]);</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="n">myObject</span><span class="p">[</span><span class="s">&quot;params&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">BUILTIN_LED</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w">   </span><span class="c1">// Turn the LED on (Note that LOW is the voltage level</span>
+<span class="w">    </span><span class="c1">// but actually the LED is on; this is because</span>
+<span class="w">    </span><span class="c1">// it is active low on the ESP-01)</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">BUILTIN_LED</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">  </span><span class="c1">// Turn the LED off by making the voltage HIGH</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">reconnect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Loop until we&#39;re reconnected</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Attempting MQTT connection...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Create a random client ID</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">clientId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ESP8266Client-&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">clientId</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">random</span><span class="p">(</span><span class="mh">0xffff</span><span class="p">),</span><span class="w"> </span><span class="n">HEX</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Attempt to connect</span>
+<span class="w">   </span><span class="c1">//if (client.connect(clientId.c_str())) {</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="s">&quot;11223344556677&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;connected&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="c1">// Once connected, publish an announcement...</span>
+<span class="w">      </span><span class="c1">//client.publish(&quot;outTopic&quot;, &quot;hello world&quot;);</span>
+<span class="w">      </span><span class="c1">// ... and resubscribe</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">subscribe</span><span class="p">(</span><span class="s">&quot;v1/devices/me/rpc/request/+&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;failed, rc=&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">state</span><span class="p">());</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot; try again in 5 seconds&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="c1">// Wait 5 seconds before retrying</span>
+<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUILTIN_LED</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">     </span><span class="c1">// Initialize the BUILTIN_LED pin as an output</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="w">  </span><span class="n">setup_wifi</span><span class="p">();</span>
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">setServer</span><span class="p">(</span><span class="n">mqtt_server</span><span class="p">,</span><span class="w"> </span><span class="mi">1883</span><span class="p">);</span>
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">setCallback</span><span class="p">(</span><span class="n">callback</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">reconnect</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">client</span><span class="p">.</span><span class="n">loop</span><span class="p">();</span>
+
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastMsg</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lastMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//snprintf (msg, MSG_BUFFER_SIZE, &quot;hello world #%ld&quot;, value);</span>
+<span class="w">    </span><span class="n">snprintf</span><span class="w"> </span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">MSG_BUFFER_SIZE</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">temperature</span><span class="se">\&quot;</span><span class="s">: %ld , </span><span class="se">\&quot;</span><span class="s">humidity</span><span class="se">\&quot;</span><span class="s">: %ld }&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">61</span><span class="p">),</span><span class="w"> </span><span class="n">random</span><span class="p">(</span><span class="mi">61</span><span class="p">));</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Publish message: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">publish</span><span class="p">(</span><span class="s">&quot;v1/devices/me/telemetry&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+-->
 
 
 
@@ -934,10 +1081,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
