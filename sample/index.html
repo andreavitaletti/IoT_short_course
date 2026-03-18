@@ -1155,9 +1155,10 @@ The node on the right sample the generated signal by the <a href="https://www.el
 </ul>
 <p>To find the frequency (<span class="arithmatex">\(f\)</span>), we use:</p>
 <div class="arithmatex">\[f = \frac{1}{T} = \frac{1}{0.0256} \approx 39 \text{ Hz}\]</div>
-<blockquote>
-<p><strong>Note:</strong> The actual frequency will be slightly lower (closer to <strong>37-38 Hz</strong>) because the <code>dacWrite()</code> function and the <code>for</code> loop overhead add a few extra microseconds per step.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The actual frequency will be slightly lower (closer to <strong>37-38 Hz</strong>) because the <code>dacWrite()</code> function and the <code>for</code> loop overhead add a few extra microseconds per step.</p>
+</div>
 <hr />
 <h3 id="esp32-b-the-receiver-sampler">ESP32 B: The Receiver (Sampler)</h3>
 <p>This code reads the signal and prints it to the Serial Plotter. Note the use of <code>analogReadAttenuation</code>, which sets the voltage range to approximately 0V–3.1V to better match the DAC output.</p>
@@ -1197,8 +1198,8 @@ The node on the right sample the generated signal by the <a href="https://www.el
 <li><strong>Oversampling Ratio:</strong> ~42x</li>
 </ul>
 <p>A 42x oversampling ratio means you will get a very high-fidelity reconstruction of the sine wave on your Serial Plotter.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition question">
+<p class="admonition-title">exercise</p>
 <p>Write a FreeRTOS program running two tasks: one to generate the signal, the other to sample it</p>
 </div>
 <h3 id="a-possible-alternative-using-the-pc">A possible alternative using the PC</h3>
@@ -1300,12 +1301,14 @@ The node on the right sample the generated signal by the <a href="https://www.el
 <span class="w">  </span><span class="n">vTaskDelete</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<blockquote>
-<p>[!WARNING]
-FFT.majorPeak() is not what you need to find out the max frequency</p>
-<p>[!NOTE]
-Instead of using a single buffer use two: while one is filled up the other is analysed. Update the code to compute the max frequency</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>FFT.majorPeak() is not what you need to find out the max frequency</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Exercise</p>
+<p>Instead of using a single buffer use two: while one is filled up the other is analysed. Update the code to compute the max frequency</p>
+</div>
 <hr />
 <h3 id="how-to-go-faster">How to go faster</h3>
 <p>In previous sections we achieve Hz frequencies, If you want to reach <strong>Kilohertz</strong> signal frequencies, the <code>delayMicroseconds()</code> approach becomes ineffective because the overhead (the time it takes to process the loop) becomes a large percentage of the total time. That is when we switch to <strong>I2S (Inter-IC Sound)</strong>, which uses a hardware clock to "push" data to the DAC or "pull" it from the ADC at exact intervals, like a metronome.</p>
@@ -1410,7 +1413,7 @@ Instead of using a single buffer use two: while one is filled up the other is an
 <p>At 44.1 kHz, the <strong>Serial Plotter</strong> will struggle to keep up if you print every single point. That's why the receiver code above only prints one sample from every buffer "chunk." If you want to see the full wave at high speed, you'd usually store a large buffer and then "dump" it to the serial port all at once.</p>
 <h3 id="other-experiments">Other experiments</h3>
 <ol>
-<li><strong>Change the Sender Frequency:</strong> Change <code>SINE_FREQ</code> to 1000.0 and watch the peak move to the right on the receiver's plot.    </li>
+<li><strong>Change the Sender Frequency</strong>   </li>
 <li><strong>Add Noise:</strong> Try touching the signal wire with your finger. You'll see the "noise floor" (the messy small bumps at the bottom of the graph) jump up.</li>
 <li><strong>Square Wave:</strong> Change the Sender to output a square wave instead of a sine wave. In the FFT, you will see the <strong>fundamental frequency</strong> plus a series of "harmonics" (smaller peaks at 3x, 5x, and 7x the frequency).</li>
 </ol>
