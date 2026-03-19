@@ -1,35 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://andreavitaletti.github.io/</loc>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/</loc>
          <lastmod>2026-03-19</lastmod>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/data-%2A%20design/</loc>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/backend/</loc>
          <lastmod>2026-03-19</lastmod>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/links/</loc>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/crowdsourcing/</loc>
          <lastmod>2026-03-19</lastmod>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/thesis/</loc>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/edge/</loc>
          <lastmod>2026-03-19</lastmod>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/BC/</loc>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/energy/</loc>
          <lastmod>2026-03-19</lastmod>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/BC/slides/</loc>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/filters/</loc>
          <lastmod>2026-03-19</lastmod>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/Startup/</loc>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/intro/</loc>
          <lastmod>2026-03-19</lastmod>
     </url>
     <url>
-         <loc>https://andreavitaletti.github.io/Startup/Learn%20from%20the%20master/</loc>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/ml/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/os/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/premise/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/real/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/sample/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/scale/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/security/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/simulation/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/twin/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/web3/</loc>
+         <lastmod>2026-03-19</lastmod>
+    </url>
+    <url>
+         <loc>https://andreavitaletti.github.io/IoT_short_course/wireless/</loc>
          <lastmod>2026-03-19</lastmod>
     </url>
 </urlset>

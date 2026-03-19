@@ -1,0 +1,1235 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/crowdsourcing/">
+      
+      
+        <link rel="prev" href="../filters/">
+      
+      
+        <link rel="next" href="../scale/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Crowdsourcing - A Short Course on IoT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="lime" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#interact-with-a-mobile-phone-via-ble" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="A Short Course on IoT" class="md-header__button md-logo" aria-label="A Short Course on IoT" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A Short Course on IoT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Crowdsourcing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="A Short Course on IoT" class="md-nav__button md-logo" aria-label="A Short Course on IoT" data-md-component="logo">
+      
+  <img src="../assets/images/logo.png" alt="logo">
+
+    </a>
+    A Short Course on IoT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../premise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Premise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulate a node
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../real/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A real node
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sampling the Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wireless Connectivity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../twin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digital Twin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    An OS is better
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../energy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Energy matters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IoT and Web3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML on node
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../edge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Edge computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crowdsourcing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crowdsourcing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#remotexy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remotexy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thunkable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thunkable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-coronavirus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring Coronavirus
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IoT-lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#remotexy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remotexy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thunkable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thunkable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-coronavirus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring Coronavirus
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="interact-with-a-mobile-phone-via-ble">Interact with a Mobile Phone via BLE</h1>
+<p>Nowadays, mobile devices, such as our smart phone or watch are plenty of sensors. There are many examples to collect data from such sensors by mobile apps. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In this course we are <strong>NOT interested</strong> in mobile applications using <strong>ONLY</strong> the sensors available in you mobile phone. </p>
+</div>
+<p>Instead, we aim at developing solution where a node, in our case an ESP32, collects some sensor data and interact with the mobile phone (e.g. via BLE) to possibly enrich the observed data by the phone sensors and to deliver them to the backend.  </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember, this is a course on IoT, we are not interested in fancy mobile app, and as much work is done by the node (i.e. the ESP32), as better it is. There are plenty of useful resources on developing fancy mobile apps and backends, but we are mostly interested in the node  </p>
+</div>
+<p>For this reason, we will use fast prototyping mobile app tools. </p>
+<h2 id="remotexy"><a href="https://remotexy.com/">Remotexy</a></h2>
+<p><a href="https://remotexy.com/">Remotexy</a> it's probably the easiest way </p>
+<p>I nice tutorial by <a href="https://www.youtube.com/watch?v=dyEnOyQS1w8">Andreas Spiess</a></p>
+<h2 id="thunkable"><a href="https://thunkable.com/">Thunkable</a></h2>
+<p><a href="https://thunkable.com/">Thunkable</a> is more powerful, but slightly more complex</p>
+<p><img alt="" src="../assets/images/2024-01-04-11-26-18.png" /></p>
+<p>The arduino code, adapted from https://www.instructables.com/ESP32-BLE-Android-App-Arduino-IDE-AWESOME/ is the following</p>
+<div class="highlight"><pre><span></span><code>/*
+    Video: https://www.youtube.com/watch?v=oCMOYS71NIU
+    Based on Neil Kolban example for IDF: https://github.com/nkolban/esp32-snippets/blob/master/cpp_utils/tests/BLE%20Tests/SampleNotify.cpp
+    Ported to Arduino ESP32 by Evandro Copercini
+
+   Create a BLE server that, once we receive a connection, will send periodic notifications.
+   The service advertises itself as: 6E400001-B5A3-F393-E0A9-E50E24DCCA9E
+   Has a characteristic of: 6E400002-B5A3-F393-E0A9-E50E24DCCA9E - used for receiving data with &quot;WRITE&quot; 
+   Has a characteristic of: 6E400003-B5A3-F393-E0A9-E50E24DCCA9E - used to send data with  &quot;NOTIFY&quot;
+
+   The design of creating the BLE server is:
+   1. Create a BLE Server
+   2. Create a BLE Service
+   3. Create a BLE Characteristic on the Service
+   4. Create a BLE Descriptor on the characteristic
+   5. Start the service.
+   6. Start advertising.
+
+   In this example rxValue is the data received (only accessible inside that function).
+   And txValue is the data to be sent, in this example just a byte incremented every second. 
+*/
+#include &lt;BLEDevice.h&gt;
+#include &lt;BLEServer.h&gt;
+#include &lt;BLEUtils.h&gt;
+#include &lt;BLE2902.h&gt;
+
+// 78:21:84:9f:24:de
+
+BLECharacteristic *pCharacteristic;
+bool deviceConnected = false;
+float txValue = 0;
+const int readPin = 32; // Use GPIO number. See ESP32 board pinouts
+//const int LED = 9; // Could be different depending on the dev board. I used the DOIT ESP32 dev board.
+
+//std::string rxValue; // Could also make this a global var to access it in loop()
+
+// See the following for generating UUIDs:
+// https://www.uuidgenerator.net/
+
+#define SERVICE_UUID           &quot;6E400001-B5A3-F393-E0A9-E50E24DCCA9E&quot; // UART service UUID
+#define CHARACTERISTIC_UUID_RX &quot;6E400002-B5A3-F393-E0A9-E50E24DCCA9E&quot; // Qui ricevi da EPS32
+#define CHARACTERISTIC_UUID_TX &quot;6E400003-B5A3-F393-E0A9-E50E24DCCA9E&quot; // Qui invii
+
+class MyServerCallbacks: public BLEServerCallbacks {
+    void onConnect(BLEServer* pServer) {
+      deviceConnected = true;
+    };
+
+    void onDisconnect(BLEServer* pServer) {
+      deviceConnected = false;
+    }
+};
+
+
+
+class MyCallbacks: public BLECharacteristicCallbacks {
+    void onWrite(BLECharacteristic *pCharacteristic) {
+      std::string rxValue = pCharacteristic-&gt;getValue();
+
+      char letto[] = &quot;          &quot;;
+
+      if (rxValue.length() &gt; 0) {
+        Serial.println(&quot;*********&quot;);
+        Serial.print(&quot;Received Value: &quot;);
+
+        for (int i = 0; i &lt; rxValue.length(); i++) {
+          Serial.print(rxValue[i]);
+          letto[i]=rxValue[i];
+        }
+
+        Serial.println();
+
+        String a = String(letto);
+
+        Serial.print(a.toFloat());
+
+        // Do stuff based on the command received from the app
+        if (rxValue.find(&quot;A&quot;) != -1) { 
+          Serial.print(&quot;Turning ON!&quot;);
+          digitalWrite(LED, HIGH);
+        }
+        else if (rxValue.find(&quot;B&quot;) != -1) {
+          Serial.print(&quot;Turning OFF!&quot;);
+          digitalWrite(LED, LOW);
+        }
+
+        Serial.println();
+        Serial.println(&quot;*********&quot;);
+      }
+    }
+};
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(LED, OUTPUT);
+
+  // Create the BLE Device
+  BLEDevice::init(&quot;ESP32 UART Test&quot;); // Give it a name
+
+  Serial.print(&quot;local BLE Address is: &quot;);
+  Serial.println(BLEDevice::getAddress().toString().c_str());
+
+  // Create the BLE Server
+  BLEServer *pServer = BLEDevice::createServer();
+  pServer-&gt;setCallbacks(new MyServerCallbacks());
+
+  // Create the BLE Service
+  BLEService *pService = pServer-&gt;createService(SERVICE_UUID);
+
+
+  // BleCharacteristic deviceHealthCharacteristic(&quot;deviceHealth&quot;, BleCharacteristicProperty::READ, deviceHealthUuid, serviceUuid);
+  // see https://community.thunkable.com/t/ble-hrm-reading-bpm/2441754/6
+
+
+  // Create a BLE Characteristic
+  pCharacteristic = pService-&gt;createCharacteristic(
+                      CHARACTERISTIC_UUID_TX,
+                      //BLECharacteristic::PROPERTY_NOTIFY
+                      BLECharacteristic::PROPERTY_READ
+                    );
+
+  pCharacteristic-&gt;addDescriptor(new BLE2902());
+
+  BLECharacteristic *pCharacteristic = pService-&gt;createCharacteristic(
+                                         CHARACTERISTIC_UUID_RX,
+                                         BLECharacteristic::PROPERTY_WRITE
+                                       );
+
+  pCharacteristic-&gt;setCallbacks(new MyCallbacks());
+
+  // Start the service
+  pService-&gt;start();
+
+  // Start advertising
+  pServer-&gt;getAdvertising()-&gt;start();
+  Serial.println(&quot;Waiting a client connection to notify...&quot;);
+}
+
+void loop() {
+
+  if (deviceConnected) {
+    // Fabricate some arbitrary junk for now...
+    txValue = analogRead(readPin) / 3.456; // This could be an actual sensor reading!
+
+    // Let&#39;s convert the value to a char array:
+    char txString[8]; // make sure this is big enuffz
+    dtostrf(txValue, 1, 2, txString); // float_val, min_width, digits_after_decimal, char_buffer
+
+//    pCharacteristic-&gt;setValue(&amp;txValue, 1); // To send the integer value
+    pCharacteristic-&gt;setValue(&quot;Hello!&quot;); // Sending a test message
+    //pCharacteristic-&gt;setValue(txString);
+
+    pCharacteristic-&gt;notify(); // Send the value to the app!
+    Serial.print(&quot;*** Sent Value: &quot;);
+    Serial.print(txString);
+    Serial.println(&quot; ***&quot;);
+
+    // You can add the rxValue checks down here instead
+    // if you set &quot;rxValue&quot; as a global var at the top!
+    // Note you will have to delete &quot;std::string&quot; declaration
+    // of &quot;rxValue&quot; in the callback function.
+//    if (rxValue.find(&quot;A&quot;) != -1) { 
+//      Serial.println(&quot;Turning ON!&quot;);
+//      digitalWrite(LED, HIGH);
+//    }
+//    else if (rxValue.find(&quot;B&quot;) != -1) {
+//      Serial.println(&quot;Turning OFF!&quot;);
+//      digitalWrite(LED, LOW);
+//    }
+  }
+
+  delay(1000);
+}
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>// Adapted from https://github.com/SIMS-IOT-Devices/FreeRTOS-ESP-IDF-BLE-Server
+
+#include &lt;stdio.h&gt;
+#include &quot;freertos/FreeRTOS.h&quot;
+#include &quot;freertos/task.h&quot;
+#include &quot;freertos/event_groups.h&quot;
+#include &quot;esp_event.h&quot;
+#include &quot;nvs_flash.h&quot;
+#include &quot;esp_log.h&quot;
+#include &quot;esp_nimble_hci.h&quot;
+#include &quot;nimble/nimble_port.h&quot;
+#include &quot;nimble/nimble_port_freertos.h&quot;
+#include &quot;host/ble_hs.h&quot;
+#include &quot;services/gap/ble_svc_gap.h&quot;
+#include &quot;services/gatt/ble_svc_gatt.h&quot;
+#include &quot;sdkconfig.h&quot;
+
+char *TAG = &quot;BLE-Server&quot;;
+uint8_t ble_addr_type;
+void ble_app_advertise(void);
+
+//@_____________________Define UUIDs______________________________________
+//!! b2bbc642-46da-11ed-b878-0242ac120002
+//static const ble_uuid128_t gatt_svr_svc_uuid =
+//    BLE_UUID128_INIT(0x02, 0x00, 0x12, 0xac, 0x42, 0x02, 0x78, 0xb8, 0xed, 0x11, 0xda, 0x46, 0x42, 0xc6, 0xbb, 0xb2);
+
+static const ble_uuid128_t gatt_svr_svc_uuid =
+    BLE_UUID128_INIT(0x9e, 0xca, 0xdc, 0x24, 0x0e, 0xe5, 0xa9, 0xe0, 0x93, 0xf3, 0xa3, 0xb5, 0x01, 0x00, 0x40, 0x6e);
+
+
+//!! c9af9c76-46de-11ed-b878-0242ac120002
+//static const ble_uuid128_t gatt_svr_chr_uuid =
+//    BLE_UUID128_INIT(0x02, 0x00, 0x12, 0xac, 0x42, 0x02, 0x78, 0xb8, 0xed, 0x11, 0xde, 0x46, 0x76, 0x9c, 0xaf, 0xc9);
+
+// 6E400002-B5A3-F393-E0A9-E50E24DCCA9E    
+
+static const ble_uuid128_t gatt_svr_chr_read_uuid =
+    BLE_UUID128_INIT(0x9e, 0xca, 0xdc, 0x24, 0x0e, 0xe5, 0xa9, 0xe0, 0x93, 0xf3, 0xa3, 0xb5, 0x02, 0x00, 0x40, 0x6e);
+static const ble_uuid128_t gatt_svr_chr_write_uuid =
+    BLE_UUID128_INIT(0x9e, 0xca, 0xdc, 0x24, 0x0e, 0xe5, 0xa9, 0xe0, 0x93, 0xf3, 0xa3, 0xb5, 0x03, 0x00, 0x40, 0x6e);
+
+
+// Write data to ESP32 defined as server
+static int device_write(uint16_t conn_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg)
+{
+    printf(&quot;Data from the client: %.*s\n&quot;, ctxt-&gt;om-&gt;om_len, ctxt-&gt;om-&gt;om_data);
+    return 0;
+}
+
+// Read data from ESP32 defined as server
+static int device_read(uint16_t con_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg)
+{
+    os_mbuf_append(ctxt-&gt;om, &quot;Data from the server&quot;, strlen(&quot;Data from the server&quot;));
+    return 0;
+}
+
+static const struct ble_gatt_svc_def gatt_svcs[] = {
+    {.type = BLE_GATT_SVC_TYPE_PRIMARY,
+     .uuid = &amp;gatt_svr_svc_uuid.u,                      // Define UUID for device type
+     .characteristics = (struct ble_gatt_chr_def[]){
+         {.uuid = &amp;gatt_svr_chr_write_uuid.u,           // Define UUID for reading
+          .flags = BLE_GATT_CHR_F_READ,
+          .access_cb = device_read},
+         {.uuid = &amp;gatt_svr_chr_read_uuid.u,           // Define UUID for writing
+          .flags = BLE_GATT_CHR_F_WRITE,
+          .access_cb = device_write},
+         {0}}},
+    {0}};
+
+
+
+// BLE event handling
+static int ble_gap_event(struct ble_gap_event *event, void *arg)
+{
+    switch (event-&gt;type)
+    {
+    // Advertise if connected
+    case BLE_GAP_EVENT_CONNECT:
+        ESP_LOGI(&quot;GAP&quot;, &quot;BLE GAP EVENT CONNECT %s&quot;, event-&gt;connect.status == 0 ? &quot;OK!&quot; : &quot;FAILED!&quot;);
+        if (event-&gt;connect.status != 0)
+        {
+            ble_app_advertise();
+        }
+        break;
+    // Advertise again after completion of the event
+    case BLE_GAP_EVENT_ADV_COMPLETE:
+        ESP_LOGI(&quot;GAP&quot;, &quot;BLE GAP EVENT&quot;);
+        ble_app_advertise();
+        break;
+    default:
+        break;
+    }
+    return 0;
+}
+
+// Define the BLE connection
+void ble_app_advertise(void)
+{
+    // GAP - device name definition
+    struct ble_hs_adv_fields fields;
+    const char *device_name;
+    memset(&amp;fields, 0, sizeof(fields));
+    device_name = ble_svc_gap_device_name(); // Read the BLE device name
+    fields.name = (uint8_t *)device_name;
+    fields.name_len = strlen(device_name);
+    fields.name_is_complete = 1;
+    ble_gap_adv_set_fields(&amp;fields);
+
+    // GAP - device connectivity definition
+    struct ble_gap_adv_params adv_params;
+    memset(&amp;adv_params, 0, sizeof(adv_params));
+    adv_params.conn_mode = BLE_GAP_CONN_MODE_UND; // connectable or non-connectable
+    adv_params.disc_mode = BLE_GAP_DISC_MODE_GEN; // discoverable or non-discoverable
+    ble_gap_adv_start(ble_addr_type, NULL, BLE_HS_FOREVER, &amp;adv_params, ble_gap_event, NULL);
+}
+
+// The application
+void ble_app_on_sync(void)
+{
+    ble_hs_id_infer_auto(0, &amp;ble_addr_type); // Determines the best address type automatically
+    ble_app_advertise();                     // Define the BLE connection
+}
+
+// The infinite task
+void host_task(void *param)
+{
+    nimble_port_run(); // This function will return only when nimble_port_stop() is executed
+}
+
+void app_main()
+{
+    nvs_flash_init();                          // 1 - Initialize NVS flash using
+    //esp_nimble_hci_and_controller_init();      // 2 - Initialize ESP controller
+    nimble_port_init();                        // 3 - Initialize the host stack
+    ble_svc_gap_device_name_set(&quot;BLE-Server&quot;); // 4 - Initialize NimBLE configuration - server name
+    ble_svc_gap_init();                        // 4 - Initialize NimBLE configuration - gap service
+    ble_svc_gatt_init();                       // 4 - Initialize NimBLE configuration - gatt service
+    ble_gatts_count_cfg(gatt_svcs);            // 4 - Initialize NimBLE configuration - config gatt services
+    ble_gatts_add_svcs(gatt_svcs);             // 4 - Initialize NimBLE configuration - queues gatt services.
+    ble_hs_cfg.sync_cb = ble_app_on_sync;      // 5 - Initialize application
+    nimble_port_freertos_init(host_task);      // 6 - Run the thread
+}
+</code></pre></div>
+<h2 id="monitoring-coronavirus">Monitoring Coronavirus</h2>
+<p>A remarkable use of crowdsensing has been the use of mobile phones for contact tracing, during the COVID-19. Indeed smartphone apps, given accessibility in the time of physical distancing, were widely used for tracking, tracing and educating the public about COVID-19 as reported in <a href="https://www.nature.com/articles/s41587-022-01350-x">Smartphone apps in the COVID-19 pandemic</a>. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Despite this use case is not consistent with the requirement of integrating external sensors with the mobile phone, we will consider it for its obvious relevance. </p>
+</div>
+<p>Many efforts have been put in place to preserve tha anonymity in tracing, however the research community raised a number of issues, as discussed in <a href="https://risques-tracage.fr/docs/tracing-risks.pdf">Anonymous tracing, a dangerous oxymoron</a> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Created by Andrea Vitaletti.<br/><img alt="" style="border-width:0" src="https://andreavitaletti.github.io/IoT_short_course/assets/images/mail.png" /></br><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.gg/TZhMmbgq" target="_blank" rel="noopener" title="discord.gg" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/andrea-vitaletti-3651442/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

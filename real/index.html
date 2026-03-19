@@ -8,25 +8,31 @@
       
       
       
+        <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/real/">
       
+      
+        <link rel="prev" href="../simulation/">
+      
+      
+        <link rel="next" href="../sample/">
       
       
         
       
       
-      <link rel="icon" href="/IoT_short_course/assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>A Short Course on IoT</title>
+        <title>A real node - A Short Course on IoT</title>
       
     
     
-      <link rel="stylesheet" href="/IoT_short_course/assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="/IoT_short_course/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -45,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("/IoT_short_course/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#it-is-time-to-work-with-a-real-device" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -79,9 +90,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/IoT_short_course/." title="A Short Course on IoT" class="md-header__button md-logo" aria-label="A Short Course on IoT" data-md-component="logo">
+    <a href=".." title="A Short Course on IoT" class="md-header__button md-logo" aria-label="A Short Course on IoT" data-md-component="logo">
       
-  <img src="/IoT_short_course/assets/images/logo.png" alt="logo">
+  <img src="../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -98,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              A real node
             
           </span>
         </div>
@@ -136,9 +147,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/IoT_short_course/." title="A Short Course on IoT" class="md-nav__button md-logo" aria-label="A Short Course on IoT" data-md-component="logo">
+    <a href=".." title="A Short Course on IoT" class="md-nav__button md-logo" aria-label="A Short Course on IoT" data-md-component="logo">
       
-  <img src="/IoT_short_course/assets/images/logo.png" alt="logo">
+  <img src="../assets/images/logo.png" alt="logo">
 
     </a>
     A Short Course on IoT
@@ -153,7 +164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -180,7 +191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/premise/" class="md-nav__link">
+      <a href="../premise/" class="md-nav__link">
         
   
   
@@ -207,7 +218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/intro/" class="md-nav__link">
+      <a href="../intro/" class="md-nav__link">
         
   
   
@@ -234,7 +245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/simulation/" class="md-nav__link">
+      <a href="../simulation/" class="md-nav__link">
         
   
   
@@ -258,10 +269,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/IoT_short_course/real/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A real node
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -277,6 +315,87 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reference-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arduino IDE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platformio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platformio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-wokwi-to-a-real-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Wokwi to a real device
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From Wokwi to a real device">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partition-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partition Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -288,7 +407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/sample/" class="md-nav__link">
+      <a href="../sample/" class="md-nav__link">
         
   
   
@@ -315,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/wireless/" class="md-nav__link">
+      <a href="../wireless/" class="md-nav__link">
         
   
   
@@ -342,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/twin/" class="md-nav__link">
+      <a href="../twin/" class="md-nav__link">
         
   
   
@@ -369,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/os/" class="md-nav__link">
+      <a href="../os/" class="md-nav__link">
         
   
   
@@ -396,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/energy/" class="md-nav__link">
+      <a href="../energy/" class="md-nav__link">
         
   
   
@@ -423,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   
@@ -450,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/web3/" class="md-nav__link">
+      <a href="../web3/" class="md-nav__link">
         
   
   
@@ -477,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/ml/" class="md-nav__link">
+      <a href="../ml/" class="md-nav__link">
         
   
   
@@ -504,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/backend/" class="md-nav__link">
+      <a href="../backend/" class="md-nav__link">
         
   
   
@@ -531,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/edge/" class="md-nav__link">
+      <a href="../edge/" class="md-nav__link">
         
   
   
@@ -558,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/filters/" class="md-nav__link">
+      <a href="../filters/" class="md-nav__link">
         
   
   
@@ -585,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/crowdsourcing/" class="md-nav__link">
+      <a href="../crowdsourcing/" class="md-nav__link">
         
   
   
@@ -612,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/IoT_short_course/scale/" class="md-nav__link">
+      <a href="../scale/" class="md-nav__link">
         
   
   
@@ -649,6 +768,77 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reference-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arduino IDE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platformio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platformio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-wokwi-to-a-real-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Wokwi to a real device
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From Wokwi to a real device">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partition-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partition Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -661,8 +851,137 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="it-is-time-to-work-with-a-real-device">It is time to Work with a real device</h1>
+<p><a href="https://lastminuteengineers.com/getting-started-with-esp32/">Lastminuteengineers</a> and <a href="https://randomnerdtutorials.com/projects-esp32/">Random Nerd Tutorial</a> are plenty of excellent examples to integrate a multitude of sensors and actuators, and to interact with a number of protocols.</p>
+<div class="admonition fact">
+<p class="admonition-title">Fact</p>
+<p>Exactly the same code you wrote in the simulator, works on the real device, <strong>but in the real device you can do even more!</strong></p>
+</div>
+<ul>
+<li>You can easily download the code from Wokwi in the form of a zip project file. </li>
+</ul>
+<p><img alt="" src="../assets/images/2024-12-16-17-01-45.png" /></p>
+<h2 id="reference-hardware">Reference Hardware</h2>
+<p>You are free to use any hardware, but most of the examples will be based on the <a href="https://docs.espressif.com/projects/esp-idf/en/v5.1/esp32/hw-reference/index.html">ESP32</a> </p>
+<p>It is relatively cheap and powerful. </p>
+<h2 id="arduino-ide">Arduino IDE</h2>
+<ul>
+<li>One convenient possibility is to use <a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino IDE</a> </li>
+<li>Since we are using the ESP32, you have to follow these <a href="https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/">intructions</a></li>
+<li>Select the DOIT ESP32 DEVKIT V1 as in the picture below and upload the code</li>
+</ul>
+<p><img alt="" src="../assets/images/2023-07-18-13-48-40.png" /></p>
+<h2 id="platformio">Platformio</h2>
+<ul>
+<li>Another option is to use <a href="https://platformio.org/">PlatformIO</a>. In particular I like the <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">vscode extension</a>.</li>
+<li><a href="https://docs.platformio.org/en/latest/core/quickstart.html">Quick Start</a></li>
+<li>To work with the ESP32, this is the minimal setup for the platformio.ini file</li>
+</ul>
+<div class="highlight"><pre><span></span><code>[env:esp32dev]
+platform = espressif32
+;board = esp32dev
+board = esp32doit-devkit-v1
+framework = arduino
+; framework = espidf
+
+; Custom Serial Monitor port
+monitor_port = /dev/ttyUSB0
+
+; Custom Serial Monitor speed (baud rate)
+monitor_speed = 115200
+</code></pre></div>
+<h2 id="from-wokwi-to-a-real-device">From <a href="https://wokwi.com/">Wokwi</a> to a real device</h2>
+<ol>
+<li>Compile the code and on the code editor press F1 to download the firmware. It is a .bin file, let's name it sketch.bin file </li>
+<li>
+<p><code>esptool.py --chip esp32 --port "/dev/ttyUSB0" --baud 921600  --before default_reset --after hard_reset write_flash  -z --flash_mode keep --flash_freq keep --flash_size keep 0x1000 "bootloader.bin" 0x8000 "partitions.bin" 0xe000 "boot_app0.bin" 0x10000 "sketch.bin"</code>
+Once partitions and bootloader are uploaded, you can simply upload the sketch. To upload for the first time the partitions and the bootloader you can simply used arduino IDE </p>
+</li>
+<li>
+<p><code>esptool.py --chip esp32 --port "/dev/ttyUSB0" --baud 921600  --before default_reset --after hard_reset write_flash  -z --flash_mode keep --flash_freq keep --flash_size keep 0x10000 ./sketch.bin</code></p>
+</li>
+</ol>
+<p>In principle you can even use a <a href="https://learn.adafruit.com/adafruit-metro-esp32-s2/web-serial-esptool">Web tool</a></p>
+<h3 id="partition-table"><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/partition-tables.html">Partition Table</a></h3>
+<table>
+<thead>
+<tr>
+<th># Name</th>
+<th>Type</th>
+<th>SubType</th>
+<th>Offset</th>
+<th>Size</th>
+<th>Flags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nvs</td>
+<td>data</td>
+<td>nvs</td>
+<td>0x9000</td>
+<td>0x5000</td>
+<td></td>
+</tr>
+<tr>
+<td>otadata</td>
+<td>data</td>
+<td>ota</td>
+<td>0xe000</td>
+<td>0x2000</td>
+<td></td>
+</tr>
+<tr>
+<td>app0</td>
+<td>app</td>
+<td>ota_0</td>
+<td><strong>0x10000</strong></td>
+<td>0x140000</td>
+<td></td>
+</tr>
+<tr>
+<td>app1</td>
+<td>app</td>
+<td>ota_1</td>
+<td>0x150000</td>
+<td>0x140000</td>
+<td></td>
+</tr>
+<tr>
+<td>spiffs</td>
+<td>data</td>
+<td>spiffs</td>
+<td>0x290000</td>
+<td>0x160000</td>
+<td></td>
+</tr>
+<tr>
+<td>coredump</td>
+<td>data</td>
+<td>coredump</td>
+<td>0x3F0000</td>
+<td>0x10000</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -730,10 +1049,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/IoT_short_course/", "features": [], "search": "/IoT_short_course/assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/IoT_short_course/assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
