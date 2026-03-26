@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://andreavitaletti.github.io/IoT_short_course/energy/">
       
       
-        <link rel="prev" href="../os/">
+        <link rel="prev" href="../wireless/">
       
       
-        <link rel="next" href="../security/">
+        <link rel="next" href="../twin/">
       
       
         
@@ -299,6 +299,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    An OS is better
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../sample/" class="md-nav__link">
         
   
@@ -334,60 +361,6 @@
     
   
     Wireless Connectivity
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../twin/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Digital Twin
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../os/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    An OS is better
   
 
     
@@ -467,6 +440,67 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#power-the-esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power the ESP32
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power the ESP32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usb-port-easiest-most-common" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        USB Port (Easiest &amp; Most Common)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-5v-or-vin-pin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 5V (or VIN) Pin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-33v-pin-regulated-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 3.3V Pin (Regulated Power)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-consumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power consumption
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#esp32-sleep-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -475,16 +509,94 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#powering-the-esp32" class="md-nav__link">
+    <nav class="md-nav" aria-label="ESP32 Sleep Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#light-sleep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Powering the ESP32
+        Light Sleep
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-sleep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Sleep
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connectivity-and-sleep-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connectivity and Sleep Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wakeup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wakeup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-sleep-wakeup-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Sleep wakeup example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Sleep wakeup example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ensuring-task-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ensuring Task Completion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-components-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Components Explained
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -496,6 +608,56 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="How to measure energy consumption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ina219-power-monitor-with-esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INA219 Power Monitor with ESP32
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ina219-pinout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INA219 Pinout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32-wiring-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32 Wiring Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-connection-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Connection Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -514,6 +676,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../twin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digital Twin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -761,6 +950,67 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#power-the-esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power the ESP32
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Power the ESP32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usb-port-easiest-most-common" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        USB Port (Easiest &amp; Most Common)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-5v-or-vin-pin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 5V (or VIN) Pin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-33v-pin-regulated-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 3.3V Pin (Regulated Power)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-consumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power consumption
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#esp32-sleep-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -769,16 +1019,94 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#powering-the-esp32" class="md-nav__link">
+    <nav class="md-nav" aria-label="ESP32 Sleep Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#light-sleep" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Powering the ESP32
+        Light Sleep
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-sleep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Sleep
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connectivity-and-sleep-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connectivity and Sleep Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wakeup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wakeup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-sleep-wakeup-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Sleep wakeup example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Sleep wakeup example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ensuring-task-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ensuring Task Completion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-components-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Components Explained
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -790,6 +1118,56 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="How to measure energy consumption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ina219-power-monitor-with-esp32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INA219 Power Monitor with ESP32
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ina219-pinout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INA219 Pinout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32-wiring-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ESP32 Wiring Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-connection-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Connection Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -822,18 +1200,21 @@
 
 
 <h1 id="energy">Energy</h1>
-<p>The following picture from <a href="https://doi.org/10.3390/s18072104">https://doi.org/10.3390/s18072104 </a> depicts a typical sensor working scenario, where a node alternates different activities each with a different power consumption</p>
-<p><img alt="" src="../assets/images/2025-04-10-18-03-51.png" /></p>
-<h2 id="esp32-sleep-modes">ESP32 Sleep Modes</h2>
-<p><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/system/sleep_modes.html">ESP32 supports two major power saving modes</a>: Light-sleep and Deep-sleep. There are several wakeup sources in the sleep modes. The following are excellent sources of information to understand how to ESP32 Sleep Modes and Their Power Consumption. </p>
-<ul>
-<li><a href="https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/">Insight Into ESP32 Sleep Modes and Their Power Consumption</a></li>
-<li><a href="https://www.electronicwings.com/esp32/esp32-deep-sleep-mode">ESP32 Deep Sleep Mode</a></li>
-<li><a href="https://randomnerdtutorials.com/esp32-deep-sleep-arduino-ide-wake-up-sources/">ESP32 Deep Sleep with Arduino IDE and Wake Up Sources</a></li>
-</ul>
-<h2 id="powering-the-esp32">Powering the ESP32</h2>
-<p>To power the ESP32 you can use <a href="https://esp32io.com/tutorials/how-to-power-esp32">several methods</a> </p>
-<p>The ESP32 works at 3.3V. You can apply 5V to the Vin and an internal voltage regulator drops it down to 3.3V, but this costs energy because it is because a linear regulator that converts the excess voltage into heat.  </p>
+<h2 id="power-the-esp32">Power the ESP32</h2>
+<p>To power the ESP32 you can use <a href="https://esp32io.com/tutorials/how-to-power-esp32">several methods</a>  skteched below:</p>
+<h3 id="usb-port-easiest-most-common">USB Port (Easiest &amp; Most Common)</h3>
+<p>The most straightforward method is to plug a micro-USB or USB-C cable (depending on your board) into a computer, a 5V wall adapter (like an old phone charger), or a portable power bank. </p>
+<p><em>Pros:</em> Safe, provides both power and data for programming, and is regulated on-board.
+<em>Note:</em>  Ensure you use a data-capable USB cable if you also need to upload code. </p>
+<h3 id="the-5v-or-vin-pin">The 5V (or VIN) Pin</h3>
+<p>You can provide an external unregulated power supply directly to the 5V or VIN pin and a GND (ground) pin. 
+Voltage Range: Typically 5V to 12V.</p>
+<p><em>Efficiency:</em> Higher voltages (like 9V or 12V) will cause the onboard regulator to generate more heat.
+<em>Warning:</em> There is often no reverse polarity protection on these pins. Connecting power backward can instantly fry the board. </p>
+<h3 id="the-33v-pin-regulated-power">The 3.3V Pin (Regulated Power)</h3>
+<p>If you already have a stable, regulated 3.3V supply, you can connect it directly to the 3.3V and GND pins. </p>
+<p><em>Critical Danger:</em> This method bypasses the onboard voltage regulator. If your supply exceeds 3.6V, you will damage the ESP32 chip.
+<em>Use Case:</em> This is common for battery-powered projects using a dedicated external regulator or specific battery types.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>if you don't need 5V in you project, use 3.3V, it will save energy. However, finding suitable batteries is not easy!
@@ -848,18 +1229,275 @@ if the battery does not exceed 3.6V as in the LiFePO4, you can connect the batte
 -->
 
 <p><img alt="" src="../assets/images/2025-04-11-14-59-39.png" /></p>
-<h2 id="how-to-measure-energy-consumption">How to measure energy consumption</h2>
-<p>In the following example, the LOAD is our ESP32 and we use the <a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">INA219</a> connected to an Arduino UNO to measure the power consumption. The same can be obtained using another ESP32 instead of the UNO, but remember the correct pins for SDA (default is GPIO 21) SCL (default is GPIO 22) (<a href="../assets/images/esp32_dev_kit_pinout_v1_mischianti.jpg">See the schematics</a>)</p>
+<h2 id="power-consumption">Power consumption</h2>
+<p>The following picture from <a href="https://doi.org/10.3390/s18072104">https://doi.org/10.3390/s18072104 </a> depicts a typical sensor working scenario, where a node alternates different activities each with a different power consumption</p>
+<p><img alt="" src="../assets/images/2025-04-10-18-03-51.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is always a valuable exercise to estimate the power consumption of your app with a diagram similar to the one above. Nonetheless, it is then necessary to confirm your estimation by measurements.</p>
+</div>
+<h2 id="esp32-sleep-modes">ESP32 Sleep Modes</h2>
+<p><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/system/sleep_modes.html">ESP32 supports two major power saving modes</a>: Light-sleep and Deep-sleep.</p>
+<p>A nice pictorial representation of these modes is available at <a href="https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/">lastminuteengineers</a></p>
+<h3 id="light-sleep">Light Sleep</h3>
+<p>In Light-sleep mode, the digital peripherals, most of the RAM, and CPUs are <em>clock-gated</em> and their supply voltage is reduced. Upon exit from Light-sleep, the digital peripherals, RAM, and CPUs resume operation and their internal states are preserved.</p>
+<p>Clock gating is a power-saving technique used in digital circuits. A processor works because a clock signal tells all components when to update their state. If the clock keeps ticking, circuits keep switching—and switching consumes power. Clock gating means temporarily stopping the clock signal to parts of the circuit that aren’t doing anything. When a block (e.g. digital peripherals, RAM, and CPUs) is clock-gated, it is effectively “paused”. Its internal data (state) is kept intact, but it doesn’t switch or compute, so it saves energy.</p>
+<h3 id="deep-sleep">Deep Sleep</h3>
+<p>In Deep-sleep mode, the CPUs, most of the RAM, and all digital peripherals that are clocked from APB_CLK are powered off. The only parts of the chip that remain powered on are: RTC controller, ULP coprocessor, RTC FAST memory, RTC SLOW memory. Deep-sleep is a much more aggressive power-saving mode than Light-sleep, and the key difference is power is actually removed, not just paused.</p>
 <ul>
-<li>Connect board VIN (red wire) to Arduino 5V if you are running a 5V board Arduino (Mega, etc.). If your board is 3V, connect to that instead.</li>
-<li>Connect board GND (black wire) to Arduino GND</li>
-<li>Connect board SCL (white wire) to Arduino SCL</li>
-<li>Connect board SDA (blue wire) to Arduino SDA</li>
-<li>Connect Vin+ to the positive terminal of the power supply for the circuit under test</li>
-<li>Connect Vin- to the positive terminal or lead of the load</li>
+<li>CPUs are completely off → The main processors stop running entirely, All execution halts. When the chip wakes up, it restarts from reset (like powering it on again), not from where it left off</li>
+<li>Most RAM is lost → Regular RAM is powered down → data is erased. Any variables, stack, heap, program state are gone. Only RTC FAST and SLOW memory survive → So anything you need after wake-up must be stored there (or in flash)</li>
+<li>Digital peripherals are off → Peripherals using APB_CLK (timers, UART, SPI, I²C, etc.) are disabled. They stop working and lose configuration → After wake-up, you must reinitialize everything</li>
 </ul>
+<p>Only RTC domain stays alive. The chip keeps a tiny “always-on” subsystem:</p>
+<ul>
+<li>RTC controller → manages sleep &amp; wake-up</li>
+<li>ULP coprocessor → can run small programs at ultra-low power</li>
+<li>RTC memories → retain small amounts of data</li>
+</ul>
+<p>This allows:</p>
+<ul>
+<li>Timed wake-ups (e.g., every 10 seconds)</li>
+<li>Sensor monitoring without waking the main CPU</li>
+</ul>
+<h3 id="connectivity-and-sleep-modes">Connectivity and Sleep Modes</h3>
+<p>In Deep-sleep and Light-sleep modes, the wireless peripherals are powered down. Before entering Deep-sleep or Light-sleep modes, the application must disable Wi-Fi and Bluetooth using the appropriate calls.</p>
+<p>If Wi-Fi/Bluetooth connections need to be maintained, enable Wi-Fi/Bluetooth Modem-sleep mode and automatic Light-sleep feature (see Power Management APIs). This allows the system to wake up from sleep automatically when required by the Wi-Fi/Bluetooth driver, thereby maintaining the connection.</p>
+<h3 id="wakeup">Wakeup</h3>
+<p>There are several wakeup sources in the sleep modes. The following are excellent sources of information to understand how to ESP32 Sleep Modes and Their Power Consumption. </p>
+<ul>
+<li><a href="https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/">Insight Into ESP32 Sleep Modes and Their Power Consumption</a></li>
+<li><a href="https://www.electronicwings.com/esp32/esp32-deep-sleep-mode">ESP32 Deep Sleep Mode</a></li>
+<li><a href="https://randomnerdtutorials.com/esp32-deep-sleep-arduino-ide-wake-up-sources/">ESP32 Deep Sleep with Arduino IDE and Wake Up Sources</a></li>
+</ul>
+<h2 id="deep-sleep-wakeup-example">Deep Sleep wakeup example</h2>
+<ol>
+<li><strong>Deep Sleep:</strong> The chip is off. Only the RTC controller watches the GPIO (button).</li>
+<li><strong>Wake Up:</strong> The button is pressed. The ESP32 boots.</li>
+<li><strong>Setup:</strong> We check <em>why</em> we woke up. If it was the button, we start our tasks.</li>
+<li><strong>Task 1:</strong> Handles user interaction or logic.</li>
+<li><strong>Task 2:</strong> Performs the "Monitoring Activity" (e.g., reading a sensor).</li>
+<li><strong>Back to Sleep:</strong> Once the tasks finish their job, they call for deep sleep again.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
+
+<span class="cp">#define BUTTON_PIN GPIO_NUM_27 </span>
+
+<span class="c1">// This variable survives deep sleep</span>
+<span class="n">RTC_DATA_ATTR</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">should_monitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+
+<span class="c1">// Task 2: The Monitor</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">taskMonitor</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pvParameters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">should_monitor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;[Task 2] Monitoring activity started...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Simulate sensor reading or WiFi upload</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;[Task 2] Monitoring complete.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Mission accomplished. Going back to deep sleep in 1 second.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Prepare for next sleep</span>
+<span class="w">  </span><span class="n">esp_sleep_enable_ext0_wakeup</span><span class="p">(</span><span class="n">BUTTON_PIN</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// Wake when button is LOW (pressed)</span>
+<span class="w">  </span><span class="n">esp_deep_sleep_start</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Task 1: The Coordinator</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">taskCoordinator</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pvParameters</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;[Task 1] Checking wake-up reason...&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">esp_sleep_wakeup_cause_t</span><span class="w"> </span><span class="n">wakeup_reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">esp_sleep_get_wakeup_cause</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">wakeup_reason</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ESP_SLEEP_WAKEUP_EXT0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;[Task 1] Woke up by Button! Signaling Task 2.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">should_monitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;[Task 1] Normal boot or other wake source.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">should_monitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Task 1 can now delete itself or wait</span>
+<span class="w">  </span><span class="n">vTaskDelete</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUTTON_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT_PULLUP</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Create Task 1: Check why we woke up</span>
+<span class="w">  </span><span class="n">xTaskCreate</span><span class="p">(</span><span class="n">taskCoordinator</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Coordinator&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2048</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Create Task 2: Perform monitoring if needed</span>
+<span class="w">  </span><span class="n">xTaskCreate</span><span class="p">(</span><span class="n">taskMonitor</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Monitor&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2048</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Empty. Everything happens in tasks and then deep sleep.</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="ensuring-task-completion">Ensuring Task Completion</h3>
+<p>If you put the sleep command in <code>setup()</code>, the ESP32 might go to sleep before the FreeRTOS scheduler even has a chance to start your tasks.</p>
+<ul>
+<li>
+<p><strong>The Problem:</strong> <code>setup()</code> runs, creates tasks, and then hits the "sleep" command immediately. The tasks never actually execute because the CPU powers down.</p>
+</li>
+<li>
+<p><strong>The Solution:</strong> By putting the sleep command at the end of the <strong>Monitoring Task</strong>, we ensure that the "work" is actually finished before the lights go out.</p>
+</li>
+</ul>
+<h3 id="key-components-explained">Key Components Explained</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Feature</strong></th>
+<th><strong>Function</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>RTC_DATA_ATTR</code></strong></td>
+<td>Stores variables in the RTC slow memory. This is the only way Task 2 knows what Task 1 found out after a sleep cycle.</td>
+</tr>
+<tr>
+<td><strong><code>esp_sleep_enable_ext0_wakeup</code></strong></td>
+<td>Configures a specific GPIO to trigger the "wake up" signal while the rest of the chip is powered down.</td>
+</tr>
+<tr>
+<td><strong><code>esp_deep_sleep_start()</code></strong></td>
+<td>The "Off" switch. Execution stops here and the power draw drops to ~10µA.</td>
+</tr>
+<tr>
+<td>### Important Real-World Note</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>In a true FreeRTOS environment, if you want "Task 1" to trigger "Task 2" <strong>while the chip is already awake</strong>, you would use a <strong>Semaphore</strong> or <strong>Event Group</strong>. However, because Deep Sleep triggers a full reboot, the "trigger" here is actually the CPU reset and the shared RTC memory.</p>
+<h2 id="how-to-measure-energy-consumption">How to measure energy consumption</h2>
+<h3 id="ina219-power-monitor-with-esp32">INA219 Power Monitor with ESP32</h3>
+<p>The <a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">INA219</a> is a high-side current shunt and power monitor with an <span class="arithmatex">\(I^2C\)</span> interface. It is ideal for monitoring the power consumption of battery-powered projects.</p>
+<h3 id="ina219-pinout">INA219 Pinout</h3>
+<p>The INA219 module typically breaks out the following pins for power and communication.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Pin</th>
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>VCC</strong></td>
+<td style="text-align: left;">Power Supply</td>
+<td style="text-align: left;">3.3V – 5V (3.3V recommended for ESP32)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GND</strong></td>
+<td style="text-align: left;">Ground</td>
+<td style="text-align: left;">Common Ground</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SDA</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(I^2C\)</span> Data</td>
+<td style="text-align: left;">Serial Data line</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SCL</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(I^2C\)</span> Clock</td>
+<td style="text-align: left;">Serial Clock line</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VIN+</strong></td>
+<td style="text-align: left;">Input (+)</td>
+<td style="text-align: left;">Connect to the <strong>Positive</strong> of the Power Source</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VIN-</strong></td>
+<td style="text-align: left;">Output (-)</td>
+<td style="text-align: left;">Connect to the <strong>Positive</strong> side of the Load</td>
+</tr>
+</tbody>
+</table>
+<h3 id="esp32-wiring-diagram">ESP32 Wiring Diagram</h3>
+<p>This table shows the standard <span class="arithmatex">\(I^2C\)</span> wiring for an ESP32 Development Board.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">INA219 Pin</th>
+<th style="text-align: left;">ESP32 Pin</th>
+<th style="text-align: left;">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>VCC</strong></td>
+<td style="text-align: left;">3.3V</td>
+<td style="text-align: left;">Logic level matching</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GND</strong></td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Common Ground</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SDA</strong></td>
+<td style="text-align: left;">GPIO 21</td>
+<td style="text-align: left;">Default SDA</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SCL</strong></td>
+<td style="text-align: left;">GPIO 22</td>
+<td style="text-align: left;">Default SCL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="load-connection-logic">Load Connection Logic</h3>
+<p>To measure current, the sensor must be placed in <strong>series</strong> on the high side of your circuit.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Connection</th>
+<th style="text-align: left;">Direction</th>
+<th style="text-align: left;">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Power Source (+)</strong></td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;"><strong>VIN+</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VIN-</strong></td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;"><strong>Load (+)</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Load (-)</strong></td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;"><strong>Ground</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Measurement Principle</p>
+<p>The INA219 measures the <strong>shunt voltage</strong> drop across a precision resistor located between <strong>VIN+</strong> and <strong>VIN-</strong>. It then calculates the current (<span class="arithmatex">\(I\)</span>) based on the known resistance.</p>
+</div>
+<!--
+In the following example, the LOAD is our ESP32 and we use the [INA219](https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring) connected to an Arduino UNO to measure the power consumption. The same can be obtained using another ESP32 instead of the UNO, but remember the correct pins for SDA (default is GPIO 21) SCL (default is GPIO 22) ([See the schematics](assets/images/esp32_dev_kit_pinout_v1_mischianti.jpg))
+
+* Connect board VIN (red wire) to Arduino 5V if you are running a 5V board Arduino (Mega, etc.). If your board is 3V, connect to that instead.
+* Connect board GND (black wire) to Arduino GND
+* Connect board SCL (white wire) to Arduino SCL
+* Connect board SDA (blue wire) to Arduino SDA
+* Connect Vin+ to the positive terminal of the power supply for the circuit under test
+* Connect Vin- to the positive terminal or lead of the load
+-->
+
 <p><a href="https://github.com/ShotokuTech/HeltecLoRa32v3_I2C/tree/main">Note on Heltec V3</a></p>
-<p><img alt="" src="../assets/images/2025-04-10-18-50-11.png" /></p>
+<p><img alt="" src="../assets/images/INA219.drawio.png" /></p>
 <p><a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring" title="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">source</a></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// use https://github.com/nathandunk/BetterSerialPlotter to visualize the data</span>
 
@@ -878,7 +1516,6 @@ if the battery does not exceed 3.6V as in the LiFePO4, you can connect the batte
 <span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">currentFrequency</span><span class="p">;</span>
-<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hello!&quot;</span><span class="p">);</span>
 
 <span class="w">  </span><span class="c1">// Initialize the INA219.</span>
 <span class="w">  </span><span class="c1">// By default the initialization will use the largest range (32V, 2A).  However</span>
@@ -959,13 +1596,14 @@ if the battery does not exceed 3.6V as in the LiFePO4, you can connect the batte
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// We don&#39;t need loop as ESP32 will initilize each time.</span>
 </code></pre></div>
-<p>We use <a href="https://github.com/nathandunk/BetterSerialPlotter">Better Serial Pltter</a> to visualize the data.</p>
+<p>We use <a href="https://github.com/nathandunk/BetterSerialPlotter">Better Serial Plotter</a> to visualize the data.</p>
 <p><img alt="" src="../assets/images/2025-04-11-10-45-59.png" /></p>
 <p><a href="https://github.com/andreavitaletti/PlatformIO/tree/main/Projects/power_simple">source code</a></p>
-<div class="admonition example">
-<p class="admonition-title">exercise</p>
-<p>Write a simple code  that  mimics the diagram at the beginning of this section of a typical sensor working scenario and measure the consumption of each activity</p>
-</div>
+<p>A powerful alternative is <a href="https://github.com/Serial-Studio/Serial-Studio?tab=readme-ov-file">Serial-Studio</a></p>
+<blockquote>
+<p>[!EXERCISE]
+Write a simple code  that  mimics the diagram at the beginning of this section of a typical sensor working scenario and measure the consumption of each activity</p>
+</blockquote>
 <h2 id="energy-harvesting">Energy Harvesting</h2>
 <p><a href="https://randomnerdtutorials.com/power-esp32-esp8266-solar-panels-battery-level-monitoring/">Power ESP32/ESP8266 with Solar Panels</a></p>
 
