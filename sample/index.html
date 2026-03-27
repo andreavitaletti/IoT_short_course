@@ -466,10 +466,9 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The Sampler in FreeRTOS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-to-go-faster" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -478,7 +477,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="How to go faster">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#the-high-speed-generator-sender" class="md-nav__link">
@@ -963,10 +963,9 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The Sampler in FreeRTOS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-to-go-faster" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -975,7 +974,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="How to go faster">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#the-high-speed-generator-sender" class="md-nav__link">
@@ -1335,8 +1335,7 @@ The node on the right sample the generated signal by the <a href="https://www.el
 <p class="admonition-title">Exercise</p>
 <p>Instead of using a single buffer use two: while one is filled up the other is analysed. Update the code to compute the max frequency</p>
 </div>
-<hr />
-<h3 id="how-to-go-faster">How to go faster</h3>
+<h2 id="how-to-go-faster">How to go faster</h2>
 <p>In previous sections we achieve Hz frequencies, If you want to reach <strong>Kilohertz</strong> signal frequencies, the <code>delayMicroseconds()</code> approach becomes ineffective because the overhead (the time it takes to process the loop) becomes a large percentage of the total time. That is when we switch to <strong>I2S (Inter-IC Sound)</strong>, which uses a hardware clock to "push" data to the DAC or "pull" it from the ADC at exact intervals, like a metronome.</p>
 <p>Instead of the CPU manually toggling the DAC or reading the ADC in a loop, the I2S hardware uses a dedicated clock to stream data in the background. This allows for frequencies in the <strong>kilohertz (kHz)</strong> range with perfect timing.</p>
 <p>On the ESP32, the I2S peripheral can be "routed" directly to the internal DAC and ADC.</p>

@@ -878,16 +878,16 @@
 
 
 <h1 id="wireless-connectivity">Wireless Connectivity</h1>
-<p>For the sake of convenience, we use WiFi connectivity, a WiFi Access Point is available everywhere and we can even use our mobile phone in tethering, however:</p>
+<p>For the sake of convenience, we might use WiFi connectivity to illustrate some application scenario. A WiFi Access Point is available everywhere and we can even use our mobile phone in tethering, however:</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>WiFi is not appropriate for IoT connectivity since it is power demanding</p>
 </div>
 <p>The selection of the most appropriate wireless connectivity technology depends mostly on the application requirements and it is usually a tradeoff among energy, data throughput, coverage and cost.</p>
-<p>The following table compares different wireless technologies. WiFi has the highest figures in terms of energy consumptions. </p>
+<p>The following table compares different wireless technologies and confirms that WiFi has the highest figures in terms of energy consumptions. </p>
 <p><img alt="https://www.emnify.com/blog/iot-connectivity" src="../assets/images/2025-01-17-06-18-23.png" /></p>
-<p>In our experiments, we encourage the use of LoRaWAN. In particular, we have a Gateway connected to <a href="https://www.thethingsnetwork.org/">The Thing Network (TTN)</a>.</p>
-<p>Heltec, produces a nice device, the <a href="https://heltec.org/project/wifi-lora-32-v3/">WiFi LoRa 32(V3)</a>, that we use in our experiments. </p>
+<p>We encourage the use of LoRaWAN. In particular, in our department, we have a Gateway connected to <a href="https://www.thethingsnetwork.org/">The Thing Network (TTN)</a>.</p>
+<p>Heltec, produces a nice device relativelt cost-effective, the <a href="https://heltec.org/project/wifi-lora-32-v3/">WiFi LoRa 32(V3)</a>, that we use in our experiments. </p>
 <p>A simple code to establish a first connection si available <a href="https://github.com/andreavitaletti/PlatformIO/tree/main/Projects/TTN_connection">here</a>. </p>
 <p>It is basically the ttn-otaa example available in the <a href="https://registry.platformio.org/libraries/rgot-org/TTN_esp32/examples">rgot-org/TTN_esp32</a> library.</p>
 <p><img alt="" src="../assets/images/2025-01-18-08-11-47.png" /></p>
@@ -897,7 +897,7 @@
 <p>As an example a possible scale down factor for RX/TX Power, according to the above table, is 50 (from 250mA (Wifi) to 5ma (LORA))  </p>
 </div>
 <h2 id="ad-hoc-networking">Ad-hoc networking</h2>
-<p>In some cases ad-hoc networking, namely a networking that does not rely on pre-existing infrastructure is necessary.</p>
+<p>In certain scenarios, Mobile Ad-hoc Networking (MANET) is required, as it enables communication without pre-existing infrastructure by allowing nodes to act as relays for one another. See the reference architecture <a href="../intro/">here</a></p>
 <h3 id="esp-now-esp32-proprietary-peer-to-peer-mesh">ESP-NOW (ESP32 Proprietary, Peer-to-Peer Mesh)</h3>
 <p>https://github.com/espressif/esp-now/tree/master</p>
 <p>A low-latency, connectionless, peer-to-peer protocol developed by Espressif. It allows multiple ESP32 devices to communicate directly without Wi-Fi infrastructure. Supports broadcast and unicast messages.</p>

@@ -1204,31 +1204,32 @@
 <p>To power the ESP32 you can use <a href="https://esp32io.com/tutorials/how-to-power-esp32">several methods</a>  skteched below:</p>
 <h3 id="usb-port-easiest-most-common">USB Port (Easiest &amp; Most Common)</h3>
 <p>The most straightforward method is to plug a micro-USB or USB-C cable (depending on your board) into a computer, a 5V wall adapter (like an old phone charger), or a portable power bank. </p>
-<p><em>Pros:</em> Safe, provides both power and data for programming, and is regulated on-board.
-<em>Note:</em>  Ensure you use a data-capable USB cable if you also need to upload code. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Safe, provides both power and data for programming, and is regulated on-board.</p>
+<p>Ensure you use a data-capable USB cable if you also need to upload code. </p>
+</div>
 <h3 id="the-5v-or-vin-pin">The 5V (or VIN) Pin</h3>
 <p>You can provide an external unregulated power supply directly to the 5V or VIN pin and a GND (ground) pin. 
 Voltage Range: Typically 5V to 12V.</p>
-<p><em>Efficiency:</em> Higher voltages (like 9V or 12V) will cause the onboard regulator to generate more heat.
-<em>Warning:</em> There is often no reverse polarity protection on these pins. Connecting power backward can instantly fry the board. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Higher voltages (like 9V or 12V) will cause the onboard regulator to generate more heat -&gt; energy waste.</p>
+<p>There is often no reverse polarity protection on these pins. Connecting power backward can instantly fry the board. </p>
+</div>
 <h3 id="the-33v-pin-regulated-power">The 3.3V Pin (Regulated Power)</h3>
 <p>If you already have a stable, regulated 3.3V supply, you can connect it directly to the 3.3V and GND pins. </p>
-<p><em>Critical Danger:</em> This method bypasses the onboard voltage regulator. If your supply exceeds 3.6V, you will damage the ESP32 chip.
-<em>Use Case:</em> This is common for battery-powered projects using a dedicated external regulator or specific battery types.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>This method bypasses the onboard voltage regulator. If your supply exceeds 3.6V, you will damage the ESP32 chip.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>if you don't need 5V in you project, use 3.3V, it will save energy. However, finding suitable batteries is not easy!
 if the battery does not exceed 3.6V as in the LiFePO4, you can connect the battery to the 3.3V and bypass the voltage regulator</p>
 </div>
-<!--
-!!! tip
-
-    if you don't need 5V in you project, use 3.3V, it will save energy. However, finding suitable batteries is not easy!
-
-    if the battery does not exceed 3.6V as in the LiFePO4, you can connect the battery to the 3.3V and bypass the voltage regulator
--->
-
-<p><img alt="" src="../assets/images/2025-04-11-14-59-39.png" /></p>
+<p><img alt="energy-20260327-080957.png" src="../assets/images/energy-20260327-080957.png" /></p>
+<p>The Heltec V3 has a nice battery management: Integrated lithium battery management system with charge and discharge management, overcharge protection, and automatic switching between USB and battery power.</p>
 <h2 id="power-consumption">Power consumption</h2>
 <p>The following picture from <a href="https://doi.org/10.3390/s18072104">https://doi.org/10.3390/s18072104 </a> depicts a typical sensor working scenario, where a node alternates different activities each with a different power consumption</p>
 <p><img alt="" src="../assets/images/2025-04-10-18-03-51.png" /></p>
@@ -1236,9 +1237,31 @@ if the battery does not exceed 3.6V as in the LiFePO4, you can connect the batte
 <p class="admonition-title">Tip</p>
 <p>It is always a valuable exercise to estimate the power consumption of your app with a diagram similar to the one above. Nonetheless, it is then necessary to confirm your estimation by measurements.</p>
 </div>
+<p><img alt="energy-20260327-080521.png" src="../assets/images/energy-20260327-080521.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Determining the optimal duty cycle and supporting this choice with sound arguments is a fundamental aspect of the project.</p>
+</div>
 <h2 id="esp32-sleep-modes">ESP32 Sleep Modes</h2>
+<p><img alt="energy-20260327-082701.png" src="../assets/images/energy-20260327-082701.png" />
+<a href="https://www.researchgate.net/figure/Comparison-of-the-energy-consumption-of-different-ESP32-developer-modules-12_tbl1_369763204"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="m253.8 214.9-33.2 17.3c-9.4-19.6-25.2-19.9-27.5-19.9-22.1 0-33.2 14.6-33.2 43.8 0 23.6 9.2 43.8 33.2 43.8 14.5 0 24.6-7.1 30.6-21.3l30.6 15.5c-6.2 11.5-25.7 39-65.1 39-22.6 0-74-10.3-74-77 0-58.7 43-77.1 72.6-77.1 30.7 0 52.7 11.9 66 35.9m143 0L364 232.2c-9.5-19.8-25.7-19.9-27.9-19.9-22.1 0-33.2 14.6-33.2 43.8 0 23.5 9.2 43.8 33.2 43.8 14.4 0 24.6-7.1 30.5-21.3l31 15.5c-2.1 3.8-21.4 39-65.1 39-22.7 0-74-9.9-74-77 0-58.7 43-77.1 72.6-77.1 30.7 0 52.6 11.9 65.6 35.9zM255.6 8C112.7 8 8 123.1 8 256.1c0 138.4 113.6 248 247.6 248 129.9 0 248.4-100.9 248.4-248C504 118.2 397.4 8 255.6 8m.9 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.4 85.4-203.3 203.7-203.3 112.5 0 202.8 89.5 202.8 203.3 0 121.7-99.7 202.8-202.8 202.8"/></svg></span> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M322.9 194.4v101.4h-28.3v120.5h-77.1V295.9h-28.3V194.4c0-4.4 1.6-8.2 4.6-11.3 3.1-3.1 6.9-4.7 11.3-4.7H307c4.1 0 7.8 1.6 11.1 4.7 3.1 3.2 4.8 6.9 4.8 11.3m-32.5-64.5a34.5 34.5 0 1 1-69 .8 34.5 34.5 0 1 1 69-.8M255.6 8C397.4 8 504 118.1 504 256c0 147.1-118.5 248-248.4 248C121.6 504 8 394.5 8 256 8 123.1 112.7 8 255.6 8m.8 44.7C138.2 52.7 52.7 150.6 52.7 256c0 109.8 91.2 202.8 203.7 202.8 103.2 0 202.8-81.1 202.8-202.8.1-113.8-90.2-203.3-202.8-203.3"/></svg></span></a></p>
+<ul>
+<li><strong>Active Mode:</strong> Fully powered, running Wi-Fi or CPU tasks.</li>
+<li><strong>Modem-Sleep:</strong> Wi-Fi radio is off but CPU can run. Power consumption depends on CPU frequency.</li>
+<li><strong>Light-Sleep:</strong> CPU paused, RAM retained, low-power clocks can run.</li>
+<li><strong>Deep-Sleep:</strong> CPU off, most peripherals off, only RTC (real-time clock) can wake up the chip.<ul>
+<li>ULP active: Ultra-Low-Power co-processor is active.</li>
+<li>ULP sensor-monitored: Low-power monitoring using ULP at 1% load</li>
+<li>RTC timer + memory: Only RTC and memory retained.</li>
+</ul>
+</li>
+<li><strong>Hibernation:</strong> Only RTC timer active; everything else off.</li>
+</ul>
 <p><a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/system/sleep_modes.html">ESP32 supports two major power saving modes</a>: Light-sleep and Deep-sleep.</p>
-<p>A nice pictorial representation of these modes is available at <a href="https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/">lastminuteengineers</a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A visual representation of these modes can be found at: <a href="https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/">lastminuteengineers</a></p>
+</div>
 <h3 id="light-sleep">Light Sleep</h3>
 <p>In Light-sleep mode, the digital peripherals, most of the RAM, and CPUs are <em>clock-gated</em> and their supply voltage is reduced. Upon exit from Light-sleep, the digital peripherals, RAM, and CPUs resume operation and their internal states are preserved.</p>
 <p>Clock gating is a power-saving technique used in digital circuits. A processor works because a clock signal tells all components when to update their state. If the clock keeps ticking, circuits keep switching—and switching consumes power. Clock gating means temporarily stopping the clock signal to parts of the circuit that aren’t doing anything. When a block (e.g. digital peripherals, RAM, and CPUs) is clock-gated, it is effectively “paused”. Its internal data (state) is kept intact, but it doesn’t switch or compute, so it saves energy.</p>
@@ -1264,7 +1287,7 @@ if the battery does not exceed 3.6V as in the LiFePO4, you can connect the batte
 <p>In Deep-sleep and Light-sleep modes, the wireless peripherals are powered down. Before entering Deep-sleep or Light-sleep modes, the application must disable Wi-Fi and Bluetooth using the appropriate calls.</p>
 <p>If Wi-Fi/Bluetooth connections need to be maintained, enable Wi-Fi/Bluetooth Modem-sleep mode and automatic Light-sleep feature (see Power Management APIs). This allows the system to wake up from sleep automatically when required by the Wi-Fi/Bluetooth driver, thereby maintaining the connection.</p>
 <h3 id="wakeup">Wakeup</h3>
-<p>There are several wakeup sources in the sleep modes. The following are excellent sources of information to understand how to ESP32 Sleep Modes and Their Power Consumption. </p>
+<p>There are several wake-up sources available in the ESP32 sleep modes. The following resources provide excellent information for understanding ESP32 sleep modes and their power consumption.</p>
 <ul>
 <li><a href="https://lastminuteengineers.com/esp32-sleep-modes-power-consumption/">Insight Into ESP32 Sleep Modes and Their Power Consumption</a></li>
 <li><a href="https://www.electronicwings.com/esp32/esp32-deep-sleep-mode">ESP32 Deep Sleep Mode</a></li>
@@ -1498,7 +1521,6 @@ In the following example, the LOAD is our ESP32 and we use the [INA219](https://
 
 <p><a href="https://github.com/ShotokuTech/HeltecLoRa32v3_I2C/tree/main">Note on Heltec V3</a></p>
 <p><img alt="" src="../assets/images/INA219.drawio.png" /></p>
-<p><a href="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring" title="https://learn.adafruit.com/adafruit-ina219-current-sensor-breakout/wiring">source</a></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// use https://github.com/nathandunk/BetterSerialPlotter to visualize the data</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
@@ -1564,6 +1586,14 @@ In the following example, the LOAD is our ESP32 and we use the [INA219](https://
 <span class="cm">  delay(50);</span>
 <span class="cm">}</span>
 </code></pre></div>
+<p><img alt="energy-20260327-085242.png" src="../assets/images/energy-20260327-085242.png" /></p>
+<ol>
+<li><code>getShuntVoltage_mV()</code> Voltage drop across the small <span class="arithmatex">\(0.1 \Omega\)</span> shunt resistor on the board. This is the raw data used to determine how much current is flowing (see <code>getCurrent_mA()</code>).</li>
+<li><code>getBusVoltage_V()</code> Voltage between the V- pin and Ground.  This tells you the nominal supply voltage to the load; doesn’t include the small drop across the shunt resistor.</li>
+<li><code>getCurrent_mA()</code> The chip takes the Shunt Voltage and divides it by the Shunt Resistance <span class="arithmatex">\(I = \frac{V_{shunt}}{R_{shunt}}\)</span></li>
+<li><code>getPower_mW()</code> A simple multiplication of the bus voltage and the current. <span class="arithmatex">\(P = V_{bus} \times I\)</span></li>
+<li><code>loadvoltage = busvoltage + (shuntvoltage / 1000)</code>This line calculates the total voltage at the source. Since there is a tiny drop across the sensor itself, the "true" source voltage is the voltage at the load plus what was lost across the shunt. Note that we divide shuntvoltage by 1000 to convert millivolts into volts so the units match.</li>
+</ol>
 <div class="highlight"><pre><span></span><code><span class="cm">/*</span>
 <span class="cm">  ESP32 Deep Sleep Mode Timer Wake UP</span>
 <span class="cm"> http:://www.electronicwings.com</span>
@@ -1598,12 +1628,11 @@ In the following example, the LOAD is our ESP32 and we use the [INA219](https://
 </code></pre></div>
 <p>We use <a href="https://github.com/nathandunk/BetterSerialPlotter">Better Serial Plotter</a> to visualize the data.</p>
 <p><img alt="" src="../assets/images/2025-04-11-10-45-59.png" /></p>
-<p><a href="https://github.com/andreavitaletti/PlatformIO/tree/main/Projects/power_simple">source code</a></p>
 <p>A powerful alternative is <a href="https://github.com/Serial-Studio/Serial-Studio?tab=readme-ov-file">Serial-Studio</a></p>
-<blockquote>
-<p>[!EXERCISE]
-Write a simple code  that  mimics the diagram at the beginning of this section of a typical sensor working scenario and measure the consumption of each activity</p>
-</blockquote>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>Write a simple code  that  mimics the diagram at the beginning of this section of a typical sensor working scenario and measure the consumption of each activity</p>
+</div>
 <h2 id="energy-harvesting">Energy Harvesting</h2>
 <p><a href="https://randomnerdtutorials.com/power-esp32-esp8266-solar-panels-battery-level-monitoring/">Power ESP32/ESP8266 with Solar Panels</a></p>
 
