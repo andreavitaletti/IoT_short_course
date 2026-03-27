@@ -683,16 +683,23 @@
 
 <p>If you ask multiple people what the Internet of Things (IoT) is, you will likely get many different answers. Devices such as a Raspberry Pi, Jetson Nano, Arduino Uno, or ESP32 are all legitimately considered IoT devices, but they differ significantly in capabilities.</p>
 <p>The Raspberry Pi, Jetson Nano, and Arduino Uno Q can handle relatively complex tasks, including AI workloads, whereas the resource-constrained ESP32 cannot easily achieve the same performance.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>In this course, we make an <strong>unconditional choice</strong>: students will work with the <strong>ESP32 powered by a battery</strong></p>
+</div>
 <p><strong>Why?</strong></p>
 <ul>
+<li>From a teaching perspective, it provides the most valuable learning experience, emphasising efficiency and thoughtful system design.</li>
 <li>It presents a greater challenge, encouraging careful design.</li>
 <li>Solutions developed for the resource-limited ESP32 will generally scale easily to more powerful devices.</li>
-<li>The battery force you to design power efficient solutions</li>
-<li>From a teaching perspective, it provides the most valuable learning experience, emphasising efficiency and thoughtful system design.</li>
+<li>The battery force students to design power efficient solutions</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In many IoT environments, particularly industrial ones, devices are easily line-powered. Yet, the constraints of battery-powered design offer a much more engaging set of challenges.</p>
+</div>
 <p>Regardless of the fact that, for simplicity, you might use a more resource-demanding (“non-IoT‑friendly”) technology, we expect you to <strong>demonstrate a thoughtful design process and provide a prototype</strong> that shows how you optimised limited resources to meet your application’s requirements.</p>
-<p>It is well known that Wi-Fi is not particularly IoT-friendly, as it consumes a significant amount of energy. At the same time, most ESP32 devices natively support Wi-Fi, making it a very convenient choice.</p>
+<p>As an example, it is well known that Wi-Fi is not particularly IoT-friendly, as it consumes a significant amount of energy. At the same time, most ESP32 devices natively support Wi-Fi, making it a very convenient choice.</p>
 <p>While we encourage you to challenge yourself with more IoT-friendly technologies (e.g., LoRa), using WiFi is perfectly acceptable <strong>provided that you demonstrate the following</strong>:</p>
 <ol>
 <li>You clarify what is the most suitable technology and you are aware of pros and cons;</li>
@@ -703,15 +710,9 @@
 <p>This approach ensures that even when using convenient technologies like Wi-Fi, you remain mindful of IoT constraints and practice efficient design principles.</p>
 <!-- both the admonitions below work, but the second one is rendered properly also on obsidian -->
 
-<!--
-!!! note
-
-    We value the process and the right questions with sound answers more than the final product.
--->
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We value the process and the right questions with sound answers more than the final product!</p>
+<p>We value the process and the right questions with sound answers more than the final product.</p>
 </div>
 
 

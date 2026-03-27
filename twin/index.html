@@ -1012,6 +1012,9 @@
 
 
 <h1 id="digital-twin">Digital Twin</h1>
+<p>A <strong>digital twin</strong> is a virtual representation of a physical system that stays continuously synchronized with it through real-time data, enabling real-time monitoring, predictive simulation, and closed-loop control. In other words, it is a live, data-driven model of a real object, process, or environment. Specifically, sensors on the physical system send continuous data to the digital model, keeping the digital twin up-to-date with what is happening in reality. This data also trains and feeds a model, which is the core component to run simulations to predict performance, failures, and behavior under different conditions. This enables testing different scenarios, including most problematic ones, without putting at risk the real system. The results of the simulations inform decision-makers and guide the actions into the physical system, enabling adaptive control, automated tuning, and optimization of operation. In summary, a typical digital twin forms an iterative loop,  continuously improving with more data, encompassing the following tasks: sense, model, predict, act. This enables faster experimentation rounds (especially when physical tests are slow or expensive), cost reduction, enhanced reliability, intelligent automation, and continuous improvement through data-driven feedback.</p>
+<p>The following picture depicts a Digital Twin for a fermentator developed in collaboration with <a href="https://yeastime.com/">yeastime</a></p>
+<p><img alt="" src="../assets/images/DT.drawio.png" /></p>
 <h2 id="estimating-clock-drift">Estimating clock drift</h2>
 <p>ESP32 internal oscillators are cost-effective but notoriously sensitive to temperature, leading to a drift that can be several seconds a day.</p>
 <p>By building a <strong>Digital Twin</strong>, we aren't just syncing the time; we are creating a mathematical model that lives on your PC, predicts how "wrong" the ESP32 is at any given moment, and feeds back a correction.</p>
@@ -1215,6 +1218,7 @@ ESP32: ACK: Rate Adjusted.
 <h3 id="esp32-as-a-node-in-epanet">ESP32 as a node in EPANET</h3>
 <p>We can run epanet-js on nodejs and specifically run a bridge interfacing the EPANET model, in the following '01-uk-style.inp',  with the ESP32 via the serial interface. </p>
 <p>In other words we can use the ESP32 as a sensor of a simulated water distribution network</p>
+<p>The bridge code, tunning on node </p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Project</span><span class="p">,</span><span class="w"> </span><span class="nx">Workspace</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;epanet-js&#39;</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SerialPort</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;serialport&#39;</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
@@ -1262,6 +1266,11 @@ ESP32: ACK: Rate Adjusted.
 
 <span class="nx">setInterval</span><span class="p">(</span><span class="nx">runSimulation</span><span class="p">,</span><span class="w"> </span><span class="mf">3000</span><span class="p">);</span>
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A similar approach can be exploited to interface multiple simulators, however in many case a convenient WASM implementation (i.e. epanet.js), as for EPANET, does not exixt. </p>
+<p>As an example, for traffic simulation you might consider <a href="https://eclipse.dev/sumo/">SUMO</a>. The process is more complex, since you need a local installation, but the approach is the same as the one described above for water.</p>
+</div>
 
 
 
