@@ -501,6 +501,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#duty-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duty cycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#esp32-sleep-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1011,6 +1022,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#duty-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duty cycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#esp32-sleep-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1237,10 +1259,17 @@ if the battery does not exceed 3.6V as in the LiFePO4, you can connect the batte
 <p class="admonition-title">Tip</p>
 <p>It is always a valuable exercise to estimate the power consumption of your app with a diagram similar to the one above. Nonetheless, it is then necessary to confirm your estimation by measurements.</p>
 </div>
+<h2 id="duty-cycle">Duty cycle</h2>
+<p>The duty cycle of a system is the fraction of time it is active compared to the total period.    </p>
 <p><img alt="energy-20260327-080521.png" src="../assets/images/energy-20260327-080521.png" /></p>
+<div class="admonition exercise">
+<p class="admonition-title">Exercise</p>
+<p>Assuming the ESP32 is powered by a 3.6V - 1000mAh LiFePO4 battery. What is a lower bound on the active time? How does it change with a 50% duty cycle?</p>
+</div>
+<p>In many systems, the device only needs to be active for a tiny fraction of each cycle (in the figure above, only 1%). That small active window lets us save a huge amount of energy, stretching the system’s operation time so it can meet the application’s needs. </p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Determining the optimal duty cycle and supporting this choice with sound arguments is a fundamental aspect of the project.</p>
+<p>Determining the optimal duty cycle for an application and supporting this choice with sound arguments is a fundamental aspect of the project.</p>
 </div>
 <h2 id="esp32-sleep-modes">ESP32 Sleep Modes</h2>
 <p><img alt="energy-20260327-082701.png" src="../assets/images/energy-20260327-082701.png" />
